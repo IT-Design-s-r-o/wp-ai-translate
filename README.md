@@ -89,6 +89,17 @@ Planned:
 * visual translation updates
 
 ---
+## Comparison
+
+| Feature | WP AI Translate | WPML | TranslatePress | Polylang |
+|---|---|---|---|---|
+| AI Translation | ✅ | ❌ | Partial | ❌ |
+| Frontend Editor | ✅ | ⚠️ | ✅ | ❌ |
+| WooCommerce | ✅ | ✅ | ✅ | ⚠️ |
+| Elementor Support | ✅ | ⚠️ | ⚠️ | ❌ |
+| SEO URLs | ✅ | ✅ | ✅ | ⚠️ |
+| OpenAI Support | ✅ | ❌ | ❌ | ❌ |
+| DeepL Support | ✅ | ⚠️ | ⚠️ | ❌ |
 
 # Screenshots
 
