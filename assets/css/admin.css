@@ -1,0 +1,616 @@
+.wpait-admin-title {
+    align-items: center;
+    display: flex;
+    gap: 14px;
+    margin: 18px 0 12px;
+}
+
+.wpait-admin-title img {
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: none;
+    display: block;
+    height: 34px;
+    object-fit: contain;
+    width: 34px;
+}
+
+.wpait-admin-title.is-dashboard {
+    align-items: flex-start;
+}
+
+.wpait-admin-title.is-dashboard img {
+    height: 150px;
+    width: 150px;
+}
+
+.wpait-admin-title h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.wpait-admin-title p {
+    color: #646970;
+    margin: 3px 0 0;
+}
+
+.wpait-admin-title .wpait-admin-meta {
+    color: #1d2327;
+    font-size: 12px;
+}
+
+.wpait-admin-title .wpait-admin-meta a {
+    text-decoration: none;
+}
+
+.wpait-admin-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 16px;
+    max-width: 1180px;
+}
+
+.wpait-admin-tabs a {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    color: #1d2327;
+    padding: 7px 10px;
+    text-decoration: none;
+}
+
+.wpait-admin-tabs a:hover {
+    border-color: #2271b1;
+    color: #2271b1;
+}
+
+.wpait-mode-basic .wpait-advanced-only {
+    display: none !important;
+}
+
+.wpait-public-beta-notice {
+    border-left-color: #2271b1;
+}
+
+.wpait-notice-actions,
+.wpait-support-buttons,
+.wpait-onboarding-actions,
+.wpait-finish-onboarding {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wpait-notice-actions {
+    margin-bottom: 4px;
+}
+
+.wpait-segmented {
+    display: inline-flex;
+    gap: 0;
+}
+
+.wpait-segmented label {
+    margin: 0;
+}
+
+.wpait-segmented input {
+    position: absolute;
+    opacity: 0;
+}
+
+.wpait-segmented span {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    color: #1d2327;
+    display: inline-block;
+    min-width: 78px;
+    padding: 7px 12px;
+    text-align: center;
+}
+
+.wpait-segmented label:first-child span {
+    border-radius: 4px 0 0 4px;
+}
+
+.wpait-segmented label:last-child span {
+    border-left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.wpait-segmented input:checked + span {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+.wpait-fallback-card,
+.wpait-wide-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    margin: 16px 0;
+    padding: 8px 20px 18px;
+    width: calc(100% - 40px);
+}
+
+.wpait-fallback-card h2,
+.wpait-wide-card h2 {
+    border-bottom: 1px solid #f0f0f1;
+    margin: 0 -20px 12px;
+    padding: 14px 20px;
+}
+
+.wpait-fallback-language-search,
+.wpait-language-search {
+    margin-bottom: 10px;
+    max-width: 360px;
+    width: 100%;
+}
+
+.wpait-fallback-language-grid,
+.wpait-language-list {
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    max-height: 360px;
+    overflow: auto;
+    padding: 8px;
+}
+
+.wpait-fallback-language-grid label,
+.wpait-language-option {
+    align-items: center;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: auto 1fr auto;
+    min-height: 32px;
+    padding: 4px 8px;
+}
+
+.wpait-fallback-language-grid label:hover,
+.wpait-language-option:hover {
+    background: #f6f7f7;
+}
+
+.wpait-fallback-language-grid label.is-hidden,
+.wpait-language-option.is-hidden {
+    display: none;
+}
+
+.wpait-fallback-shortcodes code {
+    display: inline-block;
+    margin: 0 10px 8px 0;
+    padding: 5px 8px;
+}
+
+.wpait-debug-table th {
+    width: 260px;
+}
+
+.wpait-debug-table tr.is-good code {
+    background: #edfaef;
+    color: #005c12;
+}
+
+.wpait-debug-table tr.is-bad code {
+    background: #fcf0f1;
+    color: #8a2424;
+}
+
+.wpait-debug-result {
+    background: #f6f7f7;
+    border-left: 4px solid #72aee6;
+    margin: 12px 0;
+    padding: 10px 12px;
+}
+
+.wpait-debug-result.is-bad {
+    background: #fcf0f1;
+    border-left-color: #d63638;
+}
+
+.wpait-debug-result.is-good {
+    background: #edfaef;
+    border-left-color: #00a32a;
+}
+
+.wpait-actions-row,
+.wpait-matrix-actions,
+.wpait-matrix-filters,
+.wpait-matrix-pagination,
+.wpait-debug-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.wpait-matrix-actions {
+    align-items: flex-end;
+}
+
+.wpait-matrix-actions form,
+.wpait-matrix-pagination form,
+.wpait-debug-actions form {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    margin: 0;
+}
+
+.wpait-matrix-actions .submit,
+.wpait-matrix-filters .submit,
+.wpait-matrix-pagination .submit,
+.wpait-debug-actions .submit,
+.wpait-debug-settings .submit {
+    margin: 0;
+    padding: 0;
+}
+
+.wpait-matrix-actions select,
+.wpait-matrix-filters input,
+.wpait-matrix-filters select,
+.wpait-debug-actions select {
+    min-height: 32px;
+}
+
+.wpait-matrix-filters {
+    align-items: flex-end;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.wpait-matrix-filters input[type=search],
+.wpait-matrix-filters select,
+.wpait-matrix-filters .button {
+    height: 34px;
+    margin: 0;
+}
+
+.wpait-matrix-filters > .button,
+.wpait-matrix-filters > input[type=submit] {
+    align-self: flex-end;
+}
+
+.wpait-matrix-filters label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+}
+
+.wpait-matrix-filters input[type=search] {
+    min-width: min(360px, 100%);
+}
+
+.wpait-matrix-filters .button {
+    min-height: 32px;
+}
+
+.wpait-log-table code {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.wpait-debug-settings {
+    align-items: center;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px 0;
+    padding: 10px 12px;
+}
+
+.wpait-debug-actions {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.wpait-debug-settings .description {
+    flex-basis: 100%;
+    margin: 0;
+}
+
+.wpait-mini-stats {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    margin: 12px 0;
+    max-width: 760px;
+}
+
+.wpait-mini-stat {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.wpait-mini-stat strong {
+    display: block;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.wpait-matrix-table textarea,
+.wpait-translations-table textarea {
+    min-height: 76px;
+    width: 100%;
+}
+
+.wpait-matrix-table .source-cell {
+    max-width: 460px;
+}
+
+.wpait-matrix-pagination .button[aria-disabled=true] {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.wpait-matrix-pagination .wpait-page-number.is-current {
+    background: #1d2327;
+    border-color: #1d2327;
+    color: #fff;
+}
+
+.wpait-pagination-dots {
+    align-self: center;
+    color: #646970;
+    padding: 0 2px;
+}
+
+.wpait-export-import {
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    margin: 12px 0;
+    padding: 10px 12px;
+}
+
+.wpait-export-import summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.wpait-export-import-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-top: 12px;
+}
+
+.wpait-export-import form {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.wpait-export-import label {
+    display: block;
+    margin: 8px 0;
+}
+
+.wpait-support-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+}
+
+.toplevel_page_wp-ai-translate .wp-menu-image img {
+    height: 20px !important;
+    object-fit: contain;
+    padding-top: 7px !important;
+    width: 20px !important;
+}
+
+.wpait-support-development-block {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-left: 4px solid #2271b1;
+    border-radius: 6px;
+    margin: 14px 0;
+    padding: 14px 16px;
+}
+
+.wpait-support-development-block h3 {
+    margin: 0 0 8px;
+}
+
+.wpait-support-development-block p {
+    margin: 6px 0;
+}
+
+.wpait-support-donation-button {
+    font-weight: 600;
+}
+
+.wpait-support-page-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wpait-support-page-card {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    min-width: 0;
+    padding: 16px;
+}
+
+.wpait-support-page-card h3 {
+    margin-top: 0;
+}
+
+.wpait-menu-metabox-options {
+    display: grid;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+#wpait-language-switcher-menu .inside {
+    margin: 0;
+    padding: 0 12px 12px;
+}
+
+.wpait-menu-metabox {
+    padding-top: 10px;
+}
+
+.wpait-menu-metabox-options fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.wpait-public-form {
+    max-width: 100%;
+}
+
+.wpait-form-grid {
+    display: grid;
+    gap: 14px 18px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: 12px 0;
+}
+
+.wpait-public-form .wpait-form-grid {
+    gap: 16px 22px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wpait-form-grid label,
+.wpait-field-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.wpait-form-grid label > span,
+.wpait-field-block > span {
+    font-weight: 600;
+}
+
+.wpait-form-grid label,
+.wpait-public-form .wpait-form-grid label,
+.wpait-onboarding-step,
+.wpait-onboarding-actions section {
+    min-width: 0;
+}
+
+.wpait-public-form input.regular-text,
+.wpait-public-form input[type=text],
+.wpait-public-form input[type=email],
+.wpait-public-form input[type=url],
+.wpait-public-form select,
+.wpait-public-form textarea,
+.wpait-onboarding-step input.regular-text,
+.wpait-onboarding-step input[type=password],
+.wpait-onboarding-step input[type=text],
+.wpait-onboarding-step select,
+.wpait-onboarding-step textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+}
+
+.wpait-public-form .large-text,
+.wpait-field-block textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+}
+
+.wpait-field-block {
+    margin: 14px 0;
+}
+
+.wpait-checkbox-row {
+    align-items: flex-start;
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.wpait-onboarding-steps {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+.wpait-onboarding-step,
+.wpait-onboarding-actions section {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.wpait-onboarding-step h3,
+.wpait-onboarding-actions h3 {
+    margin: 6px 0 8px;
+}
+
+.wpait-step-number {
+    align-items: center;
+    background: #2271b1;
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-weight: 700;
+    height: 28px;
+    justify-content: center;
+    width: 28px;
+}
+
+.wpait-onboarding-step .wpait-fallback-language-grid {
+    max-height: 260px;
+}
+
+.wpait-onboarding-step .wpait-form-grid {
+    grid-template-columns: 1fr;
+}
+
+.wpait-onboarding-actions {
+    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin: 12px 0;
+}
+
+.wpait-finish-onboarding {
+    margin-top: 12px;
+}
+
+@media (max-width: 782px) {
+    .wpait-admin-title.is-dashboard {
+        align-items: center;
+    }
+
+    .wpait-admin-title.is-dashboard img {
+        height: 96px;
+        width: 96px;
+    }
+
+    .wpait-support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wpait-support-page-grid,
+    .wpait-public-form .wpait-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
