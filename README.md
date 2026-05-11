@@ -4,11 +4,18 @@ AI-powered WordPress translation plugin for WordPress, WooCommerce, and Elemento
 
 ![WP AI Translate](assets/img/logo.png)
 
+![Version](https://img.shields.io/badge/version-0.3.23--beta-blue)
+![Status](https://img.shields.io/badge/status-public%20beta-orange)
+![WordPress](https://img.shields.io/badge/WordPress-6%2B-blue)
+![PHP](https://img.shields.io/badge/PHP-8%2B-777bb4)
+![License](https://img.shields.io/badge/license-GPL--2.0--or--later-green)
+![WooCommerce](https://img.shields.io/badge/WooCommerce-compatible-purple)
+![Elementor](https://img.shields.io/badge/Elementor-compatible-pink)
 ---
 
 ## Public Beta
 
-Current version: `0.3.19 Professional Beta`
+Current version: `0.3.23 Professional Beta`
 
 WP AI Translate is currently in active Public Beta development.
 
