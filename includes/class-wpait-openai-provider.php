@@ -11,14 +11,14 @@ final class WPAIT_OpenAI_Provider
         $api_key = WPAIT_Settings::openai_api_key();
 
         if (empty($api_key)) {
-            return new WP_Error('wpait_missing_openai_key', __('OpenAI API key is missing.', 'wp-ai-translate'));
+            return new WP_Error('wpait_missing_openai_key', __('OpenAI API key is missing.', 'ai-translate-woocommerce-elementor'));
         }
 
         if (empty($segments)) {
             return array();
         }
 
-        $model = (string) WPAIT_Settings::get('openai_model', 'gpt-5.2');
+        $model = (string) WPAIT_Settings::get('openai_model', 'gpt-4o-mini');
         $source_name = WPAIT_Languages::label($source_language);
         $target_name = WPAIT_Languages::label($target_language);
 
@@ -91,7 +91,7 @@ final class WPAIT_OpenAI_Provider
         $data = json_decode($raw_body, true);
 
         if ($status < 200 || $status >= 300) {
-            $message = $data['error']['message'] ?? __('OpenAI request failed.', 'wp-ai-translate');
+            $message = $data['error']['message'] ?? __('OpenAI request failed.', 'ai-translate-woocommerce-elementor');
 
             return new WP_Error('wpait_openai_error', $message, array('status' => $status));
         }
@@ -104,7 +104,7 @@ final class WPAIT_OpenAI_Provider
         }
 
         if (!is_array($decoded) || empty($decoded['translations']) || !is_array($decoded['translations'])) {
-            return new WP_Error('wpait_openai_parse_error', __('OpenAI returned an unexpected translation payload.', 'wp-ai-translate'));
+            return new WP_Error('wpait_openai_parse_error', __('OpenAI returned an unexpected translation payload.', 'ai-translate-woocommerce-elementor'));
         }
 
         $translations = array();
@@ -153,4 +153,3 @@ final class WPAIT_OpenAI_Provider
         return trim((string) $text);
     }
 }
-

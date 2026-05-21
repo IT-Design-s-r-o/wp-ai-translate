@@ -1,0 +1,1607 @@
+# Copyright (C) 2026 sotter IT Design
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: AI Translate for WooCommerce & Elementor 0.3.30\n"
+"Report-Msgid-Bugs-To: https://wp-ai.itdesign.biz/\n"
+"POT-Creation-Date: 2026-05-20 13:30+04:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: ai-translate-woocommerce-elementor\n"
+
+#: includes/class-wpait-frontend-editor.php
+msgid "AI Translate edit"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Edit translation"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Auto Translate"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "AI translating..."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "AI Translation Ready"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Translation failed. Please try again."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Saving..."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Saved"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Could not save translation"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Permission denied."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Missing translation data."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Translation was not saved."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Translation saved."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Source and target languages are the same."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "No translation provider configured."
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Translated via OpenAI"
+msgstr ""
+
+#: includes/class-wpait-frontend-editor.php
+msgid "Provider rate limit reached."
+msgstr ""
+
+#: includes/class-wpait-openai-provider.php
+msgid "OpenAI API key is missing."
+msgstr ""
+
+#: includes/class-wpait-openai-provider.php
+msgid "OpenAI request failed."
+msgstr ""
+
+#: includes/class-wpait-openai-provider.php
+msgid "OpenAI returned an unexpected translation payload."
+msgstr ""
+
+#: includes/class-wpait-plugin.php
+msgid "Settings"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "AI Translate for WooCommerce & Elementor"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Languages"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Source language"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Auto: site language (%s)"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Leave on Auto to follow the WordPress site language."
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Target languages"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Search languages..."
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "AI Provider"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Provider"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "OpenAI / ChatGPT"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Claude, Gemini, and Grok can be added as providers after this first version."
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "OpenAI API key"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "You can also define WPAIT_OPENAI_API_KEY in wp-config.php."
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "OpenAI model"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Translation behavior"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Automatically translate missing strings on page view"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Save new AI translations as drafts"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Translate alt, title, placeholder, aria-label, and SEO meta attributes"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Batch size"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Limits how many new strings are sent to AI from one page render."
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "URLs and SEO"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Language URL mode"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Directory URLs: /en/about/"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Query URLs: /about/?lang=en"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Default language URL"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Keep the source language without a language prefix"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Language Switcher"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Style"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Dropdown"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "List"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Display parts"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Flags"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Language names"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Language codes"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Automatic placement"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Try to show in header via wp_body_open"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Show in footer"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Shortcodes: [wp_ai_translate_switcher] or [ai_language_switcher]."
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Frontend editor"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Allow administrators to edit translated text from the frontend"
+msgstr ""
+
+#: includes/class-wpait-settings.php
+msgid "Save settings"
+msgstr ""
+
+#: includes/class-wpait-switcher.php
+msgid "Select language"
+msgstr ""
+
+#: includes/class-wpait-widget.php
+msgid "AI Translate for WooCommerce & Elementor Switcher"
+msgstr ""
+
+#: includes/class-wpait-widget.php
+msgid "Language switcher for AI Translate for WooCommerce & Elementor."
+msgstr ""
+
+#: includes/class-wpait-widget.php
+msgid "Title:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Dashboard"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translations"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scanner"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Report Bug"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Feedback"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Setup Wizard"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Support"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Debugger"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Public Beta Build"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Support Development"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Support AI Translate for WooCommerce & Elementor"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of AI Translate for WooCommerce & Elementor."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate for WooCommerce & Elementor is currently in Public Beta. Please make a backup before bulk translating production websites."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Send Feedback"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Cheap"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Balanced"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Premium"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Neutral / Accurate"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "SEO Optimized"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Marketing"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "eCommerce"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Formal"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Casual"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Technical"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Legal"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Luxury Brand"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Friendly"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Custom Prompt"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Display the AI Translate for WooCommerce & Elementor language switcher."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate Language Switcher"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Layout type"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Buttons"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Flags only"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Flags + language name"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Language name only"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Show flags"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Yes"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "No"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Show language name"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Show language code"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Show current language"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Hide current language"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Open links in current page"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Orientation"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Horizontal"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Vertical"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Alignment"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Left"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Center"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Right"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Switcher Style"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Text color"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Hover color"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Active language color"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Background color"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Border color"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Dropdown background"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Border radius"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Padding"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Gap between items"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Dropdown width"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Dropdown shadow"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Add the language switcher to a WordPress menu."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Show flag"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Menu display mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "List mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Dropdown mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Current language switcher"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "All enabled languages"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Specific language: %s"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Add to Menu"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Editing on"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Save"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Cancel"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "No editable translation text found yet. Scan/process the queue, or click source text that is highlighted for admins."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Target: %s"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Every 5 minutes"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translation memory hit"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translated via %s"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Invalid target language."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "No import file uploaded."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "The message could not be sent. Please check WordPress email delivery on this site."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Please confirm consent before sending diagnostic information."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Report Bug"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Send a safe technical report for Public Beta troubleshooting."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Bug report sent. Thank you for helping test AI Translate for WooCommerce & Elementor."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "The technical report includes WordPress, WooCommerce, PHP, plugin, language, provider, queue, and route status. Sensitive values are redacted before sending."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Name"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Email"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Website"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Problem type"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translation issue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "WooCommerce issue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Elementor issue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Frontend editor issue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Provider / API issue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Install / update issue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Other"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Short description"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Steps to reproduce"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "1. Open page...\\n2. Switch language...\\n3. Expected...\\n4. Actual..."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Attach technical log"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "I agree to send this report and redacted technical diagnostics to info@itdesign.biz."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Send bug report"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Feedback"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Share Public Beta feedback, feature requests, and translation notes."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Feedback sent. Thank you for shaping AI Translate for WooCommerce & Elementor."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Feedback / Feature Request"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Type"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Bug"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Feature request"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Message"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "I agree to send this feedback to info@itdesign.biz."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Support"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Support the free Public Beta and help prioritize the roadmap."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Need help?"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Documentation"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Plugin Website"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Public Beta Notice"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "This Public Beta includes temporary unrestricted access for testing and feedback purposes. Commercial licensing and additional editions may be introduced in future releases."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Support contact"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Onboarding"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Set up languages, provider keys, scanning, queue translation, and frontend editing."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Onboarding settings saved."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Welcome"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate for WooCommerce & Elementor adds AI translation, WooCommerce support, frontend editing, SEO-friendly language URLs, and saved translation memory. This is a Public Beta, so make a backup before bulk translating production websites."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Auto: WordPress site language"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Google Translate"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "DeepL"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Google Gemini"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Grok / xAI"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Saved translations are reused. The provider is used only for queue items that still need translation."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "API Keys"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Google Translate API key"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "DeepL API key"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Gemini API key"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Grok API key"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Allow administrators to edit translations from the frontend"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Save setup"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scan and Translate"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scan"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Collect site strings into the saved translation queue."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scan site strings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Start one translation queue batch. Repeat or enable background processing later in Advanced mode."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Start translation queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Finish setup"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Open dashboard"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Save visible translations"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "First"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Previous"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Next"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Translations"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Edit each source string per target language. Empty fields can be filled manually or translated from the queue."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translations Matrix"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scan new strings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Process queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Per page"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Search"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Source text or hash..."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Status"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "All strings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Needs translation"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translated"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Filter"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Reset"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last bulk save:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Export / Import"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Export translations"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Export language"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Format"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Import translations"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Import language"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "CSV columns: source_text and translated_text. PO/MO import uses msgid as the original string and msgstr as the saved translation."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Select target languages first."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "No strings collected yet. Run the scanner or open translated pages once to collect frontend strings."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Original"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Status:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Scanner"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Collect site strings into the queue, then translate queued strings in controlled batches."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scanner and Queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Auto scan on save:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Background processing:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translation Mode:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Quality:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Cost optimization:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last scan:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last automatic scan:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last queue run:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Routes:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last background run:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Process translation queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate All"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Clear queued strings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate All uses the active provider and can consume API quota quickly. It runs in safe batches and may stop if provider quota, cooldown, or server time limits are reached."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate - Debugger"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Check provider access, current route, translation table, and the latest API error."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Write extended debug log to a separate file"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Save debug settings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Use this only while testing. The file stores route/API events as JSON lines and is cleared by Clear debug log."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last frontend route:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last provider test:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "HTTP status:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Route:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Debug log"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Latest 20 events"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Time"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Context"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Test provider translation"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Download log file"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Clear debug log"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Clear provider cooldown"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Debug log file was not found."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Queue is empty."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate All stopped after processing %1$d of %2$d queued translation(s): %3$s"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Provider error."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate All processed %1$d of %2$d queued translation(s) in %4$d safe batch(es). %3$d item(s) remain. Run it again or enable background processing; provider quota or server time limits may stop long runs."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate All finished. Processed %1$d queued translation(s) in %2$d safe batch(es)."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scan strings, translate them in batches, then edit saved translations on the frontend."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Upload updates are not safe for this install yet."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Repair plugin folder"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "This copies the current plugin into wp-ai-translate, deactivates this temporary folder, and opens the normal activation link for the repaired copy. It does not delete the old folder automatically."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Settings saved."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate for WooCommerce & Elementor is using the single-file queued translation engine. Pages use saved translations first; new strings are collected into the queue for batch translation."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Last translation error:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Translate for WooCommerce & Elementor sections"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "General"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Providers"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "SEO & URLs"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Interface mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Basic"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Advanced"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Basic mode shows the setup needed for everyday translation. Advanced mode reveals queue diagnostics, provider internals, scanner details, routes, and logs."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Build status"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Public Beta preparation build."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Feature flag helpers are prepared for future package variants. All current beta features remain enabled."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "This is the language your original site content is written in. Auto uses the WordPress site language."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Select only the languages you want visitors to use. Every selected target language creates its own saved translation rows."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "The provider used for new queue translations. Already saved manual/published translations are reused and are not sent again."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Provider capabilities"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Active"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Planned"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Provider cards show active integrations plus planned architecture targets. Planned providers are documented but are not enabled until their API layer is added in a future release."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Create a key in the OpenAI dashboard, then paste it here."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Open API keys page"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Use a model available to your OpenAI account. If quota/billing is missing, the provider returns 429."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Create a Gemini key in Google AI Studio, then paste it here."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Open Google AI Studio API keys"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Gemini model"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "For testing, use a small batch size because Gemini free tier limits can be very low."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Create an xAI API key, then paste it here."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Open xAI Console"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Grok model"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Use a model enabled for your xAI account. A 403 usually means the key cannot access the selected model or billing is not ready."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Uses Google Cloud Translation Basic v2. Enable Cloud Translation API in Google Cloud and use an API key with billing/quota configured."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Google docs"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "DeepL has separate api-free.deepl.com and api.deepl.com endpoints. Pick the endpoint that matches your key."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "DeepL docs"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "DeepL plan"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "api-free.deepl.com endpoint"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "api.deepl.com endpoint"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Match this setting to the endpoint assigned to your DeepL API key."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translation Style / Tone of Voice"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Set the global translation style for prompt-based AI providers. Per content type modes for pages, posts, WooCommerce products, SEO meta, buttons, and short strings are planned for a future version."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Global Translation Mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Tone of Voice affects AI-based translations only. Use Neutral mode for accurate translation, SEO mode for search-oriented content, and eCommerce mode for product pages."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Tone of Voice is applied only to prompt-based AI providers. In this Public Beta that means OpenAI, Gemini, and Grok/xAI; planned Claude, Mistral, DeepSeek, and similar AI providers will use the same setting when their API layers are added. Google Translate and DeepL ignore this setting."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Custom translation instruction"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Example: Translate naturally for Georgian customers, keep product names unchanged, use friendly but professional tone."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Used only when Translation Mode is Custom Prompt. Maximum 500 characters."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "AI Cost Optimization"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Use cheap models by default, deduplicate strings before provider calls, reuse translation memory, and keep safety limits enabled while testing provider quota."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translation quality mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Cheap is recommended for Public Beta testing. Balanced and Premium are guidance modes for choosing provider models; custom model fields still remain under your control."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Recommended default models"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "OpenAI Cheap: gpt-4o-mini"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "OpenAI Premium: gpt-4o"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Gemini Cheap: Flash model"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Gemini Premium: Pro model"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Grok Cheap: lightweight/mini model where available"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Claude Cheap: Haiku model where available"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Mistral Cheap: small/fast model"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "DeepSeek Cheap: chat/standard model"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "The active Public Beta providers keep using the model field you set above. Planned provider model names are shown as release-planning guidance only."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Temperature"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Default 0.1 keeps translations stable and predictable for AI providers."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Quota control"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Daily character limit"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Local safety limit for the active provider. 0 means no plugin-side daily stop."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Monthly character limit"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Local safety limit for the active provider. Provider billing limits still need to be configured in OpenAI/Google/DeepL/xAI accounts."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Max characters per request"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "0 means no plugin-side per-request character stop. Set a limit to avoid accidentally sending very large batches."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Estimated cost limit per request"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "0 means no estimated-cost stop. Estimates are approximate and provider billing remains authoritative."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Enable frontend translation output"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Collect missing strings into the translation queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Automatically scan saved/updated content for new strings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Automatically process the translation queue in the background"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translate missing strings during page load (slower, use only for testing)"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Recommended production mode: frontend output on, queue missing strings on, scan on save on, page-load translation off. Turn background processing on only when your API quota/billing is ready."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "How many strings are sent in one API request. Use 3-5 for free/test keys, 10-25 for normal paid keys, higher only when quota is confirmed."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "URL mode"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Directory URLs: /ka/about/"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Query URLs: /about/?lang=ka"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Directory URLs are better for SEO, but require WordPress permalinks and rewrite rules. Query URLs are simpler and useful while testing."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "When enabled, the original language stays on normal URLs while only translated languages use a language code."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Shortcodes:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Dropdown is compact for headers. List is useful in footers, sidebars, and menu-like layouts."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Choose what visitors see inside the selector, for example Georgian, KA, or both."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Try to show in header"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Automatic placement is optional. You can also place the selector with a shortcode, widget, or theme/menu area."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Selector custom CSS"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Optional CSS loaded on the frontend only for styling the language selector."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Useful classes:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "When enabled, logged-in administrators see the AI Translate button in the admin bar on translated pages and can save manual corrections."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Buy Me a Coffee URL"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "PayPal donation URL"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "String Scanner"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Scan posts, pages, products, menus, widgets, taxonomy terms, SEO meta, and public custom fields. New strings are added to the queue once and are translated from there."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Targets:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Queued strings"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Saved translations"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Translation Queue"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Frontend pages now use saved translations only. New strings are collected here and translated in batches, so visitors do not wait for the AI provider."
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Provider:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Sample:"
+msgstr ""
+
+#: wp-ai-translate.php
+msgid "Duration:"
+msgstr ""

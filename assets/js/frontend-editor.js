@@ -18,7 +18,9 @@
     var modalTitle = document.createElement('h2');
     var textarea = document.createElement('textarea');
     var modalActions = document.createElement('div');
+    var modalNotice = document.createElement('div');
     var saveButton = document.createElement('button');
+    var autoButton = document.createElement('button');
     var cancelButton = document.createElement('button');
     var currentTarget = null;
 
@@ -35,7 +37,7 @@
         brand.appendChild(brandImage);
     }
 
-    brandText.textContent = config.brandLabel || 'WP AI Translation';
+    brandText.textContent = config.brandLabel || 'AI Translate';
     brand.appendChild(brandText);
     button.type = 'button';
     button.textContent = config.editLabel || 'AI Translate edit';
@@ -53,16 +55,24 @@
     dialog.setAttribute('aria-modal', 'true');
     modalTitle.textContent = config.promptLabel || 'Edit translation';
     textarea.className = 'wpait-inline-editor-textarea';
+    modalNotice.className = 'wpait-inline-editor-notice';
+    modalNotice.setAttribute('role', 'status');
+    modalNotice.setAttribute('aria-live', 'polite');
     modalActions.className = 'wpait-inline-editor-dialog-actions';
     saveButton.type = 'button';
     saveButton.textContent = config.saveLabel || 'Save';
+    autoButton.type = 'button';
+    autoButton.textContent = config.autoTranslateLabel || 'Auto Translate';
+    autoButton.className = 'is-auto';
     cancelButton.type = 'button';
     cancelButton.textContent = config.cancelLabel || 'Cancel';
     cancelButton.className = 'is-secondary';
     modalActions.appendChild(cancelButton);
+    modalActions.appendChild(autoButton);
     modalActions.appendChild(saveButton);
     dialog.appendChild(modalTitle);
     dialog.appendChild(textarea);
+    dialog.appendChild(modalNotice);
     dialog.appendChild(modalActions);
     modal.appendChild(dialog);
 
@@ -115,6 +125,14 @@
         closeEditor();
     });
 
+    textarea.addEventListener('input', function () {
+        resizeTextarea();
+    });
+
+    autoButton.addEventListener('click', function () {
+        autoTranslate();
+    });
+
     saveButton.addEventListener('click', function () {
         if (!currentTarget) {
             closeEditor();
@@ -140,9 +158,12 @@
     function openEditor(target) {
         currentTarget = target;
         textarea.value = target.textContent;
+        modalNotice.textContent = '';
+        resizeTextarea();
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         window.setTimeout(function () {
+            resizeTextarea();
             textarea.focus();
             textarea.select();
         }, 20);
@@ -153,7 +174,66 @@
         modal.setAttribute('aria-hidden', 'true');
         currentTarget = null;
         textarea.value = '';
+        modalNotice.textContent = '';
         saveButton.disabled = false;
+        autoButton.disabled = false;
+        cancelButton.disabled = false;
+        modal.classList.remove('is-loading');
+    }
+
+    function setLoading(loading, message) {
+        modal.classList.toggle('is-loading', loading);
+        saveButton.disabled = loading;
+        autoButton.disabled = loading;
+        cancelButton.disabled = loading;
+        modalNotice.textContent = message || '';
+    }
+
+    function resizeTextarea() {
+        textarea.style.height = 'auto';
+        textarea.style.height = Math.max(160, textarea.scrollHeight) + 'px';
+    }
+
+    function autoTranslate() {
+        if (!currentTarget) {
+            return;
+        }
+
+        var sourceText = decodeSource(currentTarget.getAttribute('data-wpait-source') || '');
+        var body = new URLSearchParams();
+
+        body.set('action', 'wpait_auto_translate_frontend');
+        body.set('nonce', config.nonce || '');
+        body.set('sourceLanguage', config.sourceLanguage || '');
+        body.set('targetLanguage', config.targetLanguage || '');
+        body.set('sourceText', sourceText);
+
+        setLoading(true, config.translatingLabel || 'AI translating...');
+
+        fetch(config.ajaxUrl, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+            body: body.toString()
+        }).then(function (response) {
+            return response.json().then(function (payload) {
+                return {ok: response.ok, status: response.status, payload: payload};
+            });
+        }).then(function (result) {
+            var payload = result.payload || {};
+            var data = payload.data || {};
+
+            if (!result.ok || !payload.success || !data.translation) {
+                throw new Error(data.message || config.translateFailedLabel || 'Translation failed. Please try again.');
+            }
+
+            textarea.value = data.translation;
+            resizeTextarea();
+            setLoading(false, data.message || config.translationReadyLabel || 'AI Translation Ready');
+            textarea.focus();
+        }).catch(function (error) {
+            setLoading(false, error && error.message ? error.message : (config.translateFailedLabel || 'Translation failed. Please try again.'));
+        });
     }
 
     function saveTranslation(target, nextText) {
@@ -167,7 +247,7 @@
         body.set('sourceText', sourceText);
         body.set('translatedText', nextText);
         status.textContent = '...';
-        saveButton.disabled = true;
+        setLoading(true, config.savingLabel || 'Saving...');
 
         fetch(config.ajaxUrl, {
             method: 'POST',
@@ -195,7 +275,7 @@
             }, 1600);
         }).catch(function () {
             status.textContent = config.errorLabel || 'Error';
-            saveButton.disabled = false;
+            setLoading(false, config.errorLabel || 'Error');
         });
     }
 

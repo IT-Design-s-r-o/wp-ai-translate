@@ -1,123 +1,89 @@
-[CHANGELOG.md](https://github.com/user-attachments/files/27601927/CHANGELOG.md)
 # Changelog
 
-All notable changes to **WP AI Translate** are documented here.
+All notable changes to AI Translate for WooCommerce & Elementor are documented here.
 
-The project is currently in **Public Beta**. Until the first stable release, minor versions may include UX changes, compatibility fixes, and beta-only diagnostics.
-
-## 0.3.23 - Menu Walker Compatibility Fix
-
-### Fixed
-
-- Fixed a fatal error when themes call the WordPress `nav_menu_link_attributes` filter with 3 arguments instead of 4.
-- This only changes the menu language switcher compatibility layer.
-
-### Notes
-
-- No translation engine, queue, scanner, provider, routing, WooCommerce, frontend editor, database, shortcodes, or Translation Matrix logic was changed.
-
-## 0.3.22 - Menu Switcher Anchor Protection
-
-### Fixed
-
-- Added menu-only protection directly to WordPress menu language links so the frontend URL rewriter cannot turn `?lang=en` or `?lang=ka` back into the currently selected language.
-- This targets the menu language switcher only.
-
-### Notes
-
-- No translation engine, queue, scanner, provider, routing, WooCommerce, frontend editor, database, shortcodes, or Translation Matrix logic was changed.
-
-## 0.3.21 - Menu Switcher Link Rewrite Fix
-
-### Fixed
-
-- Prevented the frontend language URL rewriter from overwriting WP menu language switcher links back to the currently selected language.
-- Menu language switcher links such as `/?lang=en`, `/?lang=ka`, and `/?lang=ru` now keep their intended target language.
-
-### Notes
-
-- Only the menu language switcher link protection was changed. Translation engine, queue, scanner, provider, routing, WooCommerce, frontend editor, database, shortcodes, and Translation Matrix logic were not changed.
-
-## 0.3.20 - Menu Switcher Behavior Fix
-
-### Fixed
-
-- Fixed menu language switcher behavior when the menu item was added as the current-language switcher.
-- Current-language menu switcher now expands to all enabled languages, so visitors can switch from the first selected language to any other enabled language.
-
-### Notes
-
-- No translation engine, queue, scanner, provider, routing, WooCommerce, frontend editor, database, or Translation Matrix logic was changed.
-
-## 0.3.19 - Menu Switcher Visibility Fix
-
-### Fixed
-
-- Improved registration of the **Language Switcher** metabox on the classic WordPress **Appearance > Menus** screen.
-- Removed a duplicate HTML id inside the menu metabox markup and raised the metabox priority.
-
-### Notes
-
-- No translation engine, queue, scanner, provider, routing, WooCommerce, frontend editor, database, or Translation Matrix logic was changed.
-
-## 0.3.18 - Public Beta Prep
+## 0.3.30
 
 ### Added
 
-- Expanded Elementor Language Switcher widget controls:
-  - List, Dropdown, Buttons, Flags only, Flags + language name, and Language name only layouts.
-  - Flag, language name, language code, current language, hide current language, alignment, and orientation options.
-  - Basic Elementor style controls for typography, colors, background, borders, padding, item gap, dropdown width, and dropdown shadow.
-- WordPress menu language switcher support via **Appearance > Menus**.
-- Public Beta support and donation flow with `https://paypal.me/wpaitranslate`.
-- Improved Support page with links to bug reports, feedback, documentation, plugin website, and contact details.
-- Public Beta notice buttons for Report Bug, Send Feedback, and Support Development.
+- WordPress.org-ready public plugin name: AI Translate for WooCommerce & Elementor.
+- Public Beta release metadata and package slug: `ai-translate-woocommerce-elementor`.
+- Tone of Voice / Translation Mode foundation for prompt-based AI providers.
+- AI Cost Optimization settings for quality mode, temperature, request character limits, estimated per-request cost limits, and model recommendations.
+- Provider statistics for API requests, estimated input/output tokens, estimated cost, cache hits, duplicate skipped count, provider, and model.
+- Provider capability cards for active providers and planned architecture targets without enabling unfinished provider APIs.
+- Frontend auto-translation improvements for the visual translation editor.
+- External services disclosure in `readme.txt`.
 
-### Changed
+### Improved
 
-- Replaced the plugin logo with the new `logo.png` asset.
-- Improved Report Bug and Feedback form layouts with responsive three-column grids.
-- Improved Setup Wizard API key fields to prevent horizontal overflow.
-- Improved language search behavior in admin language lists.
-- Refined frontend/menu switcher CSS without changing language URL generation.
+- AI provider handling and provider diagnostics.
+- Token/cost optimization foundation.
+- Translation memory and deduplication before provider requests.
+- Scanner and queue workflow visibility.
+- Frontend editor UX, loading states, and manual-save flow.
+- Language switcher UI and local flag handling.
+- Elementor widget display options.
+- Setup wizard and dashboard organization.
+- WordPress text-domain loading for language-pack readiness.
 
 ### Fixed
 
-- Admin form fields overlapping in Report Bug and Feedback pages.
-- API key fields escaping the Setup Wizard card on narrower screens.
-- Missing or inconsistent logo display in plugin admin areas and frontend editor panel.
+- Plugin Check errors for WordPress.org preparation.
+- SQL prepared statement issues in reviewer-sensitive areas.
+- Sanitization, escaping, and nonce handling in admin/front-end actions.
+- ZIP package structure for the public plugin slug.
+- Public Beta wording and older Professional/Pro-facing text.
+- The WordPress.org package now excludes developer-only support notes from the installable ZIP.
 
-### Notes
+### Compatibility note
 
-- Translation engine, queue processing, scanner logic, provider API logic, routing logic, WooCommerce compatibility, database schema, frontend editor core logic, and Translation Matrix architecture were not changed in this release.
+- Kept translation engine, queue processing architecture, scanner collection logic, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
 
-## 0.3.17 - Public Beta UX
+## 0.3.29
 
-### Added
+- Finalized the Translation Style / Tone of Voice settings section for the Public Beta release.
+- Added Translation Mode visibility to Scanner and Queue statistics.
+- Documented that per content type modes are planned for a future release while the current build uses Global Translation Mode.
+- Kept translation engine, queue processing architecture, scanner collection logic, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
 
-- Basic / Advanced interface mode.
-- Onboarding wizard.
-- Public Beta notices.
-- Bug report and feedback pages.
-- Safe debug log export.
+## 0.3.28
 
-### Changed
+- Added a Scanner and Queue "Translate All" action that processes queued translations in safe provider batches with quota/time-limit guidance.
+- Finalized Global Translation Mode / Tone of Voice UI copy and server-side custom instruction length protection.
+- Kept translation engine, queue processing architecture, scanner collection logic, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
 
-- Improved admin page organization for non-technical users.
-- Prepared internal feature flag helpers for future Free / Professional editions.
+## 0.3.27
 
-## 0.3.16 - Stable Internal Beta
+- Fixed admin asset loading for all plugin subpages after the public slug change.
+- Replaced the remaining public Elementor switcher label that used the old plugin name.
+- Updated the modular settings link to the new top-level admin page.
+- Kept translation engine, queue processing, scanner, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
 
-### Added
+## 0.3.26
 
-- Queued translation workflow.
-- Scanner for posts, pages, products, menus, widgets, taxonomy terms, SEO meta, and public custom fields.
-- Translation Matrix with pagination and bulk save.
-- CSV, PO, and MO import/export.
-- Google Translate, OpenAI, Gemini, Grok/xAI, and DeepL provider support.
-- Frontend translation editor for administrators.
-- WooCommerce product and category URL compatibility improvements.
+- Prepared the public WordPress.org package name and metadata.
+- Added Translation Mode / Tone of Voice settings for prompt-based AI providers.
+- Changed the default OpenAI model to `gpt-4o-mini`.
+- Changed the default Grok/xAI model to a lightweight default where available.
+- Hardened custom-table SQL and local file handling for Plugin Check compatibility.
+- Added the `languages/` folder required by the plugin header.
+- Kept translation engine, queue processing, scanner, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
 
-### Notes
+## 0.3.25
 
-- This version became the internal stability baseline before Public Beta preparation.
+- Added secure frontend editor Auto Translate.
+- Improved frontend editor modal states, textarea resizing, and provider error messaging.
+- Preserved manual save flow: AI translation is previewed and edited before saving.
+
+## 0.3.24
+
+- Improved WordPress.org preparation cleanup.
+- Replaced remaining `parse_url()` usage with `wp_parse_url()`.
+- Improved uninstall variable prefixing and translator comments.
+
+## 0.3.23
+
+- Prepared the Public Beta Build for WordPress.org review.
+- Added WordPress.org `readme.txt`, GPL metadata, and external service disclosures.
+- Replaced earlier beta wording with Public Beta Build wording.

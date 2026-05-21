@@ -40,8 +40,8 @@ final class WPAIT_Plugin
 
     public function settings_link(array $links): array
     {
-        $url = admin_url('options-general.php?page=wp-ai-translate');
-        array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'wp-ai-translate') . '</a>');
+        $url = admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG);
+        array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'ai-translate-woocommerce-elementor') . '</a>');
 
         return $links;
     }

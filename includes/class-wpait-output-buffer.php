@@ -133,11 +133,19 @@ final class WPAIT_Output_Buffer
             }
 
             $class = ' ' . $node->getAttribute('class') . ' ';
-            if ('wpadminbar' === $node->getAttribute('id') || false !== strpos($class, ' wpait-switcher')) {
+            if (
+                'wpadminbar' === $node->getAttribute('id')
+                || false !== strpos($class, ' wpait-switcher')
+                || false !== strpos($class, ' wpait-fallback-switcher')
+                || false !== strpos($class, ' wpait-menu-language-item')
+                || false !== strpos($class, ' wpait-menu-current-language')
+                || false !== strpos($class, ' wpait-menu-switcher-dropdown-toggle')
+                || false !== strpos($class, ' notranslate ')
+            ) {
                 return;
             }
 
-            if ($node->hasAttribute('data-wpait-no-translate') || $node->hasAttribute('translate') && 'no' === strtolower($node->getAttribute('translate'))) {
+            if ($node->hasAttribute('data-wpait-no-translate') || $node->hasAttribute('data-wpait-language-switcher') || $node->hasAttribute('translate') && 'no' === strtolower($node->getAttribute('translate'))) {
                 return;
             }
 

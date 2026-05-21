@@ -161,6 +161,61 @@
     padding: 8px;
 }
 
+.wpait-provider-cards {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin: 14px 0 8px;
+    max-width: 1180px;
+}
+
+.wpait-provider-card {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.wpait-provider-card.is-selected {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.wpait-provider-card.is-planned {
+    opacity: .78;
+}
+
+.wpait-provider-card-head {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.wpait-provider-card-head span {
+    color: #646970;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.wpait-provider-badges,
+.wpait-model-recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.wpait-provider-badges code,
+.wpait-model-recommendations code {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    color: #1d2327;
+    display: inline-block;
+    padding: 3px 6px;
+}
+
 .wpait-fallback-language-grid label,
 .wpait-language-option {
     align-items: center;
@@ -409,7 +464,7 @@
     grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
 }
 
-.toplevel_page_wp-ai-translate .wp-menu-image img {
+.toplevel_page_ai-translate-woocommerce-elementor .wp-menu-image img {
     height: 20px !important;
     object-fit: contain;
     padding-top: 7px !important;

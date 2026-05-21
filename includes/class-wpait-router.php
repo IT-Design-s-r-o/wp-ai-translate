@@ -97,12 +97,14 @@ final class WPAIT_Router
             }
         }
 
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended -- Public language switching is a read-only GET action.
         if ('query' === WPAIT_Settings::get('url_mode', 'directory') && isset($_GET['lang'])) {
-            $language = WPAIT_Languages::normalize_code(wp_unslash((string) $_GET['lang']));
+            $language = WPAIT_Languages::normalize_code(sanitize_key(wp_unslash((string) $_GET['lang'])));
             if (in_array($language, $enabled, true)) {
                 return $language;
             }
         }
+        // phpcs:enable WordPress.Security.NonceVerification.Recommended
 
         if ('directory' === WPAIT_Settings::get('url_mode', 'directory')) {
             $language = self::language_from_path();
@@ -116,9 +118,9 @@ final class WPAIT_Router
 
     public static function language_from_path(): string
     {
-        $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash((string) $_SERVER['REQUEST_URI']) : '/';
-        $path = (string) parse_url($request_uri, PHP_URL_PATH);
-        $home_path = (string) parse_url(home_url('/'), PHP_URL_PATH);
+        $request_uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash((string) $_SERVER['REQUEST_URI'])) : '/';
+        $path = (string) wp_parse_url($request_uri, PHP_URL_PATH);
+        $home_path = (string) wp_parse_url(home_url('/'), PHP_URL_PATH);
         $relative = self::strip_home_path($path, $home_path);
         $segments = array_values(array_filter(explode('/', trim($relative, '/'))));
 
@@ -127,9 +129,9 @@ final class WPAIT_Router
 
     public static function path_without_language(): string
     {
-        $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash((string) $_SERVER['REQUEST_URI']) : '/';
-        $path = (string) parse_url($request_uri, PHP_URL_PATH);
-        $home_path = (string) parse_url(home_url('/'), PHP_URL_PATH);
+        $request_uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash((string) $_SERVER['REQUEST_URI'])) : '/';
+        $path = (string) wp_parse_url($request_uri, PHP_URL_PATH);
+        $home_path = (string) wp_parse_url(home_url('/'), PHP_URL_PATH);
         $relative = self::strip_home_path($path, $home_path);
         $segments = array_values(array_filter(explode('/', trim($relative, '/'))));
         $enabled = WPAIT_Languages::enabled_with_source();
@@ -146,9 +148,9 @@ final class WPAIT_Router
         $language = WPAIT_Languages::normalize_code($language);
         $source = WPAIT_Settings::source_language();
         $url_mode = WPAIT_Settings::get('url_mode', 'directory');
-        $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash((string) $_SERVER['REQUEST_URI']) : '/';
-        $path = (string) parse_url($request_uri, PHP_URL_PATH);
-        $query = (string) parse_url($request_uri, PHP_URL_QUERY);
+        $request_uri = isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash((string) $_SERVER['REQUEST_URI'])) : '/';
+        $path = (string) wp_parse_url($request_uri, PHP_URL_PATH);
+        $query = (string) wp_parse_url($request_uri, PHP_URL_QUERY);
         $query_args = array();
 
         if ('' !== $query) {
@@ -158,7 +160,7 @@ final class WPAIT_Router
         unset($query_args['lang']);
 
         if ('query' === $url_mode) {
-            $base_url = home_url(self::strip_home_path($path, (string) parse_url(home_url('/'), PHP_URL_PATH)));
+            $base_url = home_url(self::strip_home_path($path, (string) wp_parse_url(home_url('/'), PHP_URL_PATH)));
             if ($language !== $source || '1' !== WPAIT_Settings::get('hide_default_language', '1')) {
                 $query_args['lang'] = $language;
             }
@@ -166,7 +168,7 @@ final class WPAIT_Router
             return add_query_arg($query_args, $base_url);
         }
 
-        $home_path = (string) parse_url(home_url('/'), PHP_URL_PATH);
+        $home_path = (string) wp_parse_url(home_url('/'), PHP_URL_PATH);
         $relative = trim(self::strip_home_path($path, $home_path), '/');
         $segments = array_values(array_filter(explode('/', $relative)));
         $all_languages = WPAIT_Languages::enabled_with_source();

@@ -36,7 +36,8 @@ final class WPAIT_Switcher
             return;
         }
 
-        echo '<div class="wpait-switcher-wrap wpait-switcher-header">';
+        echo '<div class="wpait-switcher-wrap wpait-switcher-header notranslate" data-wpait-no-translate="1" translate="no">';
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Switcher HTML is generated internally with escaped URLs, labels, and attributes.
         echo self::render();
         echo '</div>';
     }
@@ -46,7 +47,8 @@ final class WPAIT_Switcher
             return;
         }
 
-        echo '<div class="wpait-switcher-wrap wpait-switcher-footer">';
+        echo '<div class="wpait-switcher-wrap wpait-switcher-footer notranslate" data-wpait-no-translate="1" translate="no">';
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Switcher HTML is generated internally with escaped URLs, labels, and attributes.
         echo self::render();
         echo '</div>';
     }
@@ -72,26 +74,37 @@ final class WPAIT_Switcher
     private static function render_dropdown(array $languages, string $current): string
     {
         $id = 'wpait-switcher-' . wp_rand(1000, 999999);
-        $output = '<label class="screen-reader-text" for="' . esc_attr($id) . '">' . esc_html__('Select language', 'wp-ai-translate') . '</label>';
-        $output .= '<select id="' . esc_attr($id) . '" class="wpait-switcher wpait-switcher-dropdown" onchange="if(this.value){window.location.href=this.value;}">';
+        $output = '<details class="wpait-switcher wpait-switcher-dropdown wpait-custom-dropdown notranslate" data-wpait-no-translate="1" translate="no">';
+        $output .= '<summary class="wpait-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'ai-translate-woocommerce-elementor') . '">';
+        $output .= self::language_html($current);
+        $output .= '</summary>';
+        $output .= '<div id="' . esc_attr($id) . '" class="wpait-switcher-dropdown-menu" role="listbox">';
 
         foreach ($languages as $language) {
+            $classes = array('wpait-switcher-dropdown-link');
+            if ($language === $current) {
+                $classes[] = 'is-current';
+            }
+
             $output .= sprintf(
-                '<option value="%1$s" %2$s>%3$s</option>',
+                '<a class="%1$s" href="%2$s" hreflang="%3$s" lang="%3$s" data-wpait-no-translate="1" translate="no" %4$s aria-label="%5$s">%6$s</a>',
+                esc_attr(implode(' ', $classes)),
                 esc_url(WPAIT_Router::language_url($language)),
-                selected($current, $language, false),
-                esc_html(self::language_text($language))
+                esc_attr($language),
+                $language === $current ? 'aria-current="true"' : '',
+                esc_attr(self::language_accessible_label($language)),
+                self::language_html($language)
             );
         }
 
-        $output .= '</select>';
+        $output .= '</div></details>';
 
         return $output;
     }
 
     private static function render_list(array $languages, string $current): string
     {
-        $output = '<nav class="wpait-switcher wpait-switcher-list" aria-label="' . esc_attr__('Language switcher', 'wp-ai-translate') . '">';
+        $output = '<nav class="wpait-switcher wpait-switcher-list notranslate" aria-label="' . esc_attr__('Language switcher', 'ai-translate-woocommerce-elementor') . '" data-wpait-no-translate="1" translate="no">';
 
         foreach ($languages as $language) {
             $classes = array('wpait-switcher-link');
@@ -100,11 +113,13 @@ final class WPAIT_Switcher
             }
 
             $output .= sprintf(
-                '<a class="%1$s" href="%2$s" hreflang="%3$s">%4$s</a>',
+                '<a class="%1$s" href="%2$s" hreflang="%3$s" lang="%3$s" data-wpait-no-translate="1" translate="no" %4$s aria-label="%5$s">%6$s</a>',
                 esc_attr(implode(' ', $classes)),
                 esc_url(WPAIT_Router::language_url($language)),
                 esc_attr($language),
-                wp_kses_post(self::language_html($language))
+                $language === $current ? 'aria-current="true"' : '',
+                esc_attr(self::language_accessible_label($language)),
+                self::language_html($language)
             );
         }
 
@@ -141,7 +156,7 @@ final class WPAIT_Switcher
         $parts = array();
 
         if ('1' === WPAIT_Settings::get('selector_show_flags', '0')) {
-            $parts[] = '<span class="wpait-flag" aria-hidden="true">' . self::flag_entity($language) . '</span>';
+            $parts[] = self::flag_html($language);
         }
 
         if ('1' === WPAIT_Settings::get('selector_show_names', '1')) {
@@ -157,6 +172,34 @@ final class WPAIT_Switcher
         }
 
         return implode(' ', $parts);
+    }
+
+    private static function language_accessible_label(string $language): string
+    {
+        return WPAIT_Languages::label($language) . ' (' . strtoupper($language) . ')';
+    }
+
+    private static function flag_html(string $language): string
+    {
+        $url = self::flag_url($language);
+
+        if ('' === $url) {
+            return '<span class="wpait-flag" aria-hidden="true"></span>';
+        }
+
+        return '<img class="wpait-flag" src="' . esc_url($url) . '" alt="" aria-hidden="true" loading="lazy" decoding="async">';
+    }
+
+    private static function flag_url(string $language): string
+    {
+        $country = strtolower(self::language_country($language));
+        $relative = 'assets/flags/flag-icons/4x3/' . sanitize_file_name($country) . '.svg';
+
+        if (!file_exists(WPAIT_PLUGIN_DIR . $relative)) {
+            return '';
+        }
+
+        return WPAIT_PLUGIN_URL . $relative;
     }
 
     private static function flag_entity(string $language): string
@@ -175,6 +218,7 @@ final class WPAIT_Switcher
     {
         $map = array(
             'af' => 'ZA',
+            'am' => 'ET',
             'ar' => 'SA',
             'az' => 'AZ',
             'be' => 'BY',
@@ -182,6 +226,8 @@ final class WPAIT_Switcher
             'bn' => 'BD',
             'bs' => 'BA',
             'ca' => 'ES',
+            'ceb' => 'PH',
+            'co' => 'FR',
             'cs' => 'CZ',
             'cy' => 'GB',
             'da' => 'DK',
@@ -189,6 +235,7 @@ final class WPAIT_Switcher
             'el' => 'GR',
             'en' => 'US',
             'es' => 'ES',
+            'eo' => 'UN',
             'et' => 'EE',
             'eu' => 'ES',
             'fa' => 'IR',
@@ -202,36 +249,77 @@ final class WPAIT_Switcher
             'hr' => 'HR',
             'hu' => 'HU',
             'hy' => 'AM',
+            'ht' => 'HT',
+            'haw' => 'US',
+            'hmn' => 'CN',
+            'ha' => 'NG',
+            'ig' => 'NG',
             'id' => 'ID',
             'is' => 'IS',
             'it' => 'IT',
             'ja' => 'JP',
+            'jv' => 'ID',
             'ka' => 'GE',
+            'km' => 'KH',
             'kk' => 'KZ',
             'ko' => 'KR',
+            'kn' => 'IN',
+            'ku' => 'IQ',
             'ky' => 'KG',
+            'la' => 'VA',
+            'lo' => 'LA',
+            'lb' => 'LU',
             'lt' => 'LT',
             'lv' => 'LV',
             'mk' => 'MK',
+            'mg' => 'MG',
+            'ml' => 'IN',
+            'mn' => 'MN',
+            'mr' => 'IN',
             'ms' => 'MY',
+            'mt' => 'MT',
+            'mi' => 'NZ',
+            'my' => 'MM',
+            'ne' => 'NP',
+            'no' => 'NO',
+            'ny' => 'MW',
+            'ps' => 'AF',
             'nb' => 'NO',
             'nl' => 'NL',
             'pl' => 'PL',
             'pt' => 'PT',
+            'pa' => 'IN',
             'ro' => 'RO',
             'ru' => 'RU',
+            'sd' => 'PK',
+            'si' => 'LK',
             'sk' => 'SK',
             'sl' => 'SI',
+            'sm' => 'WS',
+            'sn' => 'ZW',
+            'so' => 'SO',
             'sq' => 'AL',
             'sr' => 'RS',
+            'st' => 'LS',
+            'su' => 'ID',
             'sv' => 'SE',
+            'sw' => 'TZ',
+            'ta' => 'IN',
+            'te' => 'IN',
+            'tg' => 'TJ',
             'th' => 'TH',
+            'tl' => 'PH',
             'tr' => 'TR',
             'uk' => 'UA',
+            'ug' => 'CN',
             'ur' => 'PK',
             'uz' => 'UZ',
             'vi' => 'VN',
+            'xh' => 'ZA',
+            'yi' => 'IL',
+            'yo' => 'NG',
             'zh' => 'CN',
+            'zu' => 'ZA',
         );
 
         return $map[WPAIT_Languages::normalize_code($language)] ?? strtoupper(substr($language, 0, 2));

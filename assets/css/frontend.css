@@ -16,27 +16,113 @@
 }
 
 .wpait-fallback-switcher,
-.wpait-fallback-switcher-dropdown {
+.wpait-fallback-switcher-dropdown,
+.wpait-switcher,
+.wpait-switcher-dropdown {
     font: inherit;
 }
 
-.wpait-fallback-switcher-dropdown {
+.wpait-fallback-switcher-dropdown,
+.wpait-switcher-dropdown {
     background: #fff;
     border: 1px solid currentColor;
     border-radius: 6px;
+    box-sizing: border-box;
+    color: inherit;
+    display: inline-block;
     min-height: 36px;
-    padding: 4px 28px 4px 10px;
+    min-width: 112px;
+    padding: 0;
+    position: relative;
     transition: border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
 .wpait-fallback-switcher-dropdown:hover,
-.wpait-fallback-switcher-dropdown:focus {
+.wpait-fallback-switcher-dropdown:focus,
+.wpait-fallback-switcher-dropdown[open],
+.wpait-switcher-dropdown:hover,
+.wpait-switcher-dropdown:focus,
+.wpait-switcher-dropdown[open] {
     border-color: #2271b1;
     box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.14);
     outline: 0;
 }
 
-.wpait-fallback-switcher-list {
+.wpait-fallback-switcher-dropdown-control,
+.wpait-switcher-dropdown-control {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: 0.45em;
+    list-style: none;
+    min-height: 34px;
+    padding: 4px 28px 4px 10px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.wpait-fallback-switcher-dropdown-control::-webkit-details-marker,
+.wpait-switcher-dropdown-control::-webkit-details-marker {
+    display: none;
+}
+
+.wpait-fallback-switcher-dropdown-control::after,
+.wpait-switcher-dropdown-control::after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid currentColor;
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-40%);
+}
+
+.wpait-fallback-switcher-dropdown-menu,
+.wpait-switcher-dropdown-menu {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+    box-sizing: border-box;
+    display: grid;
+    gap: 2px;
+    left: 0;
+    margin-top: 4px;
+    min-width: 100%;
+    padding: 5px;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 99999;
+}
+
+.wpait-fallback-switcher-dropdown-link,
+.wpait-switcher-dropdown-link {
+    align-items: center;
+    border-radius: 4px;
+    color: inherit;
+    display: flex;
+    gap: 0.45em;
+    line-height: 1.2;
+    min-height: 30px;
+    padding: 5px 8px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.wpait-fallback-switcher-dropdown-link:hover,
+.wpait-fallback-switcher-dropdown-link:focus,
+.wpait-switcher-dropdown-link:hover,
+.wpait-switcher-dropdown-link:focus,
+.wpait-fallback-switcher-dropdown-link.is-current,
+.wpait-switcher-dropdown-link.is-current {
+    background: rgba(34, 113, 177, 0.1);
+    outline: 0;
+}
+
+.wpait-fallback-switcher-list,
+.wpait-switcher-list {
     align-items: center;
     display: inline-flex;
     flex-wrap: wrap;
@@ -48,7 +134,8 @@
     flex-direction: column;
 }
 
-.wpait-fallback-switcher-link {
+.wpait-fallback-switcher-link,
+.wpait-switcher-link {
     align-items: center;
     border: 1px solid currentColor;
     border-radius: 6px;
@@ -62,13 +149,16 @@
 }
 
 .wpait-fallback-switcher-link:hover,
-.wpait-fallback-switcher-link:focus {
+.wpait-fallback-switcher-link:focus,
+.wpait-switcher-link:hover,
+.wpait-switcher-link:focus {
     background: rgba(34, 113, 177, 0.08);
     border-color: #2271b1;
     outline: 0;
 }
 
-.wpait-fallback-switcher-link.is-current {
+.wpait-fallback-switcher-link.is-current,
+.wpait-switcher-link.is-current {
     font-weight: 700;
     opacity: 0.75;
 }
@@ -92,9 +182,128 @@
     gap: 0.35em;
 }
 
-.wpait-fallback-language-code {
+.wpait-fallback-language-code,
+.wpait-language-code {
     font-size: 0.78em;
     opacity: 0.72;
+}
+
+.wpait-flag,
+.wpait-fallback-flag {
+    background: linear-gradient(135deg, #f6f7f7 0 50%, #c3c4c7 50% 100%);
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    box-sizing: border-box;
+    display: inline-block;
+    flex: 0 0 auto;
+    height: 0.82em;
+    min-height: 12px;
+    min-width: 18px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: -0.08em;
+    width: 1.22em;
+}
+
+.wpait-flag-us {
+    background: repeating-linear-gradient(to bottom, #b22234 0 7.69%, #fff 7.69% 15.38%);
+}
+
+.wpait-flag-us::before {
+    background: #3c3b6e;
+    content: "";
+    height: 54%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 42%;
+}
+
+.wpait-flag-ru {
+    background: linear-gradient(to bottom, #fff 0 33.33%, #0039a6 33.33% 66.66%, #d52b1e 66.66% 100%);
+}
+
+.wpait-flag-ge {
+    background:
+        linear-gradient(to right, transparent 0 43%, #e8112d 43% 57%, transparent 57% 100%),
+        linear-gradient(to bottom, transparent 0 40%, #e8112d 40% 60%, transparent 60% 100%),
+        #fff;
+}
+
+.wpait-flag-de {
+    background: linear-gradient(to bottom, #000 0 33.33%, #dd0000 33.33% 66.66%, #ffce00 66.66% 100%);
+}
+
+.wpait-flag-fr {
+    background: linear-gradient(to right, #0055a4 0 33.33%, #fff 33.33% 66.66%, #ef4135 66.66% 100%);
+}
+
+.wpait-flag-es {
+    background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
+}
+
+.wpait-flag-it {
+    background: linear-gradient(to right, #009246 0 33.33%, #fff 33.33% 66.66%, #ce2b37 66.66% 100%);
+}
+
+.wpait-flag-pt {
+    background: linear-gradient(to right, #006600 0 40%, #ff0000 40% 100%);
+}
+
+.wpait-flag-cn {
+    background: #de2910;
+}
+
+.wpait-flag-cn::before {
+    color: #ffde00;
+    content: "★";
+    font-size: 9px;
+    left: 2px;
+    line-height: 1;
+    position: absolute;
+    top: 1px;
+}
+
+.wpait-flag-jp {
+    background: radial-gradient(circle at center, #bc002d 0 28%, transparent 29%), #fff;
+}
+
+.wpait-flag-kr {
+    background: radial-gradient(circle at center, #cd2e3a 0 24%, #0047a0 25% 45%, transparent 46%), #fff;
+}
+
+.wpait-flag-ua {
+    background: linear-gradient(to bottom, #0057b7 0 50%, #ffd700 50% 100%);
+}
+
+.wpait-flag-tr {
+    background: #e30a17;
+}
+
+.wpait-flag-tr::before {
+    color: #fff;
+    content: "●";
+    font-size: 12px;
+    left: 4px;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+}
+
+.wpait-flag-sa {
+    background: #006c35;
+}
+
+.wpait-flag-il {
+    background: linear-gradient(to bottom, #fff 0 18%, #0038b8 18% 32%, #fff 32% 68%, #0038b8 68% 82%, #fff 82% 100%);
+}
+
+img.wpait-flag,
+img.wpait-fallback-flag {
+    background: none;
+    display: inline-block;
+    object-fit: cover;
 }
 
 .wpait-elementor-switcher .wpait-fallback-switcher-wrap {
@@ -202,6 +411,10 @@
     width: min(760px, 100%);
 }
 
+.wpait-inline-editor-dialog * {
+    box-sizing: border-box;
+}
+
 .wpait-inline-editor-dialog h2 {
     font-size: 18px;
     line-height: 1.3;
@@ -218,6 +431,34 @@
     padding: 12px 14px;
     resize: vertical;
     width: 100%;
+}
+
+.wpait-inline-editor-notice {
+    align-items: center;
+    color: #50575e;
+    display: flex;
+    font-size: 13px;
+    gap: 8px;
+    min-height: 24px;
+    padding-top: 8px;
+}
+
+.wpait-inline-editor-modal.is-loading .wpait-inline-editor-notice::before {
+    animation: wpait-inline-editor-spin 0.8s linear infinite;
+    border: 2px solid #dcdcde;
+    border-top-color: #2271b1;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    flex: 0 0 auto;
+    height: 14px;
+    width: 14px;
+}
+
+@keyframes wpait-inline-editor-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .wpait-inline-editor-textarea:focus {
@@ -264,6 +505,15 @@
     border-color: #8c8f94;
 }
 
+.wpait-inline-editor-dialog-actions button.is-auto {
+    background: #1e7e34;
+}
+
+.wpait-inline-editor-dialog-actions button.is-auto:hover,
+.wpait-inline-editor-dialog-actions button.is-auto:focus {
+    background: #166329;
+}
+
 .wpait-inline-editor-dialog-actions button:disabled {
     cursor: wait;
     opacity: 0.65;
@@ -291,5 +541,16 @@ body.wpait-editor-active .wpait-editable:hover {
 
     .wpait-inline-editor-brand {
         max-width: none;
+    }
+
+    .wpait-inline-editor-dialog {
+        max-height: calc(100vh - 32px);
+        overflow: auto;
+        padding: 18px;
+    }
+
+    .wpait-inline-editor-dialog-actions {
+        align-items: stretch;
+        flex-direction: column;
     }
 }

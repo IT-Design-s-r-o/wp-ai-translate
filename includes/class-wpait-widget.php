@@ -10,20 +10,24 @@ final class WPAIT_Widget extends WP_Widget
     {
         parent::__construct(
             'wpait_language_switcher',
-            __('WP AI Translate Switcher', 'wp-ai-translate'),
-            array('description' => __('Language switcher for WP AI Translate.', 'wp-ai-translate'))
+            __('AI Translate for WooCommerce & Elementor Switcher', 'ai-translate-woocommerce-elementor'),
+            array('description' => __('Language switcher for AI Translate for WooCommerce & Elementor.', 'ai-translate-woocommerce-elementor'))
         );
     }
 
     public function widget($args, $instance)
     {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Widget wrappers are provided by WordPress/theme sidebars.
         echo $args['before_widget'];
 
         if (!empty($instance['title'])) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Widget title wrappers are provided by WordPress/theme sidebars; title text is escaped.
             echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
         }
 
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Switcher HTML is generated internally with escaped URLs, labels, and attributes.
         echo WPAIT_Switcher::render();
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Widget wrappers are provided by WordPress/theme sidebars.
         echo $args['after_widget'];
     }
 
@@ -32,7 +36,7 @@ final class WPAIT_Widget extends WP_Widget
         $title = isset($instance['title']) ? (string) $instance['title'] : '';
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'wp-ai-translate'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'ai-translate-woocommerce-elementor'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
         </p>
         <?php

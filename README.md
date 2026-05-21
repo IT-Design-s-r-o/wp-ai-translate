@@ -1,221 +1,149 @@
-# WP AI Translate
+# AI Translate for WooCommerce & Elementor
 
-AI-powered WordPress translation plugin for WordPress, WooCommerce, and Elementor.
+**Powered by WP AI Translate.**
 
-![WP AI Translate](assets/img/logo.png)
+AI Translate for WooCommerce & Elementor is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
 
-![Version](https://img.shields.io/badge/version-0.3.23--beta-blue)
-![Status](https://img.shields.io/badge/status-public%20beta-orange)
-![WordPress](https://img.shields.io/badge/WordPress-6%2B-blue)
-![PHP](https://img.shields.io/badge/PHP-8%2B-777bb4)
-![License](https://img.shields.io/badge/license-GPL--2.0--or--later-green)
-![WooCommerce](https://img.shields.io/badge/WooCommerce-compatible-purple)
-![Elementor](https://img.shields.io/badge/Elementor-compatible-pink)
----
+Current public beta: **0.3.30 Public Beta Build**.
 
-## Public Beta
+- Plugin website: https://wp-ai.itdesign.biz/
+- Documentation: https://wp-ai.itdesign.biz/documentation/
+- Live demo: https://wp-ai-demo.itdesign.biz/
+- GitHub releases: https://github.com/IT-Design-s-r-o/wp-ai-translate/releases
+- Support development: https://www.paypal.com/paypalme/wpaitranslate
 
-Current version: `0.3.23 Professional Beta`
+## Public Beta Notice
 
-WP AI Translate is currently in active Public Beta development.
+AI Translate for WooCommerce & Elementor is currently available as a Public Beta. Please test on a staging website before using it on production projects, especially stores with WooCommerce orders, custom checkout fields, or complex page builders.
 
-The plugin focuses on:
+Public Beta builds include temporary full feature access while the plugin is actively tested and improved. Users who support the project during the Public Beta period may receive a special early-supporter offer for the future commercial release. No lifetime free access is promised.
 
-* AI-powered translations
-* WooCommerce compatibility
-* Elementor integration
-* SEO-friendly multilingual URLs
-* translation queue processing
-* frontend visual editing
-* lightweight architecture
+## Video Tutorials
 
----
+### Installation & Setup Wizard
 
-# Features
+Learn how to install AI Translate for WooCommerce & Elementor, configure languages, set up AI providers, and run the first translation workflow.
 
-## AI Providers
+Watch: https://youtu.be/s8KnOtqXAFI
 
-Supported providers:
+### Frontend Translation Editor
 
-* OpenAI
-* Gemini
-* Grok / xAI
-* Google Translate
-* DeepL
+See how to visually edit frontend translations, use AI auto-translation, preview results, and save translated content directly from the website frontend.
 
-Planned:
+Watch: https://youtu.be/sJE8FHwLk4s
 
-* Claude / Anthropic
+### Language Workflow, Menu, Scanner & Elementor
 
----
+Full workflow demo: add a new language, add the language switcher to a menu, scan content, process translations, and configure the Elementor language switcher.
 
-## Translation Engine
+Watch: https://youtu.be/MuUF4t6NNsA
 
-* Translation queue system
-* Saved translation memory
-* Automatic scanner
-* WP-Cron queue processing
-* Controlled translation batches
-* Dynamic frontend string collection
-* Translation reuse system
+## Features
 
----
+- Source language can follow the WordPress site language automatically.
+- Site owners choose target languages from a broad language list.
+- Directory URL mode (`/ka/about/`) and query URL mode (`/about/?lang=ka`) are available.
+- Selected visitor language is remembered with a cookie.
+- OpenAI, Google Translate, DeepL, Gemini, and Grok/xAI providers are supported.
+- Translation Mode / Tone of Voice foundation for prompt-based AI providers.
+- AI Cost Optimization settings for quality mode, temperature, request limits, and model recommendations.
+- Local provider quota controls can stop translation before provider-side quota errors.
+- Translations are stored locally and reused until source text changes.
+- Missing rendered frontend text is collected into a queue instead of being translated on every page load.
+- Scanner can collect posts, pages, products, menus, widgets, taxonomy terms, SEO meta, and public custom fields.
+- Queue can be processed manually or by WP-Cron in small controlled batches.
+- Translation Matrix supports scanning, bulk save, search, status filters, pagination, and import/export.
+- CSV, PO, and MO export/import are available per target language.
+- Language switcher is available as shortcode, widget, Elementor widget, WordPress menu item, and optional header/footer placement.
+- Local flag assets are bundled; no flag CDN is required.
+- Administrator frontend editing supports manual editing and provider-based auto-translate.
+- Debugger includes provider tests, route information, queue status, safe log export, and cost statistics.
 
-## WordPress Integration
+## Installation
 
-* WordPress pages/posts
-* WooCommerce products
-* taxonomy terms
-* menus
-* SEO metadata
-* public custom fields
+1. Download the latest release ZIP from GitHub Releases.
+2. In WordPress admin, open **Plugins > Add New > Upload Plugin**.
+3. Upload `ai-translate-woocommerce-elementor.zip`.
+4. Activate **AI Translate for WooCommerce & Elementor**.
+5. Open **AI Translate** in the WordPress admin menu.
+6. Choose source and target languages.
+7. Select a provider and add the matching API key.
+8. Run **Scanner** to collect strings.
+9. Process the translation queue.
+10. Add the language switcher with a shortcode, widget, Elementor widget, or WordPress menu item.
 
----
+## Shortcodes
 
-## Elementor Integration
-
-* Elementor language switcher widget
-* visual controls
-* dropdown/list/buttons layouts
-* typography and styling controls
-* responsive support
-
----
-
-## Frontend Editing
-
-* Live frontend translation editor
-* administrator-only editing
-* visual translation updates
-
----
-## Comparison
-
-| Feature | WP AI Translate | WPML | TranslatePress | Polylang |
-|---|---|---|---|---|
-| AI Translation | ✅ | ❌ | Partial | ❌ |
-| Frontend Editor | ✅ | ⚠️ | ✅ | ❌ |
-| WooCommerce | ✅ | ✅ | ✅ | ⚠️ |
-| Elementor Support | ✅ | ⚠️ | ⚠️ | ❌ |
-| SEO URLs | ✅ | ✅ | ✅ | ⚠️ |
-| OpenAI Support | ✅ | ❌ | ❌ | ❌ |
-| DeepL Support | ✅ | ⚠️ | ⚠️ | ❌ |
-
-# Screenshots
-
-## Dashboard
-
-![Dashboard](assets/img/dashboard.png)
-
-## Scanner and Queue
-
-![Scanner](assets/img/scanner.png)
-
-## Translation Matrix
-
-![Translations](assets/img/translations.png)
-
-## Setup Wizard
-
-![Setup Wizard](assets/img/setup-wizard.png)
-
-## Elementor Widget
-
-![Elementor Widget](assets/img/elementor-widget.png)
-
-## Frontend Editing
-
-![Frontend Editing](assets/img/frontend.png)
-
-![Frontend Editor](assets/img/frontend-editor.png)
-
-## Menu Widget
-
-![Menu Widget](assets/img/menu-widget.png)
-
-## Debugger
-
-![Debugger](assets/img/debugger.png)
-
-## Feedback System
-
-![Feedback](assets/img/feedback.png)
-
-## Support Page
-
-![Support](assets/img/support.png)
-
-## Bug Reporting
-
-![Bug Reporting](assets/img/report-bug.png)
-
----
-
-# Installation
-
-1. Upload the plugin folder to:
-
-/wp-content/plugins/wp-ai-translate/
-
-2. Activate the plugin
-
-3. Open:
-
-WP AI Translation
-
-4. Configure:
-
-* languages
-* provider
-* API keys
-
-5. Scan site strings
-
-6. Start queue translation
-
----
-
-# Shortcodes
-
+```text
 [wp_ai_translate_switcher]
-
 [ai_language_switcher]
+```
 
+## API Key Constants
 
-# Requirements
+API keys can be stored in plugin settings or defined in `wp-config.php`:
 
-* WordPress 6+
-* PHP 8+
-* WooCommerce optional
-* Elementor optional
+```php
+define( 'WPAIT_OPENAI_API_KEY', 'your-api-key' );
+define( 'WPAIT_GEMINI_API_KEY', 'your-api-key' );
+define( 'WPAIT_GROK_API_KEY', 'your-api-key' );
+define( 'WPAIT_GOOGLE_TRANSLATE_API_KEY', 'your-api-key' );
+define( 'WPAIT_DEEPL_API_KEY', 'your-api-key' );
+```
 
----
+## Provider Notes
 
-# Roadmap
+- DeepL Free uses `api-free.deepl.com`; DeepL paid API accounts use `api.deepl.com`.
+- Google Translate uses Cloud Translation Basic v2 and requires the Cloud Translation API to be enabled in Google Cloud.
+- Tone of Voice applies only to prompt-based AI providers.
+- Keep "Translate missing strings during page load" disabled on production sites. Use the queue instead.
+- Automatic background queue processing can use API quota. Keep batch size conservative until limits are confirmed.
 
-See:
+## Documentation
 
-[ROADMAP.md](ROADMAP.md)
+Recommended documentation sections:
 
----
+- Installation
+- Setup Wizard
+- AI Providers
+- OpenAI Setup
+- Gemini Setup
+- Grok / xAI Setup
+- Claude Setup
+- DeepL Setup
+- Google Translate Setup
+- Yandex Translate Setup
+- Frontend Translation Editor
+- Language Switcher
+- WordPress Menu Language Switcher
+- Elementor Widget
+- Scanner & Queue
+- Translation Matrix
+- WooCommerce Translation
+- SEO URLs
+- Tone of Voice / Translation Mode
+- API Cost Optimization
+- Troubleshooting
+- FAQ
+- Changelog
 
-# Security
+## Requirements
 
-See:
+- WordPress 6.0 or newer
+- PHP 7.4 or newer
+- WooCommerce optional
+- Elementor optional
 
-[SECURITY.md](SECURITY.md)
+## Support
 
----
+- Website: https://wp-ai.itdesign.biz/
+- Documentation: https://wp-ai.itdesign.biz/documentation/
+- Demo: https://wp-ai-demo.itdesign.biz/
+- Email: info@itdesign.biz
+- Donation: https://www.paypal.com/paypalme/wpaitranslate
 
-# Support
+## License
 
-* https://wp-ai.itdesign.biz
-* [info@itdesign.biz](mailto:info@itdesign.biz)
-
----
-
-# License
-
-GPL-2.0-or-later
+GPLv2 or later.
 
 https://www.gnu.org/licenses/gpl-2.0.html

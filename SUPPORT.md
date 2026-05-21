@@ -1,78 +1,32 @@
-[SUPPORT.md](https://github.com/user-attachments/files/27601846/SUPPORT.md)
 # Support
 
-Thank you for testing **WP AI Translate**.
+AI Translate for WooCommerce & Elementor is currently a Public Beta Build.
 
-WP AI Translate is currently available as a **free Public Beta**. Please test on a staging site first and make a backup before bulk translating production websites.
+## Before requesting help
 
-## Where To Get Help
+- Back up the site before bulk translation.
+- Test provider API keys on a staging site when possible.
+- Check the plugin Debugger page for provider errors, queue status, current language, route status, and WooCommerce route detection.
+- Download the redacted debug log from the Debugger page if you need to share diagnostics.
 
-- Plugin website: https://wp-ai.itdesign.biz
-- Documentation: https://wp-ai.itdesign.biz/documentation/
-- Support email: info@itdesign.biz
-- Support development: https://paypal.me/wpaitranslate
-
-## Reporting Bugs
-
-The preferred way to report a bug is from the WordPress admin:
-
-1. Open **WP AI Translation > Report Bug**.
-2. Select the problem type.
-3. Describe what happened.
-4. Add steps to reproduce the issue.
-5. Optionally attach the redacted technical log.
-
-Useful details for a bug report:
+## What to include in a bug report
 
 - WordPress version.
 - PHP version.
-- WooCommerce version, if WooCommerce is active.
-- Active theme.
-- Active plugins related to caching, SEO, page builders, and WooCommerce.
+- WooCommerce and Elementor status.
+- Active theme name.
+- Plugin version.
 - Source language and target languages.
-- Selected translation provider.
-- Exact page URL where the issue happens.
-- Expected result and actual result.
+- Selected provider.
+- Steps to reproduce.
+- A redacted debug log if relevant.
 
-## Feature Requests And Feedback
+## Contact
 
-Use **WP AI Translation > Feedback** for:
+- Plugin website: https://wp-ai.itdesign.biz/
+- Documentation: https://wp-ai.itdesign.biz/documentation/
+- Live demo: https://wp-ai-demo.itdesign.biz/
+- Support email: info@itdesign.biz
+- Donation link: https://www.paypal.com/paypalme/wpaitranslate
 
-- Feature requests.
-- Translation quality notes.
-- WooCommerce compatibility feedback.
-- Elementor widget feedback.
-- UI/UX suggestions.
-- Public Beta testing notes.
-
-## Public Beta Expectations
-
-During Public Beta, the goal is to improve stability, compatibility, documentation, and setup flow before a production release.
-
-The current beta may still have edge cases with:
-
-- Hosting file permissions.
-- WordPress upload updates on some servers.
-- Cache plugins.
-- Page builders.
-- WooCommerce permalink configurations.
-- Provider quota and billing limits.
-
-## API Provider Support
-
-WP AI Translate can send translation requests to external providers. API errors are usually controlled by the provider account, region, quota, billing status, model access, or API key restrictions.
-
-Common examples:
-
-- `429`: quota or rate limit reached.
-- `403`: API key restriction, billing issue, model access issue, or unsupported region.
-- `503`: temporary provider overload.
-
-For production sites, use conservative batch sizes and provider-side billing limits.
-
-## Security And Private Data
-
-Do not send API keys, passwords, cookies, customer records, billing details, or full database exports by email.
-
-If you attach logs from the plugin, WP AI Translate attempts to redact sensitive values, but you should still review the content before sending it.
-
+Please do not send API keys, passwords, customer data, or private server credentials in support requests.

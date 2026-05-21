@@ -1,124 +1,63 @@
-# WP AI Translate Roadmap
+# AI Translate for WooCommerce & Elementor Roadmap
 
-## 0.3.x Public Beta
+AI Translate for WooCommerce & Elementor is currently moving through a Public Beta stage before the WordPress.org submission and future commercial editions.
 
-Current focus:
+## Current Public Beta Focus
 
-* Translation queue engine
-* WooCommerce compatibility
-* Elementor integration
-* Frontend translation editing
-* Translation memory system
-* SEO-friendly multilingual URLs
-* Dynamic frontend string collection
-* Queue processing optimization
-* Public Beta stability improvements
+- WordPress.org publication readiness.
+- Stable scanner and queue workflow.
+- WooCommerce and Elementor compatibility.
+- Frontend Translation Editor with manual editing and auto-translate.
+- WordPress menu and Elementor language switcher workflows.
+- Translation Matrix import/export and manual correction workflow.
+- Safe diagnostics, redacted debug logs, and feedback collection.
 
----
+## Near-Term Roadmap
 
-# Planned Features
+- Continue reducing reviewer-sensitive Plugin Check warnings.
+- Expand documentation for provider setup and troubleshooting.
+- Improve AI Cost Optimization reporting and token/cost estimation.
+- Refine Translation Mode / Tone of Voice prompts.
+- Improve SEO translation settings and documentation.
+- Add more practical examples for WooCommerce stores and Elementor sites.
 
-## AI Providers
+## Provider Roadmap
 
-Planned provider support:
+Priority providers:
 
-* Claude / Anthropic
-* Azure OpenAI
-* Local AI models
-* OpenRouter support
+- OpenAI
+- Gemini
+- Grok / xAI
+- Google Translate
+- DeepL
+- Claude
+- Yandex Translate
+- YandexGPT / Alice
 
----
+Future provider architecture targets:
 
-## Translation Engine
+- Mistral
+- DeepSeek
+- Qwen
+- Moonshot AI
+- Baidu ERNIE
+- Cohere
+- Together AI
+- OpenRouter
 
-Upcoming improvements:
+## SEO Roadmap
 
-* Automatic glossary support
-* Context-aware translation
-* Translation quality scoring
-* AI rewrite modes
-* Translation fallback logic
-* Smarter duplicate detection
-* Bulk translation actions
+- Improved hreflang generation.
+- Translated slug workflow.
+- Canonical handling improvements.
+- Translated meta title and meta description workflow.
+- OpenGraph and Twitter Card translation.
+- Multilingual sitemap compatibility.
+- Rank Math and Yoast compatibility notes.
+- WooCommerce SEO field handling.
 
----
+## Future Free / Pro Structure
 
-## WooCommerce
+The Public Beta currently keeps full feature access available for testing and feedback. Future editions may separate basic manual translation features from advanced provider, queue, SEO, WooCommerce, and automation features.
 
-Planned WooCommerce improvements:
-
-* Cart translation improvements
-* Checkout translation improvements
-* Variation translation handling
-* Dynamic pricing translation
-* Email translation support
-* Better compatibility with WooCommerce themes
-
----
-
-## Elementor
-
-Planned Elementor improvements:
-
-* Additional Elementor widgets
-* Improved responsive controls
-* Better Theme Builder support
-* Dynamic widget translation
-* Popup Builder compatibility
-
----
-
-## SEO
-
-SEO roadmap:
-
-* Improved hreflang support
-* XML sitemap language support
-* Better multilingual URL handling
-* Canonical URL improvements
-* SEO plugin compatibility
-
----
-
-## Performance
-
-Performance roadmap:
-
-* Redis/Object Cache support
-* Improved batch processing
-* Faster translation lookup
-* Large-site optimization
-* Queue worker improvements
-* Reduced memory usage
-
----
-
-## Import / Export
-
-Planned tools:
-
-* JSON export/import
-* Translation backup tools
-* Cloud sync support
-* Team translation workflow
-
----
-
-## Future Plans
-
-Long-term roadmap:
-
-* SaaS translation sync
-* Cloud translation memory
-* Translation marketplace
-* Shared AI glossary system
-* Team collaboration tools
-* Enterprise edition
-
----
-
-# Public Beta Notice
-
-WP AI Translate is currently in active Public Beta development.
-
-Features, APIs, UI, and licensing may change before the stable release.
+No lifetime free access is promised during Public Beta.
