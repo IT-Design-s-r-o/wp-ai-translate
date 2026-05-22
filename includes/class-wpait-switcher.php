@@ -75,7 +75,7 @@ final class WPAIT_Switcher
     {
         $id = 'wpait-switcher-' . wp_rand(1000, 999999);
         $output = '<details class="wpait-switcher wpait-switcher-dropdown wpait-custom-dropdown notranslate" data-wpait-no-translate="1" translate="no">';
-        $output .= '<summary class="wpait-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'wpait-ai-translate-for-woocommerce-elementor') . '">';
+        $output .= '<summary class="wpait-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'wpait-multilingual-ai-translate') . '">';
         $output .= self::language_html($current);
         $output .= '</summary>';
         $output .= '<div id="' . esc_attr($id) . '" class="wpait-switcher-dropdown-menu" role="listbox">';
@@ -104,7 +104,7 @@ final class WPAIT_Switcher
 
     private static function render_list(array $languages, string $current): string
     {
-        $output = '<nav class="wpait-switcher wpait-switcher-list notranslate" aria-label="' . esc_attr__('Language switcher', 'wpait-ai-translate-for-woocommerce-elementor') . '" data-wpait-no-translate="1" translate="no">';
+        $output = '<nav class="wpait-switcher wpait-switcher-list notranslate" aria-label="' . esc_attr__('Language switcher', 'wpait-multilingual-ai-translate') . '" data-wpait-no-translate="1" translate="no">';
 
         foreach ($languages as $language) {
             $classes = array('wpait-switcher-link');

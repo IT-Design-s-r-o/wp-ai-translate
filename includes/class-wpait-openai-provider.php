@@ -11,7 +11,7 @@ final class WPAIT_OpenAI_Provider
         $api_key = WPAIT_Settings::openai_api_key();
 
         if (empty($api_key)) {
-            return new WP_Error('wpait_missing_openai_key', __('OpenAI API key is missing.', 'wpait-ai-translate-for-woocommerce-elementor'));
+            return new WP_Error('wpait_missing_openai_key', __('OpenAI API key is missing.', 'wpait-multilingual-ai-translate'));
         }
 
         if (empty($segments)) {
@@ -91,7 +91,7 @@ final class WPAIT_OpenAI_Provider
         $data = json_decode($raw_body, true);
 
         if ($status < 200 || $status >= 300) {
-            $message = $data['error']['message'] ?? __('OpenAI request failed.', 'wpait-ai-translate-for-woocommerce-elementor');
+            $message = $data['error']['message'] ?? __('OpenAI request failed.', 'wpait-multilingual-ai-translate');
 
             return new WP_Error('wpait_openai_error', $message, array('status' => $status));
         }
@@ -104,7 +104,7 @@ final class WPAIT_OpenAI_Provider
         }
 
         if (!is_array($decoded) || empty($decoded['translations']) || !is_array($decoded['translations'])) {
-            return new WP_Error('wpait_openai_parse_error', __('OpenAI returned an unexpected translation payload.', 'wpait-ai-translate-for-woocommerce-elementor'));
+            return new WP_Error('wpait_openai_parse_error', __('OpenAI returned an unexpected translation payload.', 'wpait-multilingual-ai-translate'));
         }
 
         $translations = array();

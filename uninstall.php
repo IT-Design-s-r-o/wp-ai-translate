@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall cleanup for WPAIT – AI Translate for WooCommerce & Elementor.
+ * Uninstall cleanup for WPAIT Multilingual AI Translate.
  */
 
 if (!defined('WP_UNINSTALL_PLUGIN')) {

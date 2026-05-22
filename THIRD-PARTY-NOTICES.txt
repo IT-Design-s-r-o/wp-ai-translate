@@ -1,7 +1,7 @@
 Third-Party Notices
 ===================
 
-WPAIT – AI Translate for WooCommerce & Elementor includes local SVG country flags from the lipis/flag-icons
+WPAIT Multilingual AI Translate includes local SVG country flags from the lipis/flag-icons
 project.
 
 Project: https://github.com/lipis/flag-icons

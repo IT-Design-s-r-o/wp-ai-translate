@@ -1,6 +1,6 @@
 # Providers
 
-WP AI Translate supports:
+WPAIT Multilingual AI Translate supports:
 
 - OpenAI
 - Gemini

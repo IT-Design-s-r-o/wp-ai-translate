@@ -10,8 +10,8 @@ final class WPAIT_Widget extends WP_Widget
     {
         parent::__construct(
             'wpait_language_switcher',
-            __('WPAIT – AI Translate for WooCommerce & Elementor Switcher', 'wpait-ai-translate-for-woocommerce-elementor'),
-            array('description' => __('Language switcher for WPAIT – AI Translate for WooCommerce & Elementor.', 'wpait-ai-translate-for-woocommerce-elementor'))
+            __('WPAIT Multilingual AI Translate Switcher', 'wpait-multilingual-ai-translate'),
+            array('description' => __('Language switcher for WPAIT Multilingual AI Translate.', 'wpait-multilingual-ai-translate'))
         );
     }
 
@@ -36,7 +36,7 @@ final class WPAIT_Widget extends WP_Widget
         $title = isset($instance['title']) ? (string) $instance['title'] : '';
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'wpait-multilingual-ai-translate'); ?></label>
             <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>">
         </p>
         <?php

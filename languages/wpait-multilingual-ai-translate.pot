@@ -2,13 +2,13 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPAIT – AI Translate for WooCommerce & Elementor 0.3.31\n"
+"Project-Id-Version: WPAIT Multilingual AI Translate 0.3.31\n"
 "Report-Msgid-Bugs-To: https://wp-ai.itdesign.biz/\n"
 "POT-Creation-Date: 2026-05-20 13:30+04:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Domain: wpait-ai-translate-for-woocommerce-elementor\n"
+"X-Domain: wpait-multilingual-ai-translate\n"
 
 #: includes/class-wpait-frontend-editor.php
 msgid "AI Translate edit"
@@ -95,7 +95,7 @@ msgid "Settings"
 msgstr ""
 
 #: includes/class-wpait-settings.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor"
+msgid "WPAIT Multilingual AI Translate"
 msgstr ""
 
 #: includes/class-wpait-settings.php
@@ -263,11 +263,11 @@ msgid "Select language"
 msgstr ""
 
 #: includes/class-wpait-widget.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor Switcher"
+msgid "WPAIT Multilingual AI Translate Switcher"
 msgstr ""
 
 #: includes/class-wpait-widget.php
-msgid "Language switcher for WPAIT – AI Translate for WooCommerce & Elementor."
+msgid "Language switcher for WPAIT Multilingual AI Translate."
 msgstr ""
 
 #: includes/class-wpait-widget.php
@@ -319,15 +319,15 @@ msgid "Support Development"
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "Support WPAIT – AI Translate for WooCommerce & Elementor"
+msgid "Support WPAIT Multilingual AI Translate"
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved."
+msgid "WPAIT Multilingual AI Translate is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved."
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of WPAIT – AI Translate for WooCommerce & Elementor."
+msgid "Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of WPAIT Multilingual AI Translate."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -335,7 +335,7 @@ msgid "Your support helps improve the plugin, optimize AI providers, expand lang
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor is currently in Public Beta. Please make a backup before bulk translating production websites."
+msgid "WPAIT Multilingual AI Translate is currently in Public Beta. Please make a backup before bulk translating production websites."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -399,7 +399,7 @@ msgid "Custom Prompt"
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "Display the WPAIT – AI Translate for WooCommerce & Elementor language switcher."
+msgid "Display the WPAIT Multilingual AI Translate language switcher."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -627,7 +627,7 @@ msgid "Send a safe technical report for Public Beta troubleshooting."
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "Bug report sent. Thank you for helping test WPAIT – AI Translate for WooCommerce & Elementor."
+msgid "Bug report sent. Thank you for helping test WPAIT Multilingual AI Translate."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -711,7 +711,7 @@ msgid "Share Public Beta feedback, feature requests, and translation notes."
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "Feedback sent. Thank you for shaping WPAIT – AI Translate for WooCommerce & Elementor."
+msgid "Feedback sent. Thank you for shaping WPAIT Multilingual AI Translate."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -787,7 +787,7 @@ msgid "Welcome"
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor adds AI translation, WooCommerce support, frontend editing, SEO-friendly language URLs, and saved translation memory. This is a Public Beta, so make a backup before bulk translating production websites."
+msgid "WPAIT Multilingual AI Translate adds AI translation, WooCommerce support, frontend editing, SEO-friendly language URLs, and saved translation memory. This is a Public Beta, so make a backup before bulk translating production websites."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -1183,7 +1183,7 @@ msgid "Settings saved."
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor is using the single-file queued translation engine. Pages use saved translations first; new strings are collected into the queue for batch translation."
+msgid "WPAIT Multilingual AI Translate is using the single-file queued translation engine. Pages use saved translations first; new strings are collected into the queue for batch translation."
 msgstr ""
 
 #: wp-ai-translate.php
@@ -1191,7 +1191,7 @@ msgid "Last translation error:"
 msgstr ""
 
 #: wp-ai-translate.php
-msgid "WPAIT – AI Translate for WooCommerce & Elementor sections"
+msgid "WPAIT Multilingual AI Translate sections"
 msgstr ""
 
 #: wp-ai-translate.php

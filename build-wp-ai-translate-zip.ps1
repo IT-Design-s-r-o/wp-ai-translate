@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 
 $root = $PSScriptRoot
-$zipRoot = 'wpait-ai-translate-for-woocommerce-elementor'
+$zipRoot = 'wpait-multilingual-ai-translate'
 $zipPath = Join-Path $PSScriptRoot ($zipRoot + '.zip')
 
 if (-not (Test-Path (Join-Path $root 'wp-ai-translate.php'))) {

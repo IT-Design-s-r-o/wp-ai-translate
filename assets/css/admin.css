@@ -464,7 +464,7 @@
     grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
 }
 
-.toplevel_page_wpait-ai-translate-for-woocommerce-elementor .wp-menu-image img {
+.toplevel_page_wpait-multilingual-ai-translate .wp-menu-image img {
     height: 20px !important;
     object-fit: contain;
     padding-top: 7px !important;

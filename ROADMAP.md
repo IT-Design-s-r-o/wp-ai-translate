@@ -1,6 +1,6 @@
-# AI Translate for WooCommerce & Elementor Roadmap
+# WPAIT Multilingual AI Translate Roadmap
 
-AI Translate for WooCommerce & Elementor is currently moving through a Public Beta stage before the WordPress.org submission and future commercial editions.
+WPAIT Multilingual AI Translate is currently moving through a Public Beta stage before the WordPress.org submission and future commercial editions.
 
 ## Current Public Beta Focus
 
