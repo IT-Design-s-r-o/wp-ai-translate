@@ -34,15 +34,15 @@ final class WPAIT_Frontend_Editor
                 'nonce' => wp_create_nonce('wpait_frontend_editor'),
                 'sourceLanguage' => WPAIT_Settings::source_language(),
                 'targetLanguage' => WPAIT_Router::current_language(),
-                'editLabel' => __('AI Translate edit', 'ai-translate-woocommerce-elementor'),
-                'promptLabel' => __('Edit translation', 'ai-translate-woocommerce-elementor'),
-                'autoTranslateLabel' => __('Auto Translate', 'ai-translate-woocommerce-elementor'),
-                'translatingLabel' => __('AI translating...', 'ai-translate-woocommerce-elementor'),
-                'translationReadyLabel' => __('AI Translation Ready', 'ai-translate-woocommerce-elementor'),
-                'translateFailedLabel' => __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor'),
-                'savingLabel' => __('Saving...', 'ai-translate-woocommerce-elementor'),
-                'savedLabel' => __('Saved', 'ai-translate-woocommerce-elementor'),
-                'errorLabel' => __('Could not save translation', 'ai-translate-woocommerce-elementor'),
+                'editLabel' => __('AI Translate edit', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'promptLabel' => __('Edit translation', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'autoTranslateLabel' => __('Auto Translate', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'translatingLabel' => __('AI translating...', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'translationReadyLabel' => __('AI Translation Ready', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'translateFailedLabel' => __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'savingLabel' => __('Saving...', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'savedLabel' => __('Saved', 'wpait-ai-translate-for-woocommerce-elementor'),
+                'errorLabel' => __('Could not save translation', 'wpait-ai-translate-for-woocommerce-elementor'),
             )
         );
     }
@@ -51,7 +51,7 @@ final class WPAIT_Frontend_Editor
         check_ajax_referer('wpait_frontend_editor', 'nonce');
 
         if (!current_user_can('manage_options')) {
-            wp_send_json_error(array('message' => __('Permission denied.', 'ai-translate-woocommerce-elementor')), 403);
+            wp_send_json_error(array('message' => __('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor')), 403);
         }
 
         $source_text = isset($_POST['sourceText']) ? sanitize_textarea_field(wp_unslash((string) $_POST['sourceText'])) : '';
@@ -60,23 +60,23 @@ final class WPAIT_Frontend_Editor
         $target_language = isset($_POST['targetLanguage']) ? WPAIT_Languages::normalize_code(sanitize_key(wp_unslash((string) $_POST['targetLanguage']))) : '';
 
         if ('' === $source_text || '' === $translated_text || '' === $target_language) {
-            wp_send_json_error(array('message' => __('Missing translation data.', 'ai-translate-woocommerce-elementor')), 400);
+            wp_send_json_error(array('message' => __('Missing translation data.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
         }
 
         $saved = WPAIT_Translations::save($source_text, $translated_text, $source_language, $target_language, 'html', 'manual', 'manual');
 
         if (!$saved) {
-            wp_send_json_error(array('message' => __('Translation was not saved.', 'ai-translate-woocommerce-elementor')), 500);
+            wp_send_json_error(array('message' => __('Translation was not saved.', 'wpait-ai-translate-for-woocommerce-elementor')), 500);
         }
 
-        wp_send_json_success(array('message' => __('Translation saved.', 'ai-translate-woocommerce-elementor')));
+        wp_send_json_success(array('message' => __('Translation saved.', 'wpait-ai-translate-for-woocommerce-elementor')));
     }
 
     public static function auto_translate() {
         check_ajax_referer('wpait_frontend_editor', 'nonce');
 
         if (!current_user_can('manage_options')) {
-            wp_send_json_error(array('message' => __('Permission denied.', 'ai-translate-woocommerce-elementor')), 403);
+            wp_send_json_error(array('message' => __('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor')), 403);
         }
 
         $source_text = isset($_POST['sourceText']) ? sanitize_textarea_field(wp_unslash((string) $_POST['sourceText'])) : '';
@@ -84,15 +84,15 @@ final class WPAIT_Frontend_Editor
         $target_language = isset($_POST['targetLanguage']) ? WPAIT_Languages::normalize_code(sanitize_key(wp_unslash((string) $_POST['targetLanguage']))) : '';
 
         if ('' === $source_text || '' === $target_language) {
-            wp_send_json_error(array('message' => __('Missing translation data.', 'ai-translate-woocommerce-elementor')), 400);
+            wp_send_json_error(array('message' => __('Missing translation data.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
         }
 
         if ($source_language === $target_language) {
-            wp_send_json_error(array('message' => __('Source and target languages are the same.', 'ai-translate-woocommerce-elementor')), 400);
+            wp_send_json_error(array('message' => __('Source and target languages are the same.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
         }
 
         if ('' === WPAIT_Settings::openai_api_key()) {
-            wp_send_json_error(array('message' => __('No translation provider configured.', 'ai-translate-woocommerce-elementor')), 400);
+            wp_send_json_error(array('message' => __('No translation provider configured.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
         }
 
         $hash = WPAIT_Translations::hash($source_text);
@@ -108,13 +108,13 @@ final class WPAIT_Frontend_Editor
         }
 
         if (!is_array($translated) || !array_key_exists($hash, $translated) || '' === trim((string) $translated[$hash])) {
-            wp_send_json_error(array('message' => __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor')), 500);
+            wp_send_json_error(array('message' => __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor')), 500);
         }
 
         wp_send_json_success(
             array(
                 'translation' => (string) $translated[$hash],
-                'message' => __('Translated via OpenAI', 'ai-translate-woocommerce-elementor'),
+                'message' => __('Translated via OpenAI', 'wpait-ai-translate-for-woocommerce-elementor'),
                 'provider' => 'OpenAI',
             )
         );
@@ -123,20 +123,20 @@ final class WPAIT_Frontend_Editor
     private static function provider_error_message_for_editor($error, int $status = 500): string
     {
         if (!$error instanceof WP_Error) {
-            return __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor');
+            return __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor');
         }
 
         $code = $error->get_error_code();
         $message = strtolower($error->get_error_message());
 
         if (false !== strpos($code, 'missing') || false !== strpos($message, 'api key is missing')) {
-            return __('No translation provider configured.', 'ai-translate-woocommerce-elementor');
+            return __('No translation provider configured.', 'wpait-ai-translate-for-woocommerce-elementor');
         }
 
         if (429 === $status || false !== strpos($code, 'quota') || false !== strpos($code, 'cooldown') || false !== strpos($message, 'rate limit') || false !== strpos($message, 'quota')) {
-            return __('Provider rate limit reached.', 'ai-translate-woocommerce-elementor');
+            return __('Provider rate limit reached.', 'wpait-ai-translate-for-woocommerce-elementor');
         }
 
-        return __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor');
+        return __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor');
     }
 }

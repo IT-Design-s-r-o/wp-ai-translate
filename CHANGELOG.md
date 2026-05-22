@@ -1,13 +1,31 @@
 # Changelog
 
-All notable changes to AI Translate for WooCommerce & Elementor are documented here.
+All notable changes to WPAIT – AI Translate for WooCommerce & Elementor are documented here.
+
+## 0.3.31
+
+### Changed
+
+- Renamed public WordPress.org plugin name to WPAIT – AI Translate for WooCommerce & Elementor.
+- Updated submission slug to `wpait-ai-translate-for-woocommerce-elementor`.
+- Updated text domain and WordPress.org package structure.
+- Updated `readme.txt`, language template filename, and public-facing branding for WordPress.org guidelines.
+
+### Fixed
+
+- Improved WordPress.org naming compliance.
+- Reduced generic/trademark review risk with a distinct WPAIT brand prefix.
+
+### Compatibility note
+
+- Kept internal prefixes, option names, database tables, hooks, shortcodes, translation engine, queue processing, scanner, routing, provider calls, frontend editor, Elementor widget, language switcher, and WooCommerce compatibility logic unchanged.
 
 ## 0.3.30
 
 ### Added
 
-- WordPress.org-ready public plugin name: AI Translate for WooCommerce & Elementor.
-- Public Beta release metadata and package slug: `ai-translate-woocommerce-elementor`.
+- WordPress.org-ready public plugin name: WPAIT – AI Translate for WooCommerce & Elementor.
+- Public Beta release metadata and package slug: `wpait-ai-translate-for-woocommerce-elementor`.
 - Tone of Voice / Translation Mode foundation for prompt-based AI providers.
 - AI Cost Optimization settings for quality mode, temperature, request character limits, estimated per-request cost limits, and model recommendations.
 - Provider statistics for API requests, estimated input/output tokens, estimated cost, cache hits, duplicate skipped count, provider, and model.

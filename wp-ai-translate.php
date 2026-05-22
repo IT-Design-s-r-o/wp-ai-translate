@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: AI Translate for WooCommerce & Elementor
+ * Plugin Name: WPAIT – AI Translate for WooCommerce & Elementor
  * Description: AI-powered multilingual translation plugin for WordPress with WooCommerce, Elementor, SEO-friendly URLs and frontend editing support.
  * Plugin URI: https://wp-ai.itdesign.biz
- * Version: 0.3.30
+ * Version: 0.3.31
  * Author: sotter IT Design
  * Author URI: https://wp-ai.itdesign.biz
- * Text Domain: ai-translate-woocommerce-elementor
+ * Text Domain: wpait-ai-translate-for-woocommerce-elementor
  * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 7.4
@@ -18,10 +18,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WPAIT_VERSION', '0.3.30');
+define('WPAIT_VERSION', '0.3.31');
 define('WPAIT_PLUGIN_FILE', __FILE__);
-define('WPAIT_PUBLIC_NAME', 'AI Translate for WooCommerce & Elementor');
-define('WPAIT_PUBLIC_SLUG', 'ai-translate-woocommerce-elementor');
+define('WPAIT_PUBLIC_NAME', 'WPAIT – AI Translate for WooCommerce & Elementor');
+define('WPAIT_PUBLIC_SLUG', 'wpait-ai-translate-for-woocommerce-elementor');
 define('WPAIT_LEGACY_SLUG', 'wp-ai-translate');
 
 add_action('plugins_loaded', 'wpait_fallback_load_textdomain');
@@ -176,7 +176,7 @@ function wpait_register_fallback_admin()
 function wpait_fallback_load_textdomain()
 {
     load_plugin_textdomain(
-        'ai-translate-woocommerce-elementor',
+        'wpait-ai-translate-for-woocommerce-elementor',
         false,
         dirname(plugin_basename(WPAIT_PLUGIN_FILE)) . '/languages'
     );
@@ -296,8 +296,8 @@ function wpait_fallback_is_static_asset_path($path)
 function wpait_fallback_admin_menu()
 {
     add_menu_page(
-        __('AI Translate', 'ai-translate-woocommerce-elementor'),
-        __('AI Translate', 'ai-translate-woocommerce-elementor'),
+        __('AI Translate', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('AI Translate', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         WPAIT_PUBLIC_SLUG,
         'wpait_fallback_settings_page',
@@ -307,8 +307,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'),
-        __('Dashboard', 'ai-translate-woocommerce-elementor'),
+        __('WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Dashboard', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         WPAIT_PUBLIC_SLUG,
         'wpait_fallback_settings_page'
@@ -316,8 +316,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Translations', 'ai-translate-woocommerce-elementor'),
-        __('Translations', 'ai-translate-woocommerce-elementor'),
+        __('Translations', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Translations', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-translations',
         'wpait_fallback_translations_page'
@@ -325,8 +325,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Scanner', 'ai-translate-woocommerce-elementor'),
-        __('Scanner', 'ai-translate-woocommerce-elementor'),
+        __('Scanner', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Scanner', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-scanner',
         'wpait_fallback_scanner_page'
@@ -334,8 +334,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Report Bug', 'ai-translate-woocommerce-elementor'),
-        __('Report Bug', 'ai-translate-woocommerce-elementor'),
+        __('Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-report-bug',
         'wpait_fallback_report_bug_page'
@@ -343,8 +343,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Feedback', 'ai-translate-woocommerce-elementor'),
-        __('Feedback', 'ai-translate-woocommerce-elementor'),
+        __('Feedback', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Feedback', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-feedback',
         'wpait_fallback_feedback_page'
@@ -352,8 +352,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Setup Wizard', 'ai-translate-woocommerce-elementor'),
-        __('Setup Wizard', 'ai-translate-woocommerce-elementor'),
+        __('Setup Wizard', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Setup Wizard', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-onboarding',
         'wpait_fallback_onboarding_page'
@@ -361,8 +361,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Support', 'ai-translate-woocommerce-elementor'),
-        __('Support', 'ai-translate-woocommerce-elementor'),
+        __('Support', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Support', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-support',
         'wpait_fallback_support_page'
@@ -370,8 +370,8 @@ function wpait_fallback_admin_menu()
 
     add_submenu_page(
         WPAIT_PUBLIC_SLUG,
-        __('Debugger', 'ai-translate-woocommerce-elementor'),
-        __('Debugger', 'ai-translate-woocommerce-elementor'),
+        __('Debugger', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Debugger', 'wpait-ai-translate-for-woocommerce-elementor'),
         'manage_options',
         'wp-ai-translate-debugger',
         'wpait_fallback_debugger_page'
@@ -380,7 +380,7 @@ function wpait_fallback_admin_menu()
 
 function wpait_fallback_admin_icon_css()
 {
-    echo '<style>.toplevel_page_ai-translate-woocommerce-elementor .wp-menu-image img{height:20px!important;object-fit:contain;padding-top:7px!important;width:20px!important}</style>';
+    echo '<style>.toplevel_page_wpait-ai-translate-for-woocommerce-elementor .wp-menu-image img{height:20px!important;object-fit:contain;padding-top:7px!important;width:20px!important}</style>';
 }
 
 function wpait_fallback_menu_icon_url()
@@ -458,7 +458,7 @@ function wpait_fallback_write_local_file($path, $contents)
 
 function wpait_fallback_edition_label()
 {
-    return __('Public Beta Build', 'ai-translate-woocommerce-elementor');
+    return __('Public Beta Build', 'wpait-ai-translate-for-woocommerce-elementor');
 }
 
 function wpait_fallback_is_professional()
@@ -546,7 +546,7 @@ function wpait_fallback_admin_inline_css()
 
 function wpait_fallback_admin_polish_css()
 {
-    return '.wpait-admin-title img{display:block;height:34px;width:34px}.wpait-admin-title.is-dashboard img{height:150px;width:150px}.toplevel_page_ai-translate-woocommerce-elementor .wp-menu-image img{height:20px!important;object-fit:contain;padding-top:7px!important;width:20px!important}.wpait-section-heading{font-size:15px;margin:10px 0 4px}.wpait-mode-basic .wpait-advanced-only,.wpait-fallback-language-grid label.is-hidden,.wpait-language-option.is-hidden{display:none!important}.wpait-matrix-filters input[type=search],.wpait-matrix-filters select,.wpait-matrix-filters .button{height:34px;margin:0}.wpait-matrix-filters>.button,.wpait-matrix-filters>input[type=submit]{align-self:flex-end}.wpait-segmented{display:inline-flex}.wpait-segmented input{position:absolute;opacity:0}.wpait-segmented span{background:#fff;border:1px solid #c3c4c7;display:inline-block;min-width:78px;padding:7px 12px;text-align:center}.wpait-segmented input:checked+span{background:#2271b1;border-color:#2271b1;color:#fff}.wpait-form-grid,.wpait-onboarding-steps{display:grid;gap:14px 18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.wpait-checkbox-row,.wpait-notice-actions,.wpait-support-buttons,.wpait-finish-onboarding{align-items:center;display:flex;flex-wrap:wrap;gap:8px}';
+    return '.wpait-admin-title img{display:block;height:34px;width:34px}.wpait-admin-title.is-dashboard img{height:150px;width:150px}.toplevel_page_wpait-ai-translate-for-woocommerce-elementor .wp-menu-image img{height:20px!important;object-fit:contain;padding-top:7px!important;width:20px!important}.wpait-section-heading{font-size:15px;margin:10px 0 4px}.wpait-mode-basic .wpait-advanced-only,.wpait-fallback-language-grid label.is-hidden,.wpait-language-option.is-hidden{display:none!important}.wpait-matrix-filters input[type=search],.wpait-matrix-filters select,.wpait-matrix-filters .button{height:34px;margin:0}.wpait-matrix-filters>.button,.wpait-matrix-filters>input[type=submit]{align-self:flex-end}.wpait-segmented{display:inline-flex}.wpait-segmented input{position:absolute;opacity:0}.wpait-segmented span{background:#fff;border:1px solid #c3c4c7;display:inline-block;min-width:78px;padding:7px 12px;text-align:center}.wpait-segmented input:checked+span{background:#2271b1;border-color:#2271b1;color:#fff}.wpait-form-grid,.wpait-onboarding-steps{display:grid;gap:14px 18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.wpait-checkbox-row,.wpait-notice-actions,.wpait-support-buttons,.wpait-finish-onboarding{align-items:center;display:flex;flex-wrap:wrap;gap:8px}';
 }
 
 function wpait_fallback_admin_inline_script()
@@ -608,7 +608,7 @@ function wpait_fallback_overlay_self_update_package_options($options)
     delete_transient('wpait_self_upload_overlay_update');
 
     if (function_exists('wpait_fallback_log_debug_event')) {
-        wpait_fallback_log_debug_event('update', 'Using overlay update mode for AI Translate for WooCommerce & Elementor.', array(
+        wpait_fallback_log_debug_event('update', 'Using overlay update mode for WPAIT – AI Translate for WooCommerce & Elementor.', array(
             'plugin' => $plugin,
             'destination' => $destination,
             'upload_overwrite' => $is_self_upload_overwrite ? 'yes' : 'no',
@@ -624,7 +624,7 @@ function wpait_fallback_mark_self_upload_overwrite($install_actions, $api, $new_
     $name = isset($new_plugin_data['Name']) ? (string) $new_plugin_data['Name'] : '';
     $text_domain = isset($new_plugin_data['TextDomain']) ? (string) $new_plugin_data['TextDomain'] : '';
 
-    if (WPAIT_PUBLIC_NAME !== $name && 'AI Translate for WooCommerce & Elementor' !== $name && WPAIT_PUBLIC_SLUG !== $text_domain) {
+    if (WPAIT_PUBLIC_NAME !== $name && 'WPAIT – AI Translate for WooCommerce & Elementor' !== $name && WPAIT_PUBLIC_SLUG !== $text_domain) {
         return $install_actions;
     }
 
@@ -646,7 +646,7 @@ function wpait_fallback_is_update_safe_folder()
 function wpait_fallback_repair_plugin_folder_handler()
 {
     if (!current_user_can('activate_plugins')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_repair_plugin_folder');
@@ -662,7 +662,7 @@ function wpait_fallback_repair_plugin_folder_handler()
     if (file_exists($target)) {
         update_option('wpait_folder_repair_result', array(
             'ok' => false,
-            'message' => 'The ai-translate-woocommerce-elementor folder already exists. Delete or rename it first, then run the repair again.',
+            'message' => 'The wpait-ai-translate-for-woocommerce-elementor folder already exists. Delete or rename it first, then run the repair again.',
             'created_at' => current_time('mysql'),
         ), false);
         wp_safe_redirect(admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG));
@@ -674,7 +674,7 @@ function wpait_fallback_repair_plugin_folder_handler()
     if (!$copied || !file_exists($target . '/wp-ai-translate.php')) {
         update_option('wpait_folder_repair_result', array(
             'ok' => false,
-            'message' => 'Could not copy the plugin into ai-translate-woocommerce-elementor. Check file permissions in wp-content/plugins.',
+            'message' => 'Could not copy the plugin into wpait-ai-translate-for-woocommerce-elementor. Check file permissions in wp-content/plugins.',
             'created_at' => current_time('mysql'),
         ), false);
         wp_safe_redirect(admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG));
@@ -683,7 +683,7 @@ function wpait_fallback_repair_plugin_folder_handler()
 
     update_option('wpait_folder_repair_result', array(
         'ok' => true,
-        'message' => 'A clean ai-translate-woocommerce-elementor folder was created. Activate the copied plugin to finish the repair.',
+        'message' => 'A clean wpait-ai-translate-for-woocommerce-elementor folder was created. Activate the copied plugin to finish the repair.',
         'created_at' => current_time('mysql'),
     ), false);
 
@@ -747,7 +747,7 @@ function wpait_fallback_register_settings()
 function wpait_fallback_save_settings_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_save_settings');
@@ -1353,15 +1353,15 @@ function wpait_fallback_redirect_language_home()
 function wpait_fallback_plugin_links($links)
 {
     $url = admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG);
-    array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'ai-translate-woocommerce-elementor') . '</a>');
+    array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'wpait-ai-translate-for-woocommerce-elementor') . '</a>');
 
     return $links;
 }
 
-function wpait_fallback_admin_redirect_url_from_post($default_page = 'ai-translate-woocommerce-elementor')
+function wpait_fallback_admin_redirect_url_from_post($default_page = 'wpait-ai-translate-for-woocommerce-elementor')
 {
     $allowed_pages = array(
-        'ai-translate-woocommerce-elementor',
+        'wpait-ai-translate-for-woocommerce-elementor',
         'wp-ai-translate-translations',
         'wp-ai-translate-scanner',
         'wp-ai-translate-debugger',
@@ -1441,7 +1441,7 @@ function wpait_fallback_support_development_button($class = 'button')
         '<a class="%1$s" href="%2$s" target="_blank" rel="noopener noreferrer">%3$s</a>',
         esc_attr($class),
         esc_url(wpait_fallback_support_development_url()),
-        esc_html__('Support Development', 'ai-translate-woocommerce-elementor')
+        esc_html__('Support Development', 'wpait-ai-translate-for-woocommerce-elementor')
     );
 }
 
@@ -1449,10 +1449,10 @@ function wpait_fallback_support_development_block($compact = false)
 {
     ?>
     <div class="wpait-support-development-block <?php echo esc_attr($compact ? 'is-compact' : ''); ?>">
-        <h3><?php esc_html_e('Support AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'); ?></h3>
-        <p><?php esc_html_e('AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved.', 'ai-translate-woocommerce-elementor'); ?></p>
-        <p><?php esc_html_e('Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of AI Translate for WooCommerce & Elementor.', 'ai-translate-woocommerce-elementor'); ?></p>
-        <p><?php esc_html_e('Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development.', 'ai-translate-woocommerce-elementor'); ?></p>
+        <h3><?php esc_html_e('Support WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+        <p><?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+        <p><?php esc_html_e('Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of WPAIT – AI Translate for WooCommerce & Elementor.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+        <p><?php esc_html_e('Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         <p class="wpait-support-buttons">
             <?php
             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Button HTML is built from escaped attributes and translated text.
@@ -1467,10 +1467,10 @@ function wpait_fallback_public_beta_notice()
 {
     ?>
     <div class="notice notice-info inline wpait-public-beta-notice">
-        <p><?php esc_html_e('AI Translate for WooCommerce & Elementor is currently in Public Beta. Please make a backup before bulk translating production websites.', 'ai-translate-woocommerce-elementor'); ?></p>
+        <p><?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor is currently in Public Beta. Please make a backup before bulk translating production websites.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         <p class="wpait-notice-actions">
-            <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-report-bug')); ?>"><?php esc_html_e('Report Bug', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-feedback')); ?>"><?php esc_html_e('Send Feedback', 'ai-translate-woocommerce-elementor'); ?></a>
+            <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-report-bug')); ?>"><?php esc_html_e('Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-feedback')); ?>"><?php esc_html_e('Send Feedback', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
             <?php
             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Button HTML is built from escaped attributes and translated text.
             echo wpait_fallback_support_development_button('button wpait-support-donation-button');
@@ -1568,7 +1568,7 @@ function wpait_fallback_mail_public_beta_message($subject, $fields, $include_log
 function wpait_fallback_submit_bug_report_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_submit_bug_report');
@@ -1587,7 +1587,7 @@ function wpait_fallback_submit_bug_report_handler()
         'Steps to reproduce' => isset($_POST['steps']) ? sanitize_textarea_field(wp_unslash((string) $_POST['steps'])) : '',
     );
     $include_log = !empty($_POST['attach_log']);
-    $sent = wpait_fallback_mail_public_beta_message('[AI Translate for WooCommerce & Elementor Public Beta] Bug report', $fields, $include_log);
+    $sent = wpait_fallback_mail_public_beta_message('[WPAIT – AI Translate for WooCommerce & Elementor Public Beta] Bug report', $fields, $include_log);
 
     wp_safe_redirect(add_query_arg('wpait_sent', $sent ? '1' : '0', admin_url('admin.php?page=wp-ai-translate-report-bug')));
     exit;
@@ -1596,7 +1596,7 @@ function wpait_fallback_submit_bug_report_handler()
 function wpait_fallback_submit_feedback_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_submit_feedback');
@@ -1612,7 +1612,7 @@ function wpait_fallback_submit_feedback_handler()
         'Type' => isset($_POST['feedback_type']) ? sanitize_text_field(wp_unslash((string) $_POST['feedback_type'])) : '',
         'Message' => isset($_POST['message']) ? sanitize_textarea_field(wp_unslash((string) $_POST['message'])) : '',
     );
-    $sent = wpait_fallback_mail_public_beta_message('[AI Translate for WooCommerce & Elementor Public Beta] Feedback', $fields, false);
+    $sent = wpait_fallback_mail_public_beta_message('[WPAIT – AI Translate for WooCommerce & Elementor Public Beta] Feedback', $fields, false);
 
     wp_safe_redirect(add_query_arg('wpait_sent', $sent ? '1' : '0', admin_url('admin.php?page=wp-ai-translate-feedback')));
     exit;
@@ -1621,7 +1621,7 @@ function wpait_fallback_submit_feedback_handler()
 function wpait_fallback_onboarding_save_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_onboarding_save');
@@ -1643,7 +1643,7 @@ function wpait_fallback_onboarding_save_handler()
 function wpait_fallback_onboarding_finish_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_onboarding_finish');
@@ -2084,9 +2084,9 @@ function wpait_fallback_provider_model($provider = '')
 function wpait_fallback_quality_mode_options()
 {
     return array(
-        'cheap' => __('Cheap', 'ai-translate-woocommerce-elementor'),
-        'balanced' => __('Balanced', 'ai-translate-woocommerce-elementor'),
-        'premium' => __('Premium', 'ai-translate-woocommerce-elementor'),
+        'cheap' => __('Cheap', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'balanced' => __('Balanced', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'premium' => __('Premium', 'wpait-ai-translate-for-woocommerce-elementor'),
     );
 }
 
@@ -2137,47 +2137,47 @@ function wpait_fallback_translation_mode_options()
 {
     return array(
         'neutral' => array(
-            'label' => __('Neutral / Accurate', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Neutral / Accurate', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate accurately and preserve the original meaning, formatting and tone.',
         ),
         'seo' => array(
-            'label' => __('SEO Optimized', 'ai-translate-woocommerce-elementor'),
+            'label' => __('SEO Optimized', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate and adapt the text for SEO in the target language. Keep it natural, search-friendly and relevant. Do not add unrelated keywords.',
         ),
         'marketing' => array(
-            'label' => __('Marketing', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Marketing', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate the text in a persuasive marketing style. Keep the message natural, clear and conversion-oriented.',
         ),
         'ecommerce' => array(
-            'label' => __('eCommerce', 'ai-translate-woocommerce-elementor'),
+            'label' => __('eCommerce', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate the text for an eCommerce website. Keep product names, attributes, benefits and call-to-action phrases natural and commercially effective.',
         ),
         'formal' => array(
-            'label' => __('Formal', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Formal', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate using a formal and professional tone.',
         ),
         'casual' => array(
-            'label' => __('Casual', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Casual', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate using a natural and casual tone.',
         ),
         'technical' => array(
-            'label' => __('Technical', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Technical', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate using precise technical language. Preserve technical terms and product names.',
         ),
         'legal' => array(
-            'label' => __('Legal', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Legal', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate using a formal legal style. Preserve meaning carefully and avoid creative rewriting.',
         ),
         'luxury' => array(
-            'label' => __('Luxury Brand', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Luxury Brand', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate using an elegant premium brand tone. Keep the language refined, polished and natural.',
         ),
         'friendly' => array(
-            'label' => __('Friendly', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Friendly', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => 'Translate using a warm, friendly and approachable tone.',
         ),
         'custom' => array(
-            'label' => __('Custom Prompt', 'ai-translate-woocommerce-elementor'),
+            'label' => __('Custom Prompt', 'wpait-ai-translate-for-woocommerce-elementor'),
             'instruction' => '',
         ),
     );
@@ -2571,7 +2571,7 @@ function wpait_fallback_enabled_languages()
 
 function wpait_fallback_gettext($translation, $text, $domain)
 {
-    if ('ai-translate-woocommerce-elementor' !== $domain || '' === $text) {
+    if ('wpait-ai-translate-for-woocommerce-elementor' !== $domain || '' === $text) {
         return $translation;
     }
 
@@ -2590,7 +2590,7 @@ function wpait_fallback_plugin_dictionary($language)
     $language = wpait_fallback_normalize_language($language);
     $ru = array(
         'AI Translate' => 'AI Translate',
-        'AI Translate for WooCommerce & Elementor' => 'AI Translate for WooCommerce & Elementor',
+        'WPAIT – AI Translate for WooCommerce & Elementor' => 'WPAIT – AI Translate for WooCommerce & Elementor',
         'Dashboard' => 'РџР°РЅРµР»СЊ',
         'Translations' => 'РџРµСЂРµРІРѕРґС‹',
         'Scanner' => 'РЎРєР°РЅРµСЂ',
@@ -3151,7 +3151,7 @@ function wpait_fallback_render_switcher($style = '', $display_args = array())
             'wpait-switcher-orientation-' . $display_args['orientation'],
         );
         $classes[] = 'notranslate';
-        $output = '<nav class="' . esc_attr(implode(' ', $classes)) . '" aria-label="' . esc_attr__('Language switcher', 'ai-translate-woocommerce-elementor') . '" data-wpait-no-translate="1" translate="no">';
+        $output = '<nav class="' . esc_attr(implode(' ', $classes)) . '" aria-label="' . esc_attr__('Language switcher', 'wpait-ai-translate-for-woocommerce-elementor') . '" data-wpait-no-translate="1" translate="no">';
         foreach ($visible_languages as $language) {
             $classes = array('wpait-fallback-switcher-link');
             if ($language === $current) {
@@ -3175,7 +3175,7 @@ function wpait_fallback_render_switcher($style = '', $display_args = array())
 
     $id = 'wpait-fallback-switcher-' . wp_rand(1000, 999999);
     $output = '<details class="wpait-fallback-switcher wpait-fallback-switcher-dropdown wpait-switcher-layout-dropdown wpait-custom-dropdown notranslate" data-wpait-no-translate="1" translate="no">';
-    $output .= '<summary class="wpait-fallback-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'ai-translate-woocommerce-elementor') . '">';
+    $output .= '<summary class="wpait-fallback-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'wpait-ai-translate-for-woocommerce-elementor') . '">';
     $output .= wpait_fallback_language_html_for_display($current, $display_args);
     $output .= '</summary>';
     $output .= '<div id="' . esc_attr($id) . '" class="wpait-fallback-switcher-dropdown-menu" role="listbox">';
@@ -3216,8 +3216,8 @@ if (class_exists('WP_Widget') && !class_exists('WPAIT_Fallback_Switcher_Widget')
         {
             parent::__construct(
                 'wpait_fallback_switcher',
-                __('AI Translate for WooCommerce & Elementor Switcher', 'ai-translate-woocommerce-elementor'),
-                array('description' => __('Display the AI Translate for WooCommerce & Elementor language switcher.', 'ai-translate-woocommerce-elementor'))
+                __('WPAIT – AI Translate for WooCommerce & Elementor Switcher', 'wpait-ai-translate-for-woocommerce-elementor'),
+                array('description' => __('Display the WPAIT – AI Translate for WooCommerce & Elementor language switcher.', 'wpait-ai-translate-for-woocommerce-elementor'))
             );
         }
 
@@ -3243,10 +3243,10 @@ if (class_exists('WP_Widget') && !class_exists('WPAIT_Fallback_Switcher_Widget')
             $style = isset($instance['style']) && 'list' === $instance['style'] ? 'list' : 'dropdown';
             ?>
             <p>
-                <label for="<?php echo esc_attr($this->get_field_id('style')); ?>"><?php esc_html_e('Style', 'ai-translate-woocommerce-elementor'); ?></label>
+                <label for="<?php echo esc_attr($this->get_field_id('style')); ?>"><?php esc_html_e('Style', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                 <select class="widefat" id="<?php echo esc_attr($this->get_field_id('style')); ?>" name="<?php echo esc_attr($this->get_field_name('style')); ?>">
-                    <option value="dropdown" <?php selected($style, 'dropdown'); ?>><?php esc_html_e('Dropdown', 'ai-translate-woocommerce-elementor'); ?></option>
-                    <option value="list" <?php selected($style, 'list'); ?>><?php esc_html_e('List', 'ai-translate-woocommerce-elementor'); ?></option>
+                    <option value="dropdown" <?php selected($style, 'dropdown'); ?>><?php esc_html_e('Dropdown', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                    <option value="list" <?php selected($style, 'list'); ?>><?php esc_html_e('List', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                 </select>
             </p>
             <?php
@@ -3284,7 +3284,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
 
             public function get_title()
             {
-                return __('AI Translate Language Switcher', 'ai-translate-woocommerce-elementor');
+                return __('AI Translate Language Switcher', 'wpait-ai-translate-for-woocommerce-elementor');
             }
 
             public function get_icon()
@@ -3306,22 +3306,22 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
             {
                 $this->start_controls_section(
                     'wpait_content',
-                    array('label' => __('Language Switcher', 'ai-translate-woocommerce-elementor'))
+                    array('label' => __('Language Switcher', 'wpait-ai-translate-for-woocommerce-elementor'))
                 );
 
                 $this->add_control(
                     'layout_type',
                     array(
-                        'label' => __('Layout type', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Layout type', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'default' => 'dropdown',
                         'options' => array(
-                            'list' => __('List', 'ai-translate-woocommerce-elementor'),
-                            'dropdown' => __('Dropdown', 'ai-translate-woocommerce-elementor'),
-                            'buttons' => __('Buttons', 'ai-translate-woocommerce-elementor'),
-                            'flags_only' => __('Flags only', 'ai-translate-woocommerce-elementor'),
-                            'flags_name' => __('Flags + language name', 'ai-translate-woocommerce-elementor'),
-                            'name_only' => __('Language name only', 'ai-translate-woocommerce-elementor'),
+                            'list' => __('List', 'wpait-ai-translate-for-woocommerce-elementor'),
+                            'dropdown' => __('Dropdown', 'wpait-ai-translate-for-woocommerce-elementor'),
+                            'buttons' => __('Buttons', 'wpait-ai-translate-for-woocommerce-elementor'),
+                            'flags_only' => __('Flags only', 'wpait-ai-translate-for-woocommerce-elementor'),
+                            'flags_name' => __('Flags + language name', 'wpait-ai-translate-for-woocommerce-elementor'),
+                            'name_only' => __('Language name only', 'wpait-ai-translate-for-woocommerce-elementor'),
                         ),
                     )
                 );
@@ -3329,10 +3329,10 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'show_flags',
                     array(
-                        'label' => __('Show flags', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Show flags', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SWITCHER,
-                        'label_on' => __('Yes', 'ai-translate-woocommerce-elementor'),
-                        'label_off' => __('No', 'ai-translate-woocommerce-elementor'),
+                        'label_on' => __('Yes', 'wpait-ai-translate-for-woocommerce-elementor'),
+                        'label_off' => __('No', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'return_value' => 'yes',
                         'default' => '',
                     )
@@ -3341,10 +3341,10 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'show_language_name',
                     array(
-                        'label' => __('Show language name', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Show language name', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SWITCHER,
-                        'label_on' => __('Yes', 'ai-translate-woocommerce-elementor'),
-                        'label_off' => __('No', 'ai-translate-woocommerce-elementor'),
+                        'label_on' => __('Yes', 'wpait-ai-translate-for-woocommerce-elementor'),
+                        'label_off' => __('No', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'return_value' => 'yes',
                         'default' => 'yes',
                     )
@@ -3353,10 +3353,10 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'show_language_code',
                     array(
-                        'label' => __('Show language code', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Show language code', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SWITCHER,
-                        'label_on' => __('Yes', 'ai-translate-woocommerce-elementor'),
-                        'label_off' => __('No', 'ai-translate-woocommerce-elementor'),
+                        'label_on' => __('Yes', 'wpait-ai-translate-for-woocommerce-elementor'),
+                        'label_off' => __('No', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'return_value' => 'yes',
                         'default' => '',
                     )
@@ -3365,10 +3365,10 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'show_current_language',
                     array(
-                        'label' => __('Show current language', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Show current language', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SWITCHER,
-                        'label_on' => __('Yes', 'ai-translate-woocommerce-elementor'),
-                        'label_off' => __('No', 'ai-translate-woocommerce-elementor'),
+                        'label_on' => __('Yes', 'wpait-ai-translate-for-woocommerce-elementor'),
+                        'label_off' => __('No', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'return_value' => 'yes',
                         'default' => 'yes',
                     )
@@ -3377,10 +3377,10 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'hide_current_language',
                     array(
-                        'label' => __('Hide current language', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Hide current language', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SWITCHER,
-                        'label_on' => __('Yes', 'ai-translate-woocommerce-elementor'),
-                        'label_off' => __('No', 'ai-translate-woocommerce-elementor'),
+                        'label_on' => __('Yes', 'wpait-ai-translate-for-woocommerce-elementor'),
+                        'label_off' => __('No', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'return_value' => 'yes',
                         'default' => '',
                     )
@@ -3389,10 +3389,10 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'open_current_page',
                     array(
-                        'label' => __('Open links in current page', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Open links in current page', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SWITCHER,
-                        'label_on' => __('Yes', 'ai-translate-woocommerce-elementor'),
-                        'label_off' => __('No', 'ai-translate-woocommerce-elementor'),
+                        'label_on' => __('Yes', 'wpait-ai-translate-for-woocommerce-elementor'),
+                        'label_off' => __('No', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'return_value' => 'yes',
                         'default' => 'yes',
                     )
@@ -3401,12 +3401,12 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'orientation',
                     array(
-                        'label' => __('Orientation', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Orientation', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SELECT,
                         'default' => 'horizontal',
                         'options' => array(
-                            'horizontal' => __('Horizontal', 'ai-translate-woocommerce-elementor'),
-                            'vertical' => __('Vertical', 'ai-translate-woocommerce-elementor'),
+                            'horizontal' => __('Horizontal', 'wpait-ai-translate-for-woocommerce-elementor'),
+                            'vertical' => __('Vertical', 'wpait-ai-translate-for-woocommerce-elementor'),
                         ),
                     )
                 );
@@ -3414,13 +3414,13 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_responsive_control(
                     'align',
                     array(
-                        'label' => __('Alignment', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Alignment', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::CHOOSE,
                         'default' => 'left',
                         'options' => array(
-                            'left' => array('title' => __('Left', 'ai-translate-woocommerce-elementor'), 'icon' => 'eicon-text-align-left'),
-                            'center' => array('title' => __('Center', 'ai-translate-woocommerce-elementor'), 'icon' => 'eicon-text-align-center'),
-                            'right' => array('title' => __('Right', 'ai-translate-woocommerce-elementor'), 'icon' => 'eicon-text-align-right'),
+                            'left' => array('title' => __('Left', 'wpait-ai-translate-for-woocommerce-elementor'), 'icon' => 'eicon-text-align-left'),
+                            'center' => array('title' => __('Center', 'wpait-ai-translate-for-woocommerce-elementor'), 'icon' => 'eicon-text-align-center'),
+                            'right' => array('title' => __('Right', 'wpait-ai-translate-for-woocommerce-elementor'), 'icon' => 'eicon-text-align-right'),
                         ),
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-elementor-switcher' => 'text-align: {{VALUE}};',
@@ -3433,7 +3433,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->start_controls_section(
                     'wpait_style',
                     array(
-                        'label' => __('Switcher Style', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Switcher Style', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'tab' => \Elementor\Controls_Manager::TAB_STYLE,
                     )
                 );
@@ -3451,7 +3451,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'text_color',
                     array(
-                        'label' => __('Text color', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Text color', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-fallback-switcher, {{WRAPPER}} .wpait-fallback-switcher-link' => 'color: {{VALUE}};',
@@ -3462,7 +3462,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'hover_color',
                     array(
-                        'label' => __('Hover color', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Hover color', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-fallback-switcher-link:hover, {{WRAPPER}} .wpait-fallback-switcher-link:focus, {{WRAPPER}} .wpait-fallback-switcher-dropdown:hover, {{WRAPPER}} .wpait-fallback-switcher-dropdown:focus' => 'color: {{VALUE}};',
@@ -3473,7 +3473,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'active_language_color',
                     array(
-                        'label' => __('Active language color', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Active language color', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-fallback-switcher-link.is-current' => 'color: {{VALUE}};',
@@ -3484,7 +3484,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'background_color',
                     array(
-                        'label' => __('Background color', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Background color', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-fallback-switcher-dropdown, {{WRAPPER}} .wpait-fallback-switcher-link' => 'background-color: {{VALUE}};',
@@ -3495,7 +3495,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'border_color',
                     array(
-                        'label' => __('Border color', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Border color', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-fallback-switcher-dropdown, {{WRAPPER}} .wpait-fallback-switcher-link' => 'border-color: {{VALUE}};',
@@ -3506,7 +3506,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_control(
                     'dropdown_background',
                     array(
-                        'label' => __('Dropdown background', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Dropdown background', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::COLOR,
                         'selectors' => array(
                             '{{WRAPPER}} .wpait-fallback-switcher-dropdown' => 'background-color: {{VALUE}};',
@@ -3517,7 +3517,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_responsive_control(
                     'border_radius',
                     array(
-                        'label' => __('Border radius', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Border radius', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => array('px', '%'),
                         'range' => array(
@@ -3533,7 +3533,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_responsive_control(
                     'padding',
                     array(
-                        'label' => __('Padding', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Padding', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::DIMENSIONS,
                         'size_units' => array('px', 'em', '%'),
                         'selectors' => array(
@@ -3545,7 +3545,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_responsive_control(
                     'gap',
                     array(
-                        'label' => __('Gap between items', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Gap between items', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => array('px'),
                         'range' => array('px' => array('min' => 0, 'max' => 40)),
@@ -3558,7 +3558,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                 $this->add_responsive_control(
                     'dropdown_width',
                     array(
-                        'label' => __('Dropdown width', 'ai-translate-woocommerce-elementor'),
+                        'label' => __('Dropdown width', 'wpait-ai-translate-for-woocommerce-elementor'),
                         'type' => \Elementor\Controls_Manager::SLIDER,
                         'size_units' => array('px', '%', 'em'),
                         'range' => array(
@@ -3577,7 +3577,7 @@ function wpait_fallback_register_elementor_widget($widgets_manager)
                         \Elementor\Group_Control_Box_Shadow::get_type(),
                         array(
                             'name' => 'dropdown_shadow',
-                            'label' => __('Dropdown shadow', 'ai-translate-woocommerce-elementor'),
+                            'label' => __('Dropdown shadow', 'wpait-ai-translate-for-woocommerce-elementor'),
                             'selector' => '{{WRAPPER}} .wpait-fallback-switcher-dropdown',
                         )
                     );
@@ -3630,7 +3630,7 @@ function wpait_fallback_add_nav_menu_metabox()
 
     add_meta_box(
         'wpait-language-switcher-menu',
-        __('Language Switcher', 'ai-translate-woocommerce-elementor'),
+        __('Language Switcher', 'wpait-ai-translate-for-woocommerce-elementor'),
         'wpait_fallback_nav_menu_metabox',
         'nav-menus',
         'side',
@@ -3644,34 +3644,34 @@ function wpait_fallback_nav_menu_metabox()
     $enabled = wpait_fallback_enabled_languages();
     ?>
     <div id="wpait-language-switcher-menu-content" class="posttypediv wpait-menu-metabox">
-        <p class="description"><?php esc_html_e('Add the language switcher to a WordPress menu.', 'ai-translate-woocommerce-elementor'); ?></p>
+        <p class="description"><?php esc_html_e('Add the language switcher to a WordPress menu.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         <div class="wpait-menu-metabox-options">
-            <label><input type="checkbox" data-wpait-menu-option="show-flag"> <?php esc_html_e('Show flag', 'ai-translate-woocommerce-elementor'); ?></label>
-            <label><input type="checkbox" data-wpait-menu-option="show-name" checked> <?php esc_html_e('Show language name', 'ai-translate-woocommerce-elementor'); ?></label>
-            <label><input type="checkbox" data-wpait-menu-option="show-code"> <?php esc_html_e('Show language code', 'ai-translate-woocommerce-elementor'); ?></label>
-            <label><input type="checkbox" data-wpait-menu-option="hide-current"> <?php esc_html_e('Hide current language', 'ai-translate-woocommerce-elementor'); ?></label>
+            <label><input type="checkbox" data-wpait-menu-option="show-flag"> <?php esc_html_e('Show flag', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+            <label><input type="checkbox" data-wpait-menu-option="show-name" checked> <?php esc_html_e('Show language name', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+            <label><input type="checkbox" data-wpait-menu-option="show-code"> <?php esc_html_e('Show language code', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+            <label><input type="checkbox" data-wpait-menu-option="hide-current"> <?php esc_html_e('Hide current language', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
             <fieldset>
-                <legend class="screen-reader-text"><?php esc_html_e('Menu display mode', 'ai-translate-woocommerce-elementor'); ?></legend>
-                <label><input type="radio" name="wpait_menu_display_mode" data-wpait-menu-display value="list" checked> <?php esc_html_e('List mode', 'ai-translate-woocommerce-elementor'); ?></label>
-                <label><input type="radio" name="wpait_menu_display_mode" data-wpait-menu-display value="dropdown"> <?php esc_html_e('Dropdown mode', 'ai-translate-woocommerce-elementor'); ?></label>
+                <legend class="screen-reader-text"><?php esc_html_e('Menu display mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></legend>
+                <label><input type="radio" name="wpait_menu_display_mode" data-wpait-menu-display value="list" checked> <?php esc_html_e('List mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+                <label><input type="radio" name="wpait_menu_display_mode" data-wpait-menu-display value="dropdown"> <?php esc_html_e('Dropdown mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
             </fieldset>
         </div>
         <div id="tabs-panel-wpait-language-switcher" class="tabs-panel tabs-panel-active">
             <ul id="wpait-language-switcher-checklist" class="categorychecklist form-no-clear">
-                <?php wpait_fallback_nav_menu_metabox_item(-91001, 'wpait-current', __('Current language switcher', 'ai-translate-woocommerce-elementor'), 'wpait-menu-mode-current'); ?>
-                <?php wpait_fallback_nav_menu_metabox_item(-91002, 'wpait-all', __('All enabled languages', 'ai-translate-woocommerce-elementor'), 'wpait-menu-mode-all'); ?>
+                <?php wpait_fallback_nav_menu_metabox_item(-91001, 'wpait-current', __('Current language switcher', 'wpait-ai-translate-for-woocommerce-elementor'), 'wpait-menu-mode-current'); ?>
+                <?php wpait_fallback_nav_menu_metabox_item(-91002, 'wpait-all', __('All enabled languages', 'wpait-ai-translate-for-woocommerce-elementor'), 'wpait-menu-mode-all'); ?>
                 <?php foreach ($enabled as $index => $language) : ?>
                     <?php
                     $label = isset($languages[$language]) ? $languages[$language] : strtoupper($language);
                     /* translators: %s: Language name. */
-                    wpait_fallback_nav_menu_metabox_item(-91100 - (int) $index, 'wpait-language-' . $language, sprintf(__('Specific language: %s', 'ai-translate-woocommerce-elementor'), $label), 'wpait-menu-mode-specific wpait-menu-language-' . sanitize_html_class($language));
+                    wpait_fallback_nav_menu_metabox_item(-91100 - (int) $index, 'wpait-language-' . $language, sprintf(__('Specific language: %s', 'wpait-ai-translate-for-woocommerce-elementor'), $label), 'wpait-menu-mode-specific wpait-menu-language-' . sanitize_html_class($language));
                     ?>
                 <?php endforeach; ?>
             </ul>
         </div>
         <p class="button-controls wp-clearfix">
             <span class="add-to-menu">
-                <input type="submit" class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e('Add to Menu', 'ai-translate-woocommerce-elementor'); ?>" name="add-wpait-language-switcher-menu-item" id="submit-wpait-language-switcher-menu">
+                <input type="submit" class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e('Add to Menu', 'wpait-ai-translate-for-woocommerce-elementor'); ?>" name="add-wpait-language-switcher-menu-item" id="submit-wpait-language-switcher-menu">
                 <span class="spinner"></span>
             </span>
         </p>
@@ -4412,7 +4412,7 @@ function wpait_fallback_admin_bar_editor_node($wp_admin_bar)
 
     $wp_admin_bar->add_node(array(
         'id' => 'wpait-frontend-editor',
-        'title' => __('AI Translate Edit', 'ai-translate-woocommerce-elementor'),
+        'title' => __('AI Translate Edit', 'wpait-ai-translate-for-woocommerce-elementor'),
         'href' => '#',
         'meta' => array(
             'class' => 'wpait-adminbar-editor',
@@ -4435,21 +4435,21 @@ function wpait_fallback_frontend_editor_config()
         'nonce' => wp_create_nonce('wpait_frontend_editor'),
         'sourceLanguage' => wpait_fallback_source_language(),
         'targetLanguage' => $target_language,
-        'editLabel' => __('AI Translate edit', 'ai-translate-woocommerce-elementor'),
-        'activeLabel' => __('Editing on', 'ai-translate-woocommerce-elementor'),
-        'promptLabel' => __('Edit translation', 'ai-translate-woocommerce-elementor'),
-        'saveLabel' => __('Save', 'ai-translate-woocommerce-elementor'),
-        'cancelLabel' => __('Cancel', 'ai-translate-woocommerce-elementor'),
-        'autoTranslateLabel' => __('Auto Translate', 'ai-translate-woocommerce-elementor'),
-        'translatingLabel' => __('AI translating...', 'ai-translate-woocommerce-elementor'),
-        'translationReadyLabel' => __('AI Translation Ready', 'ai-translate-woocommerce-elementor'),
-        'translateFailedLabel' => __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor'),
-        'savingLabel' => __('Saving...', 'ai-translate-woocommerce-elementor'),
-        'savedLabel' => __('Saved', 'ai-translate-woocommerce-elementor'),
-        'errorLabel' => __('Could not save translation', 'ai-translate-woocommerce-elementor'),
-        'emptyLabel' => __('No editable translation text found yet. Scan/process the queue, or click source text that is highlighted for admins.', 'ai-translate-woocommerce-elementor'),
+        'editLabel' => __('AI Translate edit', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'activeLabel' => __('Editing on', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'promptLabel' => __('Edit translation', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'saveLabel' => __('Save', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'cancelLabel' => __('Cancel', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'autoTranslateLabel' => __('Auto Translate', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'translatingLabel' => __('AI translating...', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'translationReadyLabel' => __('AI Translation Ready', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'translateFailedLabel' => __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'savingLabel' => __('Saving...', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'savedLabel' => __('Saved', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'errorLabel' => __('Could not save translation', 'wpait-ai-translate-for-woocommerce-elementor'),
+        'emptyLabel' => __('No editable translation text found yet. Scan/process the queue, or click source text that is highlighted for admins.', 'wpait-ai-translate-for-woocommerce-elementor'),
         /* translators: %s: Target language code. */
-        'targetNotice' => $target_language ? sprintf(__('Target: %s', 'ai-translate-woocommerce-elementor'), strtoupper($target_language)) : '',
+        'targetNotice' => $target_language ? sprintf(__('Target: %s', 'wpait-ai-translate-for-woocommerce-elementor'), strtoupper($target_language)) : '',
         'logoUrl' => wpait_fallback_logo_url(),
         'brandLabel' => sprintf('AI Translate %s | %s | sotter IT Design | info@itdesign.biz', WPAIT_VERSION, wpait_fallback_edition_label()),
         'siteUrl' => 'https://wp-ai.itdesign.biz',
@@ -5522,7 +5522,7 @@ function wpait_fallback_cron_schedules($schedules)
     if (!isset($schedules['wpait_five_minutes'])) {
         $schedules['wpait_five_minutes'] = array(
             'interval' => 5 * MINUTE_IN_SECONDS,
-            'display' => __('Every 5 minutes', 'ai-translate-woocommerce-elementor'),
+            'display' => __('Every 5 minutes', 'wpait-ai-translate-for-woocommerce-elementor'),
         );
     }
 
@@ -5743,7 +5743,7 @@ function wpait_fallback_ajax_save_translation()
     check_ajax_referer('wpait_frontend_editor', 'nonce');
 
     if (!current_user_can('manage_options')) {
-        wp_send_json_error(array('message' => __('Permission denied.', 'ai-translate-woocommerce-elementor')), 403);
+        wp_send_json_error(array('message' => __('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor')), 403);
     }
 
     $source_text = isset($_POST['sourceText']) ? sanitize_textarea_field(wp_unslash((string) $_POST['sourceText'])) : '';
@@ -5752,16 +5752,16 @@ function wpait_fallback_ajax_save_translation()
     $target_language = isset($_POST['targetLanguage']) ? wpait_fallback_normalize_language(sanitize_key(wp_unslash((string) $_POST['targetLanguage']))) : wpait_fallback_current_language();
 
     if ('' === $source_text || '' === $translated_text || '' === $target_language) {
-        wp_send_json_error(array('message' => __('Missing translation data.', 'ai-translate-woocommerce-elementor')), 400);
+        wp_send_json_error(array('message' => __('Missing translation data.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
     }
 
     $saved = wpait_fallback_save_translation($source_text, $translated_text, $source_language, $target_language, 'manual');
 
     if (!$saved) {
-        wp_send_json_error(array('message' => __('Translation was not saved.', 'ai-translate-woocommerce-elementor')), 500);
+        wp_send_json_error(array('message' => __('Translation was not saved.', 'wpait-ai-translate-for-woocommerce-elementor')), 500);
     }
 
-    wp_send_json_success(array('message' => __('Translation saved.', 'ai-translate-woocommerce-elementor')));
+    wp_send_json_success(array('message' => __('Translation saved.', 'wpait-ai-translate-for-woocommerce-elementor')));
 }
 
 function wpait_fallback_ajax_auto_translate_frontend()
@@ -5769,7 +5769,7 @@ function wpait_fallback_ajax_auto_translate_frontend()
     check_ajax_referer('wpait_frontend_editor', 'nonce');
 
     if (!current_user_can('manage_options')) {
-        wp_send_json_error(array('message' => __('Permission denied.', 'ai-translate-woocommerce-elementor')), 403);
+        wp_send_json_error(array('message' => __('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor')), 403);
     }
 
     $source_text = isset($_POST['sourceText']) ? sanitize_textarea_field(wp_unslash((string) $_POST['sourceText'])) : '';
@@ -5777,16 +5777,16 @@ function wpait_fallback_ajax_auto_translate_frontend()
     $target_language = isset($_POST['targetLanguage']) ? wpait_fallback_normalize_language(sanitize_key(wp_unslash((string) $_POST['targetLanguage']))) : wpait_fallback_current_language();
 
     if ('' === $source_text || '' === $target_language) {
-        wp_send_json_error(array('message' => __('Missing translation data.', 'ai-translate-woocommerce-elementor')), 400);
+        wp_send_json_error(array('message' => __('Missing translation data.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
     }
 
     if ($source_language === $target_language) {
-        wp_send_json_error(array('message' => __('Source and target languages are the same.', 'ai-translate-woocommerce-elementor')), 400);
+        wp_send_json_error(array('message' => __('Source and target languages are the same.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
     }
 
     $provider = wpait_fallback_active_provider();
     if ('' === wpait_fallback_provider_key($provider)) {
-        wp_send_json_error(array('message' => __('No translation provider configured.', 'ai-translate-woocommerce-elementor')), 400);
+        wp_send_json_error(array('message' => __('No translation provider configured.', 'wpait-ai-translate-for-woocommerce-elementor')), 400);
     }
 
     $hash = wpait_fallback_translation_hash($source_text);
@@ -5796,7 +5796,7 @@ function wpait_fallback_ajax_auto_translate_frontend()
         wp_send_json_success(
             array(
                 'translation' => (string) $memory[$hash],
-                'message' => __('Translation memory hit', 'ai-translate-woocommerce-elementor'),
+                'message' => __('Translation memory hit', 'wpait-ai-translate-for-woocommerce-elementor'),
                 'provider' => wpait_fallback_provider_label($provider),
             )
         );
@@ -5814,14 +5814,14 @@ function wpait_fallback_ajax_auto_translate_frontend()
     }
 
     if (!is_array($translated) || !array_key_exists($hash, $translated) || '' === trim((string) $translated[$hash])) {
-        wp_send_json_error(array('message' => __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor')), 500);
+        wp_send_json_error(array('message' => __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor')), 500);
     }
 
     wp_send_json_success(
         array(
             'translation' => (string) $translated[$hash],
             /* translators: %s: Active translation provider label. */
-            'message' => sprintf(__('Translated via %s', 'ai-translate-woocommerce-elementor'), wpait_fallback_provider_label($provider)),
+            'message' => sprintf(__('Translated via %s', 'wpait-ai-translate-for-woocommerce-elementor'), wpait_fallback_provider_label($provider)),
             'provider' => wpait_fallback_provider_label($provider),
         )
     );
@@ -5830,27 +5830,27 @@ function wpait_fallback_ajax_auto_translate_frontend()
 function wpait_fallback_provider_error_message_for_editor($error, $status = 500)
 {
     if (!$error instanceof WP_Error) {
-        return __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor');
+        return __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor');
     }
 
     $code = $error->get_error_code();
     $message = strtolower($error->get_error_message());
 
     if (false !== strpos($code, 'missing') || false !== strpos($message, 'api key is missing')) {
-        return __('No translation provider configured.', 'ai-translate-woocommerce-elementor');
+        return __('No translation provider configured.', 'wpait-ai-translate-for-woocommerce-elementor');
     }
 
     if (429 === (int) $status || false !== strpos($code, 'quota') || false !== strpos($code, 'cooldown') || false !== strpos($message, 'rate limit') || false !== strpos($message, 'quota')) {
-        return __('Provider rate limit reached.', 'ai-translate-woocommerce-elementor');
+        return __('Provider rate limit reached.', 'wpait-ai-translate-for-woocommerce-elementor');
     }
 
-    return __('Translation failed. Please try again.', 'ai-translate-woocommerce-elementor');
+    return __('Translation failed. Please try again.', 'wpait-ai-translate-for-woocommerce-elementor');
 }
 
 function wpait_fallback_scan_site_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_scan_site');
@@ -6092,7 +6092,7 @@ function wpait_fallback_add_scan_text(&$strings, $text)
 function wpait_fallback_save_manual_translation_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_save_manual_translation');
@@ -6128,7 +6128,7 @@ function wpait_fallback_save_manual_translation_handler()
 function wpait_fallback_save_translation_matrix_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_save_translation_matrix');
@@ -6193,7 +6193,7 @@ function wpait_fallback_save_translation_matrix_handler()
 function wpait_fallback_export_translations_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_export_translations');
@@ -6203,7 +6203,7 @@ function wpait_fallback_export_translations_handler()
     $format = in_array($format, array('csv', 'po', 'mo'), true) ? $format : 'csv';
 
     if (!$language || !in_array($language, wpait_fallback_enabled_languages(), true)) {
-        wp_die(esc_html__('Invalid target language.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Invalid target language.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     $entries = wpait_fallback_export_entries($language);
@@ -6246,14 +6246,14 @@ function wpait_fallback_export_translations_handler()
 function wpait_fallback_import_translations_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_import_translations');
 
     $uploaded_tmp_name = isset($_FILES['translation_file']['tmp_name']) ? sanitize_text_field(wp_unslash((string) $_FILES['translation_file']['tmp_name'])) : '';
     if ('' === $uploaded_tmp_name || !is_uploaded_file($uploaded_tmp_name)) {
-        wp_die(esc_html__('No import file uploaded.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('No import file uploaded.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     $language = isset($_POST['target_language']) ? wpait_fallback_normalize_language(sanitize_key(wp_unslash((string) $_POST['target_language']))) : '';
@@ -6261,7 +6261,7 @@ function wpait_fallback_import_translations_handler()
     $format = in_array($format, array('csv', 'po', 'mo'), true) ? $format : 'csv';
 
     if (!$language || !in_array($language, wpait_fallback_enabled_languages(), true)) {
-        wp_die(esc_html__('Invalid target language.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Invalid target language.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     $path = $uploaded_tmp_name;
@@ -6334,7 +6334,7 @@ function wpait_fallback_build_po($entries, $target_language)
     $lines = array(
         'msgid ""',
         'msgstr ""',
-        '"Project-Id-Version: AI Translate for WooCommerce & Elementor ' . WPAIT_VERSION . '\n"',
+        '"Project-Id-Version: WPAIT – AI Translate for WooCommerce & Elementor ' . WPAIT_VERSION . '\n"',
         '"Language: ' . $target_language . '\n"',
         '"Content-Type: text/plain; charset=UTF-8\n"',
         '"Content-Transfer-Encoding: 8bit\n"',
@@ -6361,7 +6361,7 @@ function wpait_fallback_po_quote($text)
 
 function wpait_fallback_build_mo($entries, $target_language)
 {
-    $pairs = array('' => "Project-Id-Version: AI Translate for WooCommerce & Elementor " . WPAIT_VERSION . "\nLanguage: " . $target_language . "\nContent-Type: text/plain; charset=UTF-8\n");
+    $pairs = array('' => "Project-Id-Version: WPAIT – AI Translate for WooCommerce & Elementor " . WPAIT_VERSION . "\nLanguage: " . $target_language . "\nContent-Type: text/plain; charset=UTF-8\n");
 
     foreach ($entries as $entry) {
         $pairs[(string) $entry['source_text']] = (string) $entry['translated_text'];
@@ -6796,10 +6796,10 @@ function wpait_fallback_sent_notice($success_message)
 
     if ('0' === $status) {
         $class = 'notice-error';
-        $message = __('The message could not be sent. Please check WordPress email delivery on this site.', 'ai-translate-woocommerce-elementor');
+        $message = __('The message could not be sent. Please check WordPress email delivery on this site.', 'wpait-ai-translate-for-woocommerce-elementor');
     } elseif ('consent' === $status) {
         $class = 'notice-warning';
-        $message = __('Please confirm consent before sending diagnostic information.', 'ai-translate-woocommerce-elementor');
+        $message = __('Please confirm consent before sending diagnostic information.', 'wpait-ai-translate-for-woocommerce-elementor');
     }
 
     echo '<div class="notice ' . esc_attr($class) . ' inline"><p>' . esc_html($message) . '</p></div>';
@@ -6812,62 +6812,62 @@ function wpait_fallback_report_bug_page()
     }
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Report Bug', 'ai-translate-woocommerce-elementor'),
-        __('Send a safe technical report for Public Beta troubleshooting.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Send a safe technical report for Public Beta troubleshooting.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
-    wpait_fallback_sent_notice(__('Bug report sent. Thank you for helping test AI Translate for WooCommerce & Elementor.', 'ai-translate-woocommerce-elementor'));
+    wpait_fallback_sent_notice(__('Bug report sent. Thank you for helping test WPAIT – AI Translate for WooCommerce & Elementor.', 'wpait-ai-translate-for-woocommerce-elementor'));
     wpait_fallback_public_beta_notice();
     wpait_fallback_support_development_block(true);
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Report Bug', 'ai-translate-woocommerce-elementor'); ?></h2>
-        <p><?php esc_html_e('The technical report includes WordPress, WooCommerce, PHP, plugin, language, provider, queue, and route status. Sensitive values are redacted before sending.', 'ai-translate-woocommerce-elementor'); ?></p>
+        <h2><?php esc_html_e('Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
+        <p><?php esc_html_e('The technical report includes WordPress, WooCommerce, PHP, plugin, language, provider, queue, and route status. Sensitive values are redacted before sending.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         <form class="wpait-public-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
             <?php wp_nonce_field('wpait_submit_bug_report'); ?>
             <input type="hidden" name="action" value="wpait_submit_bug_report">
             <div class="wpait-form-grid">
                 <label>
-                    <span><?php esc_html_e('Name', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Name', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <input type="text" name="name" class="regular-text" autocomplete="name">
                 </label>
                 <label>
-                    <span><?php esc_html_e('Email', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Email', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <input type="email" name="email" class="regular-text" autocomplete="email">
                 </label>
                 <label>
-                    <span><?php esc_html_e('Website', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Website', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <input type="url" name="website" class="regular-text" value="<?php echo esc_attr(home_url('/')); ?>">
                 </label>
                 <label>
-                    <span><?php esc_html_e('Problem type', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Problem type', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <select name="problem_type">
-                        <option value="translation"><?php esc_html_e('Translation issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="woocommerce"><?php esc_html_e('WooCommerce issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="elementor"><?php esc_html_e('Elementor issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="frontend-editor"><?php esc_html_e('Frontend editor issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="provider"><?php esc_html_e('Provider / API issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="update"><?php esc_html_e('Install / update issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="other"><?php esc_html_e('Other', 'ai-translate-woocommerce-elementor'); ?></option>
+                        <option value="translation"><?php esc_html_e('Translation issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="woocommerce"><?php esc_html_e('WooCommerce issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="elementor"><?php esc_html_e('Elementor issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="frontend-editor"><?php esc_html_e('Frontend editor issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="provider"><?php esc_html_e('Provider / API issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="update"><?php esc_html_e('Install / update issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="other"><?php esc_html_e('Other', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                     </select>
                 </label>
             </div>
             <label class="wpait-field-block">
-                <span><?php esc_html_e('Short description', 'ai-translate-woocommerce-elementor'); ?></span>
+                <span><?php esc_html_e('Short description', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                 <textarea name="short_description" rows="4" class="large-text" required></textarea>
             </label>
             <label class="wpait-field-block">
-                <span><?php esc_html_e('Steps to reproduce', 'ai-translate-woocommerce-elementor'); ?></span>
-                <textarea name="steps" rows="7" class="large-text" placeholder="<?php esc_attr_e('1. Open page...\n2. Switch language...\n3. Expected...\n4. Actual...', 'ai-translate-woocommerce-elementor'); ?>"></textarea>
+                <span><?php esc_html_e('Steps to reproduce', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
+                <textarea name="steps" rows="7" class="large-text" placeholder="<?php esc_attr_e('1. Open page...\n2. Switch language...\n3. Expected...\n4. Actual...', 'wpait-ai-translate-for-woocommerce-elementor'); ?>"></textarea>
             </label>
             <label class="wpait-checkbox-row">
                 <input type="checkbox" name="attach_log" value="1">
-                <span><?php esc_html_e('Attach technical log', 'ai-translate-woocommerce-elementor'); ?></span>
+                <span><?php esc_html_e('Attach technical log', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
             </label>
             <label class="wpait-checkbox-row">
                 <input type="checkbox" name="wpait_consent" value="1" required>
-                <span><?php esc_html_e('I agree to send this report and redacted technical diagnostics to info@itdesign.biz.', 'ai-translate-woocommerce-elementor'); ?></span>
+                <span><?php esc_html_e('I agree to send this report and redacted technical diagnostics to info@itdesign.biz.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
             </label>
-            <?php submit_button(__('Send bug report', 'ai-translate-woocommerce-elementor')); ?>
+            <?php submit_button(__('Send bug report', 'wpait-ai-translate-for-woocommerce-elementor')); ?>
         </form>
     </div>
     <?php
@@ -6881,48 +6881,48 @@ function wpait_fallback_feedback_page()
     }
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Feedback', 'ai-translate-woocommerce-elementor'),
-        __('Share Public Beta feedback, feature requests, and translation notes.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Feedback', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Share Public Beta feedback, feature requests, and translation notes.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
-    wpait_fallback_sent_notice(__('Feedback sent. Thank you for shaping AI Translate for WooCommerce & Elementor.', 'ai-translate-woocommerce-elementor'));
+    wpait_fallback_sent_notice(__('Feedback sent. Thank you for shaping WPAIT – AI Translate for WooCommerce & Elementor.', 'wpait-ai-translate-for-woocommerce-elementor'));
     wpait_fallback_public_beta_notice();
     wpait_fallback_support_development_block(true);
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Feedback / Feature Request', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Feedback / Feature Request', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <form class="wpait-public-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
             <?php wp_nonce_field('wpait_submit_feedback'); ?>
             <input type="hidden" name="action" value="wpait_submit_feedback">
             <div class="wpait-form-grid">
                 <label>
-                    <span><?php esc_html_e('Name', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Name', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <input type="text" name="name" class="regular-text" autocomplete="name">
                 </label>
                 <label>
-                    <span><?php esc_html_e('Email', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Email', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <input type="email" name="email" class="regular-text" autocomplete="email">
                 </label>
                 <label>
-                    <span><?php esc_html_e('Type', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Type', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <select name="feedback_type">
-                        <option value="bug"><?php esc_html_e('Bug', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="feature-request"><?php esc_html_e('Feature request', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="translation-issue"><?php esc_html_e('Translation issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="woocommerce-issue"><?php esc_html_e('WooCommerce issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="elementor-issue"><?php esc_html_e('Elementor issue', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="other"><?php esc_html_e('Other', 'ai-translate-woocommerce-elementor'); ?></option>
+                        <option value="bug"><?php esc_html_e('Bug', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="feature-request"><?php esc_html_e('Feature request', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="translation-issue"><?php esc_html_e('Translation issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="woocommerce-issue"><?php esc_html_e('WooCommerce issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="elementor-issue"><?php esc_html_e('Elementor issue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="other"><?php esc_html_e('Other', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                     </select>
                 </label>
             </div>
             <label class="wpait-field-block">
-                <span><?php esc_html_e('Message', 'ai-translate-woocommerce-elementor'); ?></span>
+                <span><?php esc_html_e('Message', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                 <textarea name="message" rows="8" class="large-text" required></textarea>
             </label>
             <label class="wpait-checkbox-row">
                 <input type="checkbox" name="wpait_consent" value="1" required>
-                <span><?php esc_html_e('I agree to send this feedback to info@itdesign.biz.', 'ai-translate-woocommerce-elementor'); ?></span>
+                <span><?php esc_html_e('I agree to send this feedback to info@itdesign.biz.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
             </label>
-            <?php submit_button(__('Send feedback', 'ai-translate-woocommerce-elementor')); ?>
+            <?php submit_button(__('Send feedback', 'wpait-ai-translate-for-woocommerce-elementor')); ?>
         </form>
     </div>
     <?php
@@ -6936,19 +6936,19 @@ function wpait_fallback_support_page()
     }
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Support', 'ai-translate-woocommerce-elementor'),
-        __('Support the free Public Beta and help prioritize the roadmap.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Support', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Support the free Public Beta and help prioritize the roadmap.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
     wpait_fallback_public_beta_notice();
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Support AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Support WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <div class="wpait-support-page-grid">
             <section class="wpait-support-page-card">
-                <h3><?php esc_html_e('Support AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'); ?></h3>
-                <p><?php esc_html_e('AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved.', 'ai-translate-woocommerce-elementor'); ?></p>
-                <p><?php esc_html_e('Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of AI Translate for WooCommerce & Elementor.', 'ai-translate-woocommerce-elementor'); ?></p>
-                <p><?php esc_html_e('Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development.', 'ai-translate-woocommerce-elementor'); ?></p>
+                <h3><?php esc_html_e('Support WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                <p><?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                <p><?php esc_html_e('Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of WPAIT – AI Translate for WooCommerce & Elementor.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                <p><?php esc_html_e('Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 <p class="wpait-support-buttons">
                     <?php
                     // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Button HTML is built from escaped attributes and translated text.
@@ -6957,20 +6957,20 @@ function wpait_fallback_support_page()
                 </p>
             </section>
             <section class="wpait-support-page-card">
-                <h3><?php esc_html_e('Need help?', 'ai-translate-woocommerce-elementor'); ?></h3>
+                <h3><?php esc_html_e('Need help?', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                 <p class="wpait-support-buttons">
-                    <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-report-bug')); ?>"><?php esc_html_e('Report Bug', 'ai-translate-woocommerce-elementor'); ?></a>
-                    <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-feedback')); ?>"><?php esc_html_e('Send Feedback', 'ai-translate-woocommerce-elementor'); ?></a>
-                    <a class="button" href="https://wp-ai.itdesign.biz/documentation/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Documentation', 'ai-translate-woocommerce-elementor'); ?></a>
-                    <a class="button" href="https://wp-ai.itdesign.biz" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Plugin Website', 'ai-translate-woocommerce-elementor'); ?></a>
+                    <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-report-bug')); ?>"><?php esc_html_e('Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+                    <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-feedback')); ?>"><?php esc_html_e('Send Feedback', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+                    <a class="button" href="https://wp-ai.itdesign.biz/documentation/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Documentation', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+                    <a class="button" href="https://wp-ai.itdesign.biz" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Plugin Website', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                 </p>
             </section>
             <section class="wpait-support-page-card">
-                <h3><?php esc_html_e('Public Beta Notice', 'ai-translate-woocommerce-elementor'); ?></h3>
-                <p><?php esc_html_e('This Public Beta includes temporary unrestricted access for testing and feedback purposes. Commercial licensing and additional editions may be introduced in future releases.', 'ai-translate-woocommerce-elementor'); ?></p>
+                <h3><?php esc_html_e('Public Beta Notice', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                <p><?php esc_html_e('This Public Beta includes temporary unrestricted access for testing and feedback purposes. Commercial licensing and additional editions may be introduced in future releases.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
             </section>
             <section class="wpait-support-page-card">
-                <h3><?php esc_html_e('Support contact', 'ai-translate-woocommerce-elementor'); ?></h3>
+                <h3><?php esc_html_e('Support contact', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                 <p><a href="mailto:info@itdesign.biz">info@itdesign.biz</a></p>
                 <p><a href="https://wp-ai.itdesign.biz" target="_blank" rel="noopener noreferrer">https://wp-ai.itdesign.biz</a></p>
             </section>
@@ -6995,39 +6995,39 @@ function wpait_fallback_onboarding_page()
     $queue_result = is_array($queue_result) ? $queue_result : array();
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Onboarding', 'ai-translate-woocommerce-elementor'),
-        __('Set up languages, provider keys, scanning, queue translation, and frontend editing.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Onboarding', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Set up languages, provider keys, scanning, queue translation, and frontend editing.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
     // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Admin saved notice flag is read-only.
     if (!empty($_GET['wpait_saved'])) {
-        echo '<div class="notice notice-success inline"><p>' . esc_html__('Onboarding settings saved.', 'ai-translate-woocommerce-elementor') . '</p></div>';
+        echo '<div class="notice notice-success inline"><p>' . esc_html__('Onboarding settings saved.', 'wpait-ai-translate-for-woocommerce-elementor') . '</p></div>';
     }
     wpait_fallback_public_beta_notice();
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Setup Wizard', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Setup Wizard', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
             <?php wp_nonce_field('wpait_onboarding_save'); ?>
             <input type="hidden" name="action" value="wpait_onboarding_save">
             <div class="wpait-onboarding-steps">
                 <section class="wpait-onboarding-step">
                     <span class="wpait-step-number">1</span>
-                    <h3><?php esc_html_e('Welcome', 'ai-translate-woocommerce-elementor'); ?></h3>
-                    <p><?php esc_html_e('AI Translate for WooCommerce & Elementor adds AI translation, WooCommerce support, frontend editing, SEO-friendly language URLs, and saved translation memory. This is a Public Beta, so make a backup before bulk translating production websites.', 'ai-translate-woocommerce-elementor'); ?></p>
+                    <h3><?php esc_html_e('Welcome', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                    <p><?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor adds AI translation, WooCommerce support, frontend editing, SEO-friendly language URLs, and saved translation memory. This is a Public Beta, so make a backup before bulk translating production websites.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 </section>
                 <section class="wpait-onboarding-step">
                     <span class="wpait-step-number">2</span>
-                    <h3><?php esc_html_e('Languages', 'ai-translate-woocommerce-elementor'); ?></h3>
+                    <h3><?php esc_html_e('Languages', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                     <label>
-                        <span><?php esc_html_e('Source language', 'ai-translate-woocommerce-elementor'); ?></span>
+                        <span><?php esc_html_e('Source language', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                         <select name="wpait_options[source_language]">
-                            <option value=""><?php esc_html_e('Auto: WordPress site language', 'ai-translate-woocommerce-elementor'); ?></option>
+                            <option value=""><?php esc_html_e('Auto: WordPress site language', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                             <?php foreach ($languages as $code => $label) : ?>
                                 <option value="<?php echo esc_attr($code); ?>" <?php selected($source_language, $code); ?>><?php echo esc_html($label . ' (' . strtoupper($code) . ')'); ?></option>
                             <?php endforeach; ?>
                         </select>
                     </label>
-                    <input type="search" class="wpait-fallback-language-search" placeholder="<?php esc_attr_e('Search languages...', 'ai-translate-woocommerce-elementor'); ?>">
+                    <input type="search" class="wpait-fallback-language-search" placeholder="<?php esc_attr_e('Search languages...', 'wpait-ai-translate-for-woocommerce-elementor'); ?>">
                     <div class="wpait-fallback-language-grid">
                         <?php foreach ($languages as $code => $label) : ?>
                             <label>
@@ -7040,48 +7040,48 @@ function wpait_fallback_onboarding_page()
                 </section>
                 <section class="wpait-onboarding-step">
                     <span class="wpait-step-number">3</span>
-                    <h3><?php esc_html_e('Provider', 'ai-translate-woocommerce-elementor'); ?></h3>
+                    <h3><?php esc_html_e('Provider', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                     <select name="wpait_options[provider]">
-                        <option value="google_translate" <?php selected($options['provider'], 'google_translate'); ?>><?php esc_html_e('Google Translate', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="openai" <?php selected($options['provider'], 'openai'); ?>><?php esc_html_e('OpenAI / ChatGPT', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="deepl" <?php selected($options['provider'], 'deepl'); ?>><?php esc_html_e('DeepL', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="gemini" <?php selected($options['provider'], 'gemini'); ?>><?php esc_html_e('Google Gemini', 'ai-translate-woocommerce-elementor'); ?></option>
-                        <option value="grok" <?php selected($options['provider'], 'grok'); ?>><?php esc_html_e('Grok / xAI', 'ai-translate-woocommerce-elementor'); ?></option>
+                        <option value="google_translate" <?php selected($options['provider'], 'google_translate'); ?>><?php esc_html_e('Google Translate', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="openai" <?php selected($options['provider'], 'openai'); ?>><?php esc_html_e('OpenAI / ChatGPT', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="deepl" <?php selected($options['provider'], 'deepl'); ?>><?php esc_html_e('DeepL', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="gemini" <?php selected($options['provider'], 'gemini'); ?>><?php esc_html_e('Google Gemini', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                        <option value="grok" <?php selected($options['provider'], 'grok'); ?>><?php esc_html_e('Grok / xAI', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                     </select>
-                    <p class="description"><?php esc_html_e('Saved translations are reused. The provider is used only for queue items that still need translation.', 'ai-translate-woocommerce-elementor'); ?></p>
+                    <p class="description"><?php esc_html_e('Saved translations are reused. The provider is used only for queue items that still need translation.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 </section>
                 <section class="wpait-onboarding-step">
                     <span class="wpait-step-number">4</span>
-                    <h3><?php esc_html_e('API Keys', 'ai-translate-woocommerce-elementor'); ?></h3>
+                    <h3><?php esc_html_e('API Keys', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                     <div class="wpait-form-grid">
-                        <label><span><?php esc_html_e('Google Translate API key', 'ai-translate-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[google_translate_api_key]" value="<?php echo esc_attr($options['google_translate_api_key']); ?>"></label>
-                        <label><span><?php esc_html_e('OpenAI API key', 'ai-translate-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[openai_api_key]" value="<?php echo esc_attr($options['openai_api_key']); ?>"></label>
-                        <label><span><?php esc_html_e('DeepL API key', 'ai-translate-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[deepl_api_key]" value="<?php echo esc_attr($options['deepl_api_key']); ?>"></label>
-                        <label><span><?php esc_html_e('Gemini API key', 'ai-translate-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[gemini_api_key]" value="<?php echo esc_attr($options['gemini_api_key']); ?>"></label>
-                        <label><span><?php esc_html_e('Grok API key', 'ai-translate-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[grok_api_key]" value="<?php echo esc_attr($options['grok_api_key']); ?>"></label>
+                        <label><span><?php esc_html_e('Google Translate API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[google_translate_api_key]" value="<?php echo esc_attr($options['google_translate_api_key']); ?>"></label>
+                        <label><span><?php esc_html_e('OpenAI API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[openai_api_key]" value="<?php echo esc_attr($options['openai_api_key']); ?>"></label>
+                        <label><span><?php esc_html_e('DeepL API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[deepl_api_key]" value="<?php echo esc_attr($options['deepl_api_key']); ?>"></label>
+                        <label><span><?php esc_html_e('Gemini API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[gemini_api_key]" value="<?php echo esc_attr($options['gemini_api_key']); ?>"></label>
+                        <label><span><?php esc_html_e('Grok API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span><input type="password" class="regular-text" name="wpait_options[grok_api_key]" value="<?php echo esc_attr($options['grok_api_key']); ?>"></label>
                     </div>
                 </section>
                 <section class="wpait-onboarding-step">
                     <span class="wpait-step-number">7</span>
-                    <h3><?php esc_html_e('Frontend editor', 'ai-translate-woocommerce-elementor'); ?></h3>
+                    <h3><?php esc_html_e('Frontend editor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                     <input type="hidden" name="wpait_options[frontend_editor]" value="0">
                     <label class="wpait-checkbox-row">
                         <input type="checkbox" name="wpait_options[frontend_editor]" value="1" <?php checked($options['frontend_editor'], '1'); ?>>
-                        <span><?php esc_html_e('Allow administrators to edit translations from the frontend', 'ai-translate-woocommerce-elementor'); ?></span>
+                        <span><?php esc_html_e('Allow administrators to edit translations from the frontend', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     </label>
                 </section>
             </div>
-            <?php submit_button(__('Save setup', 'ai-translate-woocommerce-elementor')); ?>
+            <?php submit_button(__('Save setup', 'wpait-ai-translate-for-woocommerce-elementor')); ?>
         </form>
     </div>
 
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Scan and Translate', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Scan and Translate', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <div class="wpait-onboarding-actions">
             <section>
                 <span class="wpait-step-number">5</span>
-                <h3><?php esc_html_e('Scan', 'ai-translate-woocommerce-elementor'); ?></h3>
-                <p><?php esc_html_e('Collect site strings into the saved translation queue.', 'ai-translate-woocommerce-elementor'); ?></p>
+                <h3><?php esc_html_e('Scan', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                <p><?php esc_html_e('Collect site strings into the saved translation queue.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 <?php if (!empty($scan_result['message'])) : ?>
                     <p><code><?php echo esc_html((string) $scan_result['message']); ?></code></p>
                 <?php endif; ?>
@@ -7089,13 +7089,13 @@ function wpait_fallback_onboarding_page()
                     <?php wp_nonce_field('wpait_scan_site'); ?>
                     <input type="hidden" name="action" value="wpait_scan_site">
                     <input type="hidden" name="redirect_page" value="wp-ai-translate-onboarding">
-                    <?php submit_button(__('Scan site strings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                    <?php submit_button(__('Scan site strings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
                 </form>
             </section>
             <section>
                 <span class="wpait-step-number">6</span>
-                <h3><?php esc_html_e('Translate', 'ai-translate-woocommerce-elementor'); ?></h3>
-                <p><?php esc_html_e('Start one translation queue batch. Repeat or enable background processing later in Advanced mode.', 'ai-translate-woocommerce-elementor'); ?></p>
+                <h3><?php esc_html_e('Translate', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                <p><?php esc_html_e('Start one translation queue batch. Repeat or enable background processing later in Advanced mode.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 <?php if (!empty($queue_result['message'])) : ?>
                     <p><code><?php echo esc_html((string) $queue_result['message']); ?></code></p>
                 <?php endif; ?>
@@ -7103,15 +7103,15 @@ function wpait_fallback_onboarding_page()
                     <?php wp_nonce_field('wpait_process_queue'); ?>
                     <input type="hidden" name="action" value="wpait_process_queue">
                     <input type="hidden" name="redirect_page" value="wp-ai-translate-onboarding">
-                    <?php submit_button(__('Start translation queue', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
+                    <?php submit_button(__('Start translation queue', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
                 </form>
             </section>
         </div>
         <form class="wpait-finish-onboarding" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
             <?php wp_nonce_field('wpait_onboarding_finish'); ?>
             <input type="hidden" name="action" value="wpait_onboarding_finish">
-            <?php submit_button(__('Finish setup', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
-            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG)); ?>"><?php esc_html_e('Open dashboard', 'ai-translate-woocommerce-elementor'); ?></a>
+            <?php submit_button(__('Finish setup', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
+            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG)); ?>"><?php esc_html_e('Open dashboard', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
         </form>
     </div>
     <?php
@@ -7143,11 +7143,11 @@ function wpait_fallback_render_matrix_pagination($total, $paged, $total_pages, $
     ?>
     <div class="wpait-matrix-pagination">
         <?php if ($include_save) : ?>
-            <button type="submit" class="button button-primary"><?php esc_html_e('Save visible translations', 'ai-translate-woocommerce-elementor'); ?></button>
+            <button type="submit" class="button button-primary"><?php esc_html_e('Save visible translations', 'wpait-ai-translate-for-woocommerce-elementor'); ?></button>
         <?php endif; ?>
         <span><?php echo esc_html(sprintf('%d item(s), page %d of %d', $total, $paged, $total_pages)); ?></span>
-        <a class="button" href="<?php echo esc_url($first_url); ?>" aria-disabled="<?php echo 1 === $paged ? 'true' : 'false'; ?>"><?php esc_html_e('First', 'ai-translate-woocommerce-elementor'); ?></a>
-        <a class="button" href="<?php echo esc_url($prev_url); ?>" aria-disabled="<?php echo 1 === $paged ? 'true' : 'false'; ?>"><?php esc_html_e('Previous', 'ai-translate-woocommerce-elementor'); ?></a>
+        <a class="button" href="<?php echo esc_url($first_url); ?>" aria-disabled="<?php echo 1 === $paged ? 'true' : 'false'; ?>"><?php esc_html_e('First', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+        <a class="button" href="<?php echo esc_url($prev_url); ?>" aria-disabled="<?php echo 1 === $paged ? 'true' : 'false'; ?>"><?php esc_html_e('Previous', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
         <?php if ($window_start > 1) : ?>
             <a class="button wpait-page-number" href="<?php echo esc_url($first_url); ?>">1</a>
             <?php if ($window_start > 2) : ?>
@@ -7168,8 +7168,8 @@ function wpait_fallback_render_matrix_pagination($total, $paged, $total_pages, $
             <?php endif; ?>
             <a class="button wpait-page-number" href="<?php echo esc_url($last_url); ?>"><?php echo esc_html((string) $total_pages); ?></a>
         <?php endif; ?>
-        <a class="button" href="<?php echo esc_url($next_url); ?>" aria-disabled="<?php echo $paged >= $total_pages ? 'true' : 'false'; ?>"><?php esc_html_e('Next', 'ai-translate-woocommerce-elementor'); ?></a>
-        <a class="button" href="<?php echo esc_url($last_url); ?>" aria-disabled="<?php echo $paged >= $total_pages ? 'true' : 'false'; ?>"><?php esc_html_e('Last', 'ai-translate-woocommerce-elementor'); ?></a>
+        <a class="button" href="<?php echo esc_url($next_url); ?>" aria-disabled="<?php echo $paged >= $total_pages ? 'true' : 'false'; ?>"><?php esc_html_e('Next', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+        <a class="button" href="<?php echo esc_url($last_url); ?>" aria-disabled="<?php echo $paged >= $total_pages ? 'true' : 'false'; ?>"><?php esc_html_e('Last', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
     </div>
     <?php
 }
@@ -7204,12 +7204,12 @@ function wpait_fallback_translations_page()
     $save_result = is_array($save_result) ? $save_result : array();
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Translations', 'ai-translate-woocommerce-elementor'),
-        __('Edit each source string per target language. Empty fields can be filled manually or translated from the queue.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Translations', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Edit each source string per target language. Empty fields can be filled manually or translated from the queue.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Translations Matrix', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Translations Matrix', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <div class="wpait-matrix-actions">
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_scan_site'); ?>
@@ -7219,7 +7219,7 @@ function wpait_fallback_translations_page()
                 <input type="hidden" name="paged" value="<?php echo esc_attr((string) $paged); ?>">
                 <input type="hidden" name="matrix_search" value="<?php echo esc_attr($matrix_search); ?>">
                 <input type="hidden" name="matrix_status" value="<?php echo esc_attr($matrix_status); ?>">
-                <?php submit_button(__('Scan new strings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                <?php submit_button(__('Scan new strings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
             </form>
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_process_queue'); ?>
@@ -7229,14 +7229,14 @@ function wpait_fallback_translations_page()
                 <input type="hidden" name="paged" value="<?php echo esc_attr((string) $paged); ?>">
                 <input type="hidden" name="matrix_search" value="<?php echo esc_attr($matrix_search); ?>">
                 <input type="hidden" name="matrix_status" value="<?php echo esc_attr($matrix_status); ?>">
-                <?php submit_button(__('Process queue', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
+                <?php submit_button(__('Process queue', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
             </form>
             <form method="get" action="<?php echo esc_url(admin_url('admin.php')); ?>">
                 <input type="hidden" name="page" value="wp-ai-translate-translations">
                 <input type="hidden" name="matrix_search" value="<?php echo esc_attr($matrix_search); ?>">
                 <input type="hidden" name="matrix_status" value="<?php echo esc_attr($matrix_status); ?>">
                 <label>
-                    <?php esc_html_e('Per page', 'ai-translate-woocommerce-elementor'); ?>
+                    <?php esc_html_e('Per page', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                     <select name="per_page" onchange="this.form.submit()">
                         <option value="25" <?php selected($per_page, 25); ?>>25</option>
                         <option value="50" <?php selected($per_page, 50); ?>>50</option>
@@ -7249,36 +7249,36 @@ function wpait_fallback_translations_page()
             <input type="hidden" name="page" value="wp-ai-translate-translations">
             <input type="hidden" name="per_page" value="<?php echo esc_attr((string) $per_page); ?>">
             <label>
-                <?php esc_html_e('Search', 'ai-translate-woocommerce-elementor'); ?>
-                <input type="search" name="matrix_search" value="<?php echo esc_attr($matrix_search); ?>" placeholder="<?php esc_attr_e('Source text or hash...', 'ai-translate-woocommerce-elementor'); ?>">
+                <?php esc_html_e('Search', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
+                <input type="search" name="matrix_search" value="<?php echo esc_attr($matrix_search); ?>" placeholder="<?php esc_attr_e('Source text or hash...', 'wpait-ai-translate-for-woocommerce-elementor'); ?>">
             </label>
             <label>
-                <?php esc_html_e('Status', 'ai-translate-woocommerce-elementor'); ?>
+                <?php esc_html_e('Status', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                 <select name="matrix_status">
-                    <option value="all" <?php selected($matrix_status, 'all'); ?>><?php esc_html_e('All strings', 'ai-translate-woocommerce-elementor'); ?></option>
-                    <option value="untranslated" <?php selected($matrix_status, 'untranslated'); ?>><?php esc_html_e('Needs translation', 'ai-translate-woocommerce-elementor'); ?></option>
-                    <option value="translated" <?php selected($matrix_status, 'translated'); ?>><?php esc_html_e('Translated', 'ai-translate-woocommerce-elementor'); ?></option>
+                    <option value="all" <?php selected($matrix_status, 'all'); ?>><?php esc_html_e('All strings', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                    <option value="untranslated" <?php selected($matrix_status, 'untranslated'); ?>><?php esc_html_e('Needs translation', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                    <option value="translated" <?php selected($matrix_status, 'translated'); ?>><?php esc_html_e('Translated', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                 </select>
             </label>
-            <?php submit_button(__('Filter', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
-            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-translations&per_page=' . (int) $per_page)); ?>"><?php esc_html_e('Reset', 'ai-translate-woocommerce-elementor'); ?></a>
+            <?php submit_button(__('Filter', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-translations&per_page=' . (int) $per_page)); ?>"><?php esc_html_e('Reset', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
         </form>
         <?php if (!empty($save_result)) : ?>
             <div class="wpait-debug-result is-good">
-                <p><strong><?php esc_html_e('Last bulk save:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($save_result['created_at']) ? $save_result['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last bulk save:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($save_result['created_at']) ? $save_result['created_at'] : ''); ?></p>
                 <p><?php echo esc_html(sprintf('Saved %d translation(s).', isset($save_result['saved']) ? (int) $save_result['saved'] : 0)); ?></p>
             </div>
         <?php endif; ?>
         <?php if (!empty($targets)) : ?>
             <details class="wpait-export-import">
-                <summary><?php esc_html_e('Export / Import', 'ai-translate-woocommerce-elementor'); ?></summary>
+                <summary><?php esc_html_e('Export / Import', 'wpait-ai-translate-for-woocommerce-elementor'); ?></summary>
                 <div class="wpait-export-import-grid">
                     <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                         <?php wp_nonce_field('wpait_export_translations'); ?>
                         <input type="hidden" name="action" value="wpait_export_translations">
-                        <h3><?php esc_html_e('Export translations', 'ai-translate-woocommerce-elementor'); ?></h3>
+                        <h3><?php esc_html_e('Export translations', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                         <label>
-                            <?php esc_html_e('Export language', 'ai-translate-woocommerce-elementor'); ?>
+                            <?php esc_html_e('Export language', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                             <select name="target_language">
                                 <?php foreach ($targets as $target) : ?>
                                     <option value="<?php echo esc_attr($target); ?>"><?php echo esc_html(isset($languages[$target]) ? $languages[$target] : strtoupper($target)); ?></option>
@@ -7286,21 +7286,21 @@ function wpait_fallback_translations_page()
                             </select>
                         </label>
                         <label>
-                            <?php esc_html_e('Format', 'ai-translate-woocommerce-elementor'); ?>
+                            <?php esc_html_e('Format', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                             <select name="export_format">
                                 <option value="csv">CSV</option>
                                 <option value="po">PO</option>
                                 <option value="mo">MO</option>
                             </select>
                         </label>
-                        <?php submit_button(__('Export translations', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                        <?php submit_button(__('Export translations', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
                     </form>
                     <form method="post" enctype="multipart/form-data" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                         <?php wp_nonce_field('wpait_import_translations'); ?>
                         <input type="hidden" name="action" value="wpait_import_translations">
-                        <h3><?php esc_html_e('Import translations', 'ai-translate-woocommerce-elementor'); ?></h3>
+                        <h3><?php esc_html_e('Import translations', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
                         <label>
-                            <?php esc_html_e('Import language', 'ai-translate-woocommerce-elementor'); ?>
+                            <?php esc_html_e('Import language', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                             <select name="target_language">
                                 <?php foreach ($targets as $target) : ?>
                                     <option value="<?php echo esc_attr($target); ?>"><?php echo esc_html(isset($languages[$target]) ? $languages[$target] : strtoupper($target)); ?></option>
@@ -7308,7 +7308,7 @@ function wpait_fallback_translations_page()
                             </select>
                         </label>
                         <label>
-                            <?php esc_html_e('Format', 'ai-translate-woocommerce-elementor'); ?>
+                            <?php esc_html_e('Format', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                             <select name="import_format">
                                 <option value="csv">CSV</option>
                                 <option value="po">PO</option>
@@ -7316,16 +7316,16 @@ function wpait_fallback_translations_page()
                             </select>
                         </label>
                         <input type="file" name="translation_file" accept=".csv,.po,.mo">
-                        <?php submit_button(__('Import translations', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
-                        <p class="description"><?php esc_html_e('CSV columns: source_text and translated_text. PO/MO import uses msgid as the original string and msgstr as the saved translation.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <?php submit_button(__('Import translations', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
+                        <p class="description"><?php esc_html_e('CSV columns: source_text and translated_text. PO/MO import uses msgid as the original string and msgstr as the saved translation.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </form>
                 </div>
             </details>
         <?php endif; ?>
         <?php if (empty($targets)) : ?>
-            <p><?php esc_html_e('Select target languages first.', 'ai-translate-woocommerce-elementor'); ?></p>
+            <p><?php esc_html_e('Select target languages first.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         <?php elseif (empty($matrix)) : ?>
-            <p><?php esc_html_e('No strings collected yet. Run the scanner or open translated pages once to collect frontend strings.', 'ai-translate-woocommerce-elementor'); ?></p>
+            <p><?php esc_html_e('No strings collected yet. Run the scanner or open translated pages once to collect frontend strings.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         <?php else : ?>
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_save_translation_matrix'); ?>
@@ -7338,7 +7338,7 @@ function wpait_fallback_translations_page()
             <table class="widefat striped wpait-matrix-table">
                 <thead>
                     <tr>
-                        <th class="source-cell"><?php esc_html_e('Original', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html(strtoupper($source_language)); ?></code></th>
+                        <th class="source-cell"><?php esc_html_e('Original', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html(strtoupper($source_language)); ?></code></th>
                         <?php foreach ($targets as $target) : ?>
                             <th><?php echo esc_html(isset($languages[$target]) ? $languages[$target] : strtoupper($target)); ?> <code><?php echo esc_html(strtoupper($target)); ?></code></th>
                         <?php endforeach; ?>
@@ -7361,7 +7361,7 @@ function wpait_fallback_translations_page()
                                     <input type="hidden" name="wpait_matrix[<?php echo esc_attr((string) $field_index); ?>][source_text]" value="<?php echo esc_attr($item['source_text']); ?>">
                                     <textarea name="wpait_matrix[<?php echo esc_attr((string) $field_index); ?>][translated_text]"><?php echo esc_textarea(isset($row['translated_text']) ? $row['translated_text'] : ''); ?></textarea>
                                     <p class="description">
-                                        <?php esc_html_e('Status:', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Status:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                         <code><?php echo esc_html(isset($row['status']) ? $row['status'] : 'missing'); ?></code>
                                         <?php if (!empty($row['provider'])) : ?>
                                             <code><?php echo esc_html($row['provider']); ?></code>
@@ -7401,24 +7401,24 @@ function wpait_fallback_scanner_page()
     $provider_stats = wpait_fallback_provider_stats_for(wpait_fallback_active_provider());
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Scanner', 'ai-translate-woocommerce-elementor'),
-        __('Collect site strings into the queue, then translate queued strings in controlled batches.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Scanner', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Collect site strings into the queue, then translate queued strings in controlled batches.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Scanner and Queue', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Scanner and Queue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <p>
-            <?php esc_html_e('Auto scan on save:', 'ai-translate-woocommerce-elementor'); ?>
+            <?php esc_html_e('Auto scan on save:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             <code><?php echo esc_html('1' === $options['scan_on_save'] ? 'enabled' : 'disabled'); ?></code>
-            <?php esc_html_e('Background processing:', 'ai-translate-woocommerce-elementor'); ?>
+            <?php esc_html_e('Background processing:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             <code><?php echo esc_html('1' === $options['cron_enabled'] ? 'enabled' : 'disabled'); ?></code>
-            <?php esc_html_e('Translation Mode:', 'ai-translate-woocommerce-elementor'); ?>
+            <?php esc_html_e('Translation Mode:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             <code><?php echo esc_html(wpait_fallback_translation_mode_label()); ?></code>
-            <?php esc_html_e('Quality:', 'ai-translate-woocommerce-elementor'); ?>
+            <?php esc_html_e('Quality:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             <code><?php echo esc_html(wpait_fallback_quality_mode_label()); ?></code>
         </p>
         <p class="description">
-            <?php esc_html_e('Cost optimization:', 'ai-translate-woocommerce-elementor'); ?>
+            <?php esc_html_e('Cost optimization:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             <code><?php echo esc_html(sprintf('requests %d / input tokens %d / output tokens %d / cost %.6f / cache hits %d / duplicates skipped %d', absint($provider_stats['requests'] ?? 0), absint($provider_stats['input_tokens'] ?? 0), absint($provider_stats['output_tokens'] ?? 0), (float) ($provider_stats['estimated_cost'] ?? 0), absint($provider_stats['cache_hits'] ?? 0), absint($provider_stats['duplicate_skipped'] ?? 0))); ?></code>
         </p>
         <div class="wpait-mini-stats">
@@ -7433,31 +7433,31 @@ function wpait_fallback_scanner_page()
 
         <?php if (!empty($scan_result)) : ?>
             <div class="wpait-debug-result <?php echo !empty($scan_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                <p><strong><?php esc_html_e('Last scan:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($scan_result['created_at']) ? $scan_result['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last scan:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($scan_result['created_at']) ? $scan_result['created_at'] : ''); ?></p>
                 <p><?php echo esc_html(isset($scan_result['message']) ? $scan_result['message'] : ''); ?></p>
             </div>
         <?php endif; ?>
 
         <?php if (!empty($auto_scan_result)) : ?>
             <div class="wpait-debug-result is-good">
-                <p><strong><?php esc_html_e('Last automatic scan:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($auto_scan_result['created_at']) ? $auto_scan_result['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last automatic scan:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($auto_scan_result['created_at']) ? $auto_scan_result['created_at'] : ''); ?></p>
                 <p><?php echo esc_html(sprintf('Post #%d: found %d string(s), queued %d new item(s).', isset($auto_scan_result['post_id']) ? (int) $auto_scan_result['post_id'] : 0, isset($auto_scan_result['strings']) ? (int) $auto_scan_result['strings'] : 0, isset($auto_scan_result['queued']) ? (int) $auto_scan_result['queued'] : 0)); ?></p>
             </div>
         <?php endif; ?>
 
         <?php if (!empty($queue_result)) : ?>
             <div class="wpait-debug-result <?php echo !empty($queue_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                <p><strong><?php esc_html_e('Last queue run:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($queue_result['created_at']) ? $queue_result['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last queue run:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($queue_result['created_at']) ? $queue_result['created_at'] : ''); ?></p>
                 <p><?php echo esc_html(isset($queue_result['message']) ? $queue_result['message'] : ''); ?></p>
                 <?php if (!empty($queue_result['routes'])) : ?>
-                    <p><?php esc_html_e('Routes:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html($queue_result['routes']); ?></code></p>
+                    <p><?php esc_html_e('Routes:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html($queue_result['routes']); ?></code></p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
 
         <?php if (!empty($cron_result)) : ?>
             <div class="wpait-debug-result <?php echo !empty($cron_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                <p><strong><?php esc_html_e('Last background run:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($cron_result['created_at']) ? $cron_result['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last background run:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($cron_result['created_at']) ? $cron_result['created_at'] : ''); ?></p>
                 <p><?php echo esc_html(isset($cron_result['message']) ? $cron_result['message'] : ''); ?></p>
             </div>
         <?php endif; ?>
@@ -7465,25 +7465,25 @@ function wpait_fallback_scanner_page()
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline-block;margin-right:8px">
             <?php wp_nonce_field('wpait_scan_site'); ?>
             <input type="hidden" name="action" value="wpait_scan_site">
-            <?php submit_button(__('Scan site strings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+            <?php submit_button(__('Scan site strings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
         </form>
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline-block;margin-right:8px">
             <?php wp_nonce_field('wpait_process_queue'); ?>
             <input type="hidden" name="action" value="wpait_process_queue">
-            <?php submit_button(__('Process translation queue', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
+            <?php submit_button(__('Process translation queue', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
         </form>
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline-block;margin-right:8px">
             <?php wp_nonce_field('wpait_translate_all_queue'); ?>
             <input type="hidden" name="action" value="wpait_translate_all_queue">
-            <?php submit_button(__('Translate All', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
+            <?php submit_button(__('Translate All', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
         </form>
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline-block">
             <?php wp_nonce_field('wpait_clear_queue'); ?>
             <input type="hidden" name="action" value="wpait_clear_queue">
-            <?php submit_button(__('Clear queued strings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+            <?php submit_button(__('Clear queued strings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
         </form>
         <p class="description">
-            <?php esc_html_e('Translate All uses the active provider and can consume API quota quickly. It runs in safe batches and may stop if provider quota, cooldown, or server time limits are reached.', 'ai-translate-woocommerce-elementor'); ?>
+            <?php esc_html_e('Translate All uses the active provider and can consume API quota quickly. It runs in safe batches and may stop if provider quota, cooldown, or server time limits are reached.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
         </p>
     </div>
     <?php
@@ -7510,19 +7510,19 @@ function wpait_fallback_debugger_page()
     $api_key = wpait_fallback_provider_key($provider);
 
     wpait_fallback_admin_page_start(
-        __('AI Translate - Debugger', 'ai-translate-woocommerce-elementor'),
-        __('Check provider access, current route, translation table, and the latest API error.', 'ai-translate-woocommerce-elementor')
+        __('AI Translate - Debugger', 'wpait-ai-translate-for-woocommerce-elementor'),
+        __('Check provider access, current route, translation table, and the latest API error.', 'wpait-ai-translate-for-woocommerce-elementor')
     );
     ?>
     <div class="wpait-wide-card">
-        <h2><?php esc_html_e('Debugger', 'ai-translate-woocommerce-elementor'); ?></h2>
+        <h2><?php esc_html_e('Debugger', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
         <table class="form-table wpait-debug-table" role="presentation">
             <?php
             wpait_fallback_render_debug_value('Plugin version', WPAIT_VERSION, true);
             wpait_fallback_render_debug_value('Build status', wpait_fallback_edition_label(), true);
             wpait_fallback_render_debug_value('Plugin mode', 'single-file queued engine', true);
             wpait_fallback_render_debug_value('Plugin folder', wpait_fallback_plugin_folder(), wpait_fallback_is_update_safe_folder());
-            wpait_fallback_render_debug_value('Upload update safe', wpait_fallback_is_update_safe_folder() ? 'yes' : 'no - install once into ai-translate-woocommerce-elementor folder', wpait_fallback_is_update_safe_folder());
+            wpait_fallback_render_debug_value('Upload update safe', wpait_fallback_is_update_safe_folder() ? 'yes' : 'no - install once into wpait-ai-translate-for-woocommerce-elementor folder', wpait_fallback_is_update_safe_folder());
             wpait_fallback_render_debug_value('PHP version', PHP_VERSION, version_compare(PHP_VERSION, '7.0', '>='));
             wpait_fallback_render_debug_value('DOMDocument', class_exists('DOMDocument') ? 'available' : 'missing', class_exists('DOMDocument'));
             wpait_fallback_render_debug_value('WP HTTP API', function_exists('wp_remote_post') ? 'available' : 'missing', function_exists('wp_remote_post'));
@@ -7558,15 +7558,15 @@ function wpait_fallback_debugger_page()
             <input type="hidden" name="action" value="wpait_debug_settings">
             <label>
                 <input type="checkbox" name="wpait_debug_file_enabled" value="1" <?php checked($debug_file_enabled); ?>>
-                <?php esc_html_e('Write extended debug log to a separate file', 'ai-translate-woocommerce-elementor'); ?>
+                <?php esc_html_e('Write extended debug log to a separate file', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             </label>
-            <?php submit_button(__('Save debug settings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
-            <p class="description"><?php esc_html_e('Use this only while testing. The file stores route/API events as JSON lines and is cleared by Clear debug log.', 'ai-translate-woocommerce-elementor'); ?></p>
+            <?php submit_button(__('Save debug settings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+            <p class="description"><?php esc_html_e('Use this only while testing. The file stores route/API events as JSON lines and is cleared by Clear debug log.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
         </form>
 
         <?php if (!empty($route_debug)) : ?>
             <div class="wpait-debug-result">
-                <p><strong><?php esc_html_e('Last frontend route:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($route_debug['created_at']) ? $route_debug['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last frontend route:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($route_debug['created_at']) ? $route_debug['created_at'] : ''); ?></p>
                 <table class="form-table wpait-debug-table" role="presentation">
                     <?php
                     wpait_fallback_render_debug_value('Original request URI', isset($route_debug['original_request_uri']) ? $route_debug['original_request_uri'] : '', true);
@@ -7589,27 +7589,27 @@ function wpait_fallback_debugger_page()
 
         <?php if (!empty($debug_result)) : ?>
             <div class="wpait-debug-result <?php echo !empty($debug_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                <p><strong><?php esc_html_e('Last provider test:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($debug_result['created_at']) ? $debug_result['created_at'] : ''); ?></p>
+                <p><strong><?php esc_html_e('Last provider test:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($debug_result['created_at']) ? $debug_result['created_at'] : ''); ?></p>
                 <p><?php echo esc_html(isset($debug_result['message']) ? $debug_result['message'] : ''); ?></p>
                 <?php if (!empty($debug_result['http_status'])) : ?>
-                    <p><?php esc_html_e('HTTP status:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((string) $debug_result['http_status']); ?></code></p>
+                    <p><?php esc_html_e('HTTP status:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((string) $debug_result['http_status']); ?></code></p>
                 <?php endif; ?>
                 <?php if (!empty($debug_result['source_language']) || !empty($debug_result['target_language'])) : ?>
-                    <p><?php esc_html_e('Route:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($debug_result['source_language']) ? $debug_result['source_language'] : '') . ' -> ' . (isset($debug_result['target_language']) ? $debug_result['target_language'] : '')); ?></code></p>
+                    <p><?php esc_html_e('Route:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($debug_result['source_language']) ? $debug_result['source_language'] : '') . ' -> ' . (isset($debug_result['target_language']) ? $debug_result['target_language'] : '')); ?></code></p>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
 
         <?php if (!empty($debug_events)) : ?>
             <div class="wpait-debug-result">
-                <p><strong><?php esc_html_e('Debug log', 'ai-translate-woocommerce-elementor'); ?></strong> <?php esc_html_e('Latest 20 events', 'ai-translate-woocommerce-elementor'); ?></p>
+                <p><strong><?php esc_html_e('Debug log', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php esc_html_e('Latest 20 events', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 <table class="widefat striped wpait-log-table">
                     <thead>
                         <tr>
-                            <th><?php esc_html_e('Time', 'ai-translate-woocommerce-elementor'); ?></th>
-                            <th><?php esc_html_e('Type', 'ai-translate-woocommerce-elementor'); ?></th>
-                            <th><?php esc_html_e('Message', 'ai-translate-woocommerce-elementor'); ?></th>
-                            <th><?php esc_html_e('Context', 'ai-translate-woocommerce-elementor'); ?></th>
+                            <th><?php esc_html_e('Time', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
+                            <th><?php esc_html_e('Type', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
+                            <th><?php esc_html_e('Message', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
+                            <th><?php esc_html_e('Context', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -7635,22 +7635,22 @@ function wpait_fallback_debugger_page()
                         <option value="<?php echo esc_attr($language); ?>"><?php echo esc_html(strtoupper($language)); ?></option>
                     <?php endforeach; ?>
                 </select>
-                <?php submit_button(__('Test provider translation', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                <?php submit_button(__('Test provider translation', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
             </form>
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_debug_download'); ?>
                 <input type="hidden" name="action" value="wpait_debug_download">
-                <?php submit_button(__('Download log file', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false, file_exists($debug_log_path) ? array() : array('disabled' => 'disabled')); ?>
+                <?php submit_button(__('Download log file', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false, file_exists($debug_log_path) ? array() : array('disabled' => 'disabled')); ?>
             </form>
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_debug_clear'); ?>
                 <input type="hidden" name="action" value="wpait_debug_clear">
-                <?php submit_button(__('Clear debug log', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                <?php submit_button(__('Clear debug log', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
             </form>
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_clear_provider_cooldown'); ?>
                 <input type="hidden" name="action" value="wpait_clear_provider_cooldown">
-                <?php submit_button(__('Clear provider cooldown', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                <?php submit_button(__('Clear provider cooldown', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
             </form>
         </div>
     </div>
@@ -7661,7 +7661,7 @@ function wpait_fallback_debugger_page()
 function wpait_fallback_debug_test_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_debug_test');
@@ -7682,7 +7682,7 @@ function wpait_fallback_debug_test_handler()
 function wpait_fallback_debug_settings_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_debug_settings');
@@ -7706,7 +7706,7 @@ function wpait_fallback_debug_settings_handler()
 function wpait_fallback_debug_clear_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_debug_clear');
@@ -7726,14 +7726,14 @@ function wpait_fallback_debug_clear_handler()
 function wpait_fallback_debug_download_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_debug_download');
 
     $log_path = wpait_fallback_debug_log_path();
     if (!file_exists($log_path) || !is_readable($log_path)) {
-        wp_die(esc_html__('Debug log file was not found.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Debug log file was not found.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     while (ob_get_level()) {
@@ -7752,7 +7752,7 @@ function wpait_fallback_debug_download_handler()
 function wpait_fallback_clear_provider_cooldown_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_clear_provider_cooldown');
@@ -7773,7 +7773,7 @@ function wpait_fallback_clear_provider_cooldown_handler()
 function wpait_fallback_process_queue_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_process_queue');
@@ -7793,7 +7793,7 @@ function wpait_fallback_process_queue_handler()
 function wpait_fallback_translate_all_queue_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_translate_all_queue');
@@ -7835,19 +7835,19 @@ function wpait_fallback_translate_all_queue_handler()
     $ok = !empty($last_result['ok']);
 
     if ($queued_before < 1) {
-        $message = __('Queue is empty.', 'ai-translate-woocommerce-elementor');
+        $message = __('Queue is empty.', 'wpait-ai-translate-for-woocommerce-elementor');
     } elseif (!$ok) {
         $message = sprintf(
             /* translators: 1: processed count, 2: original queued count, 3: error message. */
-            __('Translate All stopped after processing %1$d of %2$d queued translation(s): %3$s', 'ai-translate-woocommerce-elementor'),
+            __('Translate All stopped after processing %1$d of %2$d queued translation(s): %3$s', 'wpait-ai-translate-for-woocommerce-elementor'),
             $processed,
             $queued_before,
-            isset($last_result['message']) ? (string) $last_result['message'] : __('Provider error.', 'ai-translate-woocommerce-elementor')
+            isset($last_result['message']) ? (string) $last_result['message'] : __('Provider error.', 'wpait-ai-translate-for-woocommerce-elementor')
         );
     } elseif ($remaining > 0) {
         $message = sprintf(
             /* translators: 1: processed count, 2: original queued count, 3: remaining count, 4: batch count. */
-            __('Translate All processed %1$d of %2$d queued translation(s) in %4$d safe batch(es). %3$d item(s) remain. Run it again or enable background processing; provider quota or server time limits may stop long runs.', 'ai-translate-woocommerce-elementor'),
+            __('Translate All processed %1$d of %2$d queued translation(s) in %4$d safe batch(es). %3$d item(s) remain. Run it again or enable background processing; provider quota or server time limits may stop long runs.', 'wpait-ai-translate-for-woocommerce-elementor'),
             $processed,
             $queued_before,
             $remaining,
@@ -7856,7 +7856,7 @@ function wpait_fallback_translate_all_queue_handler()
     } else {
         $message = sprintf(
             /* translators: 1: processed count, 2: batch count. */
-            __('Translate All finished. Processed %1$d queued translation(s) in %2$d safe batch(es).', 'ai-translate-woocommerce-elementor'),
+            __('Translate All finished. Processed %1$d queued translation(s) in %2$d safe batch(es).', 'wpait-ai-translate-for-woocommerce-elementor'),
             $processed,
             $batches
         );
@@ -7888,7 +7888,7 @@ function wpait_fallback_translate_all_queue_handler()
 function wpait_fallback_clear_queue_handler()
 {
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('Permission denied.', 'ai-translate-woocommerce-elementor'));
+        wp_die(esc_html__('Permission denied.', 'wpait-ai-translate-for-woocommerce-elementor'));
     }
 
     check_admin_referer('wpait_clear_queue');
@@ -8085,8 +8085,8 @@ function wpait_fallback_settings_page()
         <div class="wpait-admin-title is-dashboard">
             <img src="<?php echo esc_attr(wpait_fallback_logo_url()); ?>" alt="" width="150" height="150">
             <div>
-                <h1><?php esc_html_e('AI Translate', 'ai-translate-woocommerce-elementor'); ?></h1>
-                <p><?php esc_html_e('Scan strings, translate them in batches, then edit saved translations on the frontend.', 'ai-translate-woocommerce-elementor'); ?></p>
+                <h1><?php esc_html_e('AI Translate', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h1>
+                <p><?php esc_html_e('Scan strings, translate them in batches, then edit saved translations on the frontend.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 <p class="wpait-admin-meta">
                     <?php echo esc_html(sprintf('AI Translate %s | %s | Developer: sotter IT Design | ', WPAIT_VERSION, wpait_fallback_edition_label())); ?>
                     <a href="https://wp-ai.itdesign.biz" target="_blank" rel="noopener noreferrer">wp-ai.itdesign.biz</a>
@@ -8098,14 +8098,14 @@ function wpait_fallback_settings_page()
         <?php if (!wpait_fallback_is_update_safe_folder()) : ?>
             <div class="notice notice-error inline">
                 <p>
-                    <strong><?php esc_html_e('Upload updates are not safe for this install yet.', 'ai-translate-woocommerce-elementor'); ?></strong>
-                    <?php echo esc_html(sprintf('Current plugin folder is "%s". For normal WordPress upload updates it must be "ai-translate-woocommerce-elementor".', wpait_fallback_plugin_folder())); ?>
+                    <strong><?php esc_html_e('Upload updates are not safe for this install yet.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong>
+                    <?php echo esc_html(sprintf('Current plugin folder is "%s". For normal WordPress upload updates it must be "wpait-ai-translate-for-woocommerce-elementor".', wpait_fallback_plugin_folder())); ?>
                 </p>
                 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <?php wp_nonce_field('wpait_repair_plugin_folder'); ?>
                     <input type="hidden" name="action" value="wpait_repair_plugin_folder">
-                    <?php submit_button(__('Repair plugin folder', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
-                    <p class="description"><?php esc_html_e('This copies the current plugin into wp-ai-translate, deactivates this temporary folder, and opens the normal activation link for the repaired copy. It does not delete the old folder automatically.', 'ai-translate-woocommerce-elementor'); ?></p>
+                    <?php submit_button(__('Repair plugin folder', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                    <p class="description"><?php esc_html_e('This copies the current plugin into wp-ai-translate, deactivates this temporary folder, and opens the normal activation link for the repaired copy. It does not delete the old folder automatically.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                 </form>
             </div>
         <?php endif; ?>
@@ -8117,7 +8117,7 @@ function wpait_fallback_settings_page()
         <?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- WordPress settings API notice flag is read-only. ?>
         <?php if (!empty($_GET['settings-updated'])) : ?>
             <div class="notice notice-success inline">
-                <p><?php esc_html_e('Settings saved.', 'ai-translate-woocommerce-elementor'); ?></p>
+                <p><?php esc_html_e('Settings saved.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
             </div>
         <?php endif; ?>
 
@@ -8125,26 +8125,26 @@ function wpait_fallback_settings_page()
 
         <div class="notice notice-warning inline wpait-advanced-only">
             <p>
-                <?php esc_html_e('AI Translate for WooCommerce & Elementor is using the single-file queued translation engine. Pages use saved translations first; new strings are collected into the queue for batch translation.', 'ai-translate-woocommerce-elementor'); ?>
+                <?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor is using the single-file queued translation engine. Pages use saved translations first; new strings are collected into the queue for batch translation.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
             </p>
         </div>
         <?php if (!empty($last_error)) : ?>
             <div class="notice notice-error inline">
-                <p><strong><?php esc_html_e('Last translation error:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html($last_error); ?></p>
+                <p><strong><?php esc_html_e('Last translation error:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html($last_error); ?></p>
             </div>
         <?php endif; ?>
 
-        <nav class="wpait-admin-tabs" aria-label="<?php esc_attr_e('AI Translate for WooCommerce & Elementor sections', 'ai-translate-woocommerce-elementor'); ?>">
-            <a href="#wpait-general"><?php esc_html_e('General', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="#wpait-languages"><?php esc_html_e('Languages', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="#wpait-provider"><?php esc_html_e('Providers', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="#wpait-switcher"><?php esc_html_e('Frontend Editor', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="#wpait-urls"><?php esc_html_e('SEO & URLs', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="#wpait-scan"><?php esc_html_e('Scanner', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a class="wpait-advanced-only" href="#wpait-queue"><?php esc_html_e('Queue', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a class="wpait-advanced-only" href="#wpait-debug"><?php esc_html_e('Debugger', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="#wpait-support"><?php esc_html_e('Support', 'ai-translate-woocommerce-elementor'); ?></a>
-            <a href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-translations')); ?>"><?php esc_html_e('Translations', 'ai-translate-woocommerce-elementor'); ?></a>
+        <nav class="wpait-admin-tabs" aria-label="<?php esc_attr_e('WPAIT – AI Translate for WooCommerce & Elementor sections', 'wpait-ai-translate-for-woocommerce-elementor'); ?>">
+            <a href="#wpait-general"><?php esc_html_e('General', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="#wpait-languages"><?php esc_html_e('Languages', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="#wpait-provider"><?php esc_html_e('Providers', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="#wpait-switcher"><?php esc_html_e('Frontend Editor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="#wpait-urls"><?php esc_html_e('SEO & URLs', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="#wpait-scan"><?php esc_html_e('Scanner', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a class="wpait-advanced-only" href="#wpait-queue"><?php esc_html_e('Queue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a class="wpait-advanced-only" href="#wpait-debug"><?php esc_html_e('Debugger', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="#wpait-support"><?php esc_html_e('Support', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+            <a href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-translations')); ?>"><?php esc_html_e('Translations', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
         </nav>
 
         <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
@@ -8152,53 +8152,53 @@ function wpait_fallback_settings_page()
             <input type="hidden" name="action" value="wpait_save_settings">
 
             <div class="wpait-fallback-card" id="wpait-general">
-                <h2><?php esc_html_e('General', 'ai-translate-woocommerce-elementor'); ?></h2>
+                <h2><?php esc_html_e('General', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php esc_html_e('Interface mode', 'ai-translate-woocommerce-elementor'); ?></th>
+                        <th scope="row"><?php esc_html_e('Interface mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         <td>
                             <fieldset class="wpait-segmented">
-                                <label><input type="radio" name="wpait_options[admin_mode]" value="basic" <?php checked($admin_mode, 'basic'); ?>> <span><?php esc_html_e('Basic', 'ai-translate-woocommerce-elementor'); ?></span></label>
-                                <label><input type="radio" name="wpait_options[admin_mode]" value="advanced" <?php checked($admin_mode, 'advanced'); ?>> <span><?php esc_html_e('Advanced', 'ai-translate-woocommerce-elementor'); ?></span></label>
+                                <label><input type="radio" name="wpait_options[admin_mode]" value="basic" <?php checked($admin_mode, 'basic'); ?>> <span><?php esc_html_e('Basic', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span></label>
+                                <label><input type="radio" name="wpait_options[admin_mode]" value="advanced" <?php checked($admin_mode, 'advanced'); ?>> <span><?php esc_html_e('Advanced', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span></label>
                             </fieldset>
-                            <p class="description"><?php esc_html_e('Basic mode shows the setup needed for everyday translation. Advanced mode reveals queue diagnostics, provider internals, scanner details, routes, and logs.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <p class="description"><?php esc_html_e('Basic mode shows the setup needed for everyday translation. Advanced mode reveals queue diagnostics, provider internals, scanner details, routes, and logs.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php esc_html_e('Build status', 'ai-translate-woocommerce-elementor'); ?></th>
+                        <th scope="row"><?php esc_html_e('Build status', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         <td>
-                            <p><strong><?php echo esc_html(wpait_fallback_edition_label()); ?></strong> <?php esc_html_e('Public Beta preparation build.', 'ai-translate-woocommerce-elementor'); ?></p>
-                            <p class="description"><?php esc_html_e('Feature flag helpers are prepared for future package variants. All current beta features remain enabled.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <p><strong><?php echo esc_html(wpait_fallback_edition_label()); ?></strong> <?php esc_html_e('Public Beta preparation build.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                            <p class="description"><?php esc_html_e('Feature flag helpers are prepared for future package variants. All current beta features remain enabled.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         </td>
                     </tr>
                 </table>
             </div>
 
             <div class="wpait-fallback-card" id="wpait-languages">
-                <h2><?php esc_html_e('Languages', 'ai-translate-woocommerce-elementor'); ?></h2>
+                <h2><?php esc_html_e('Languages', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
             <table class="form-table" role="presentation">
                 <tr>
                     <th scope="row">
-                        <label for="wpait-source-language"><?php esc_html_e('Source language', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-source-language"><?php esc_html_e('Source language', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <select id="wpait-source-language" name="wpait_options[source_language]">
-                            <option value=""><?php esc_html_e('Auto: WordPress site language', 'ai-translate-woocommerce-elementor'); ?></option>
+                            <option value=""><?php esc_html_e('Auto: WordPress site language', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                             <?php foreach ($languages as $code => $label) : ?>
                                 <option value="<?php echo esc_attr($code); ?>" <?php selected($source_language, $code); ?>>
                                     <?php echo esc_html($label . ' (' . strtoupper($code) . ')'); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <p class="description"><?php esc_html_e('This is the language your original site content is written in. Auto uses the WordPress site language.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('This is the language your original site content is written in. Auto uses the WordPress site language.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-enabled-languages"><?php esc_html_e('Target languages', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-enabled-languages"><?php esc_html_e('Target languages', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
-                        <input type="search" class="wpait-fallback-language-search" placeholder="<?php esc_attr_e('Search languages...', 'ai-translate-woocommerce-elementor'); ?>">
+                        <input type="search" class="wpait-fallback-language-search" placeholder="<?php esc_attr_e('Search languages...', 'wpait-ai-translate-for-woocommerce-elementor'); ?>">
                         <div class="wpait-fallback-language-grid" id="wpait-enabled-languages">
                             <?php foreach ($languages as $code => $label) : ?>
                                 <label>
@@ -8208,32 +8208,32 @@ function wpait_fallback_settings_page()
                                 </label>
                             <?php endforeach; ?>
                         </div>
-                        <p class="description"><?php esc_html_e('Select only the languages you want visitors to use. Every selected target language creates its own saved translation rows.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Select only the languages you want visitors to use. Every selected target language creates its own saved translation rows.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
             </table>
             </div>
 
             <div class="wpait-fallback-card" id="wpait-provider">
-                <h2><?php esc_html_e('AI Provider', 'ai-translate-woocommerce-elementor'); ?></h2>
+                <h2><?php esc_html_e('AI Provider', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
                 <table class="form-table" role="presentation">
                 <tr>
-                    <th scope="row"><?php esc_html_e('Provider', 'ai-translate-woocommerce-elementor'); ?></th>
+                    <th scope="row"><?php esc_html_e('Provider', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                     <td>
                         <select name="wpait_options[provider]">
-                            <option value="openai" <?php selected($options['provider'], 'openai'); ?>><?php esc_html_e('OpenAI / ChatGPT', 'ai-translate-woocommerce-elementor'); ?></option>
-                            <option value="gemini" <?php selected($options['provider'], 'gemini'); ?>><?php esc_html_e('Google Gemini', 'ai-translate-woocommerce-elementor'); ?></option>
-                            <option value="grok" <?php selected($options['provider'], 'grok'); ?>><?php esc_html_e('Grok / xAI', 'ai-translate-woocommerce-elementor'); ?></option>
-                            <option value="google_translate" <?php selected($options['provider'], 'google_translate'); ?>><?php esc_html_e('Google Translate', 'ai-translate-woocommerce-elementor'); ?></option>
-                            <option value="deepl" <?php selected($options['provider'], 'deepl'); ?>><?php esc_html_e('DeepL', 'ai-translate-woocommerce-elementor'); ?></option>
+                            <option value="openai" <?php selected($options['provider'], 'openai'); ?>><?php esc_html_e('OpenAI / ChatGPT', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                            <option value="gemini" <?php selected($options['provider'], 'gemini'); ?>><?php esc_html_e('Google Gemini', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                            <option value="grok" <?php selected($options['provider'], 'grok'); ?>><?php esc_html_e('Grok / xAI', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                            <option value="google_translate" <?php selected($options['provider'], 'google_translate'); ?>><?php esc_html_e('Google Translate', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                            <option value="deepl" <?php selected($options['provider'], 'deepl'); ?>><?php esc_html_e('DeepL', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                         </select>
-                        <p class="description"><?php esc_html_e('The provider used for new queue translations. Already saved manual/published translations are reused and are not sent again.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <div class="wpait-provider-cards" aria-label="<?php esc_attr_e('Provider capabilities', 'ai-translate-woocommerce-elementor'); ?>">
+                        <p class="description"><?php esc_html_e('The provider used for new queue translations. Already saved manual/published translations are reused and are not sent again.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <div class="wpait-provider-cards" aria-label="<?php esc_attr_e('Provider capabilities', 'wpait-ai-translate-for-woocommerce-elementor'); ?>">
                             <?php foreach (wpait_fallback_provider_catalog() as $provider_id => $provider_data) : ?>
                                 <div class="wpait-provider-card is-<?php echo esc_attr($provider_data['status']); ?> <?php echo esc_attr($provider_id === $options['provider'] ? 'is-selected' : ''); ?>">
                                     <div class="wpait-provider-card-head">
                                         <strong><?php echo esc_html($provider_data['label']); ?></strong>
-                                        <span><?php echo 'active' === $provider_data['status'] ? esc_html__('Active', 'ai-translate-woocommerce-elementor') : esc_html__('Planned', 'ai-translate-woocommerce-elementor'); ?></span>
+                                        <span><?php echo 'active' === $provider_data['status'] ? esc_html__('Active', 'wpait-ai-translate-for-woocommerce-elementor') : esc_html__('Planned', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                                     </div>
                                     <div class="wpait-provider-badges">
                                         <?php foreach ($provider_data['badges'] as $badge) : ?>
@@ -8243,115 +8243,115 @@ function wpait_fallback_settings_page()
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <p class="description"><?php esc_html_e('Provider cards show active integrations plus planned architecture targets. Planned providers are documented but are not enabled until their API layer is added in a future release.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Provider cards show active integrations plus planned architecture targets. Planned providers are documented but are not enabled until their API layer is added in a future release.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-openai-api-key"><?php esc_html_e('OpenAI API key', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-openai-api-key"><?php esc_html_e('OpenAI API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-openai-api-key" class="regular-text" type="password" name="wpait_options[openai_api_key]" value="<?php echo esc_attr($options['openai_api_key']); ?>">
                         <p class="description">
-                            <?php esc_html_e('Create a key in the OpenAI dashboard, then paste it here.', 'ai-translate-woocommerce-elementor'); ?>
-                            <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Open API keys page', 'ai-translate-woocommerce-elementor'); ?></a>
+                            <?php esc_html_e('Create a key in the OpenAI dashboard, then paste it here.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
+                            <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Open API keys page', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-openai-model"><?php esc_html_e('OpenAI model', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-openai-model"><?php esc_html_e('OpenAI model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-openai-model" class="regular-text" type="text" name="wpait_options[openai_model]" value="<?php echo esc_attr($options['openai_model']); ?>">
-                        <p class="description"><?php esc_html_e('Use a model available to your OpenAI account. If quota/billing is missing, the provider returns 429.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Use a model available to your OpenAI account. If quota/billing is missing, the provider returns 429.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-gemini-api-key"><?php esc_html_e('Gemini API key', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-gemini-api-key"><?php esc_html_e('Gemini API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-gemini-api-key" class="regular-text" type="password" name="wpait_options[gemini_api_key]" value="<?php echo esc_attr($options['gemini_api_key']); ?>">
                         <p class="description">
-                            <?php esc_html_e('Create a Gemini key in Google AI Studio, then paste it here.', 'ai-translate-woocommerce-elementor'); ?>
-                            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Open Google AI Studio API keys', 'ai-translate-woocommerce-elementor'); ?></a>
+                            <?php esc_html_e('Create a Gemini key in Google AI Studio, then paste it here.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
+                            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Open Google AI Studio API keys', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-gemini-model"><?php esc_html_e('Gemini model', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-gemini-model"><?php esc_html_e('Gemini model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-gemini-model" class="regular-text" type="text" name="wpait_options[gemini_model]" value="<?php echo esc_attr($options['gemini_model']); ?>">
-                        <p class="description"><?php esc_html_e('For testing, use a small batch size because Gemini free tier limits can be very low.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('For testing, use a small batch size because Gemini free tier limits can be very low.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-grok-api-key"><?php esc_html_e('Grok API key', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-grok-api-key"><?php esc_html_e('Grok API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-grok-api-key" class="regular-text" type="password" name="wpait_options[grok_api_key]" value="<?php echo esc_attr($options['grok_api_key']); ?>">
                         <p class="description">
-                            <?php esc_html_e('Create an xAI API key, then paste it here.', 'ai-translate-woocommerce-elementor'); ?>
-                            <a href="https://console.x.ai/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Open xAI Console', 'ai-translate-woocommerce-elementor'); ?></a>
+                            <?php esc_html_e('Create an xAI API key, then paste it here.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
+                            <a href="https://console.x.ai/" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Open xAI Console', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-grok-model"><?php esc_html_e('Grok model', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-grok-model"><?php esc_html_e('Grok model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-grok-model" class="regular-text" type="text" name="wpait_options[grok_model]" value="<?php echo esc_attr($options['grok_model']); ?>">
-                        <p class="description"><?php esc_html_e('Use a model enabled for your xAI account. A 403 usually means the key cannot access the selected model or billing is not ready.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Use a model enabled for your xAI account. A 403 usually means the key cannot access the selected model or billing is not ready.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-google-translate-api-key"><?php esc_html_e('Google Translate API key', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-google-translate-api-key"><?php esc_html_e('Google Translate API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-google-translate-api-key" class="regular-text" type="password" name="wpait_options[google_translate_api_key]" value="<?php echo esc_attr($options['google_translate_api_key']); ?>">
                         <p class="description">
-                            <?php esc_html_e('Uses Google Cloud Translation Basic v2. Enable Cloud Translation API in Google Cloud and use an API key with billing/quota configured.', 'ai-translate-woocommerce-elementor'); ?>
-                            <a href="https://cloud.google.com/translate/docs/basic/translating-text" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Google docs', 'ai-translate-woocommerce-elementor'); ?></a>
+                            <?php esc_html_e('Uses Google Cloud Translation Basic v2. Enable Cloud Translation API in Google Cloud and use an API key with billing/quota configured.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
+                            <a href="https://cloud.google.com/translate/docs/basic/translating-text" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Google docs', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-deepl-api-key"><?php esc_html_e('DeepL API key', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-deepl-api-key"><?php esc_html_e('DeepL API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-deepl-api-key" class="regular-text" type="password" name="wpait_options[deepl_api_key]" value="<?php echo esc_attr($options['deepl_api_key']); ?>">
                         <p class="description">
-                            <?php esc_html_e('DeepL has separate api-free.deepl.com and api.deepl.com endpoints. Pick the endpoint that matches your key.', 'ai-translate-woocommerce-elementor'); ?>
-                            <a href="https://developers.deepl.com/api-reference/translate" target="_blank" rel="noopener noreferrer"><?php esc_html_e('DeepL docs', 'ai-translate-woocommerce-elementor'); ?></a>
+                            <?php esc_html_e('DeepL has separate api-free.deepl.com and api.deepl.com endpoints. Pick the endpoint that matches your key.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
+                            <a href="https://developers.deepl.com/api-reference/translate" target="_blank" rel="noopener noreferrer"><?php esc_html_e('DeepL docs', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row"><?php esc_html_e('DeepL plan', 'ai-translate-woocommerce-elementor'); ?></th>
+                    <th scope="row"><?php esc_html_e('DeepL plan', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                     <td>
                         <select name="wpait_options[deepl_plan]">
-                            <option value="free" <?php selected($options['deepl_plan'], 'free'); ?>><?php esc_html_e('api-free.deepl.com endpoint', 'ai-translate-woocommerce-elementor'); ?></option>
-                            <option value="pro" <?php selected($options['deepl_plan'], 'pro'); ?>><?php esc_html_e('api.deepl.com endpoint', 'ai-translate-woocommerce-elementor'); ?></option>
+                            <option value="free" <?php selected($options['deepl_plan'], 'free'); ?>><?php esc_html_e('api-free.deepl.com endpoint', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                            <option value="pro" <?php selected($options['deepl_plan'], 'pro'); ?>><?php esc_html_e('api.deepl.com endpoint', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                         </select>
-                        <p class="description"><?php esc_html_e('Match this setting to the endpoint assigned to your DeepL API key.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Match this setting to the endpoint assigned to your DeepL API key.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th colspan="2" scope="row">
-                        <h3 class="wpait-section-heading"><?php esc_html_e('Translation Style / Tone of Voice', 'ai-translate-woocommerce-elementor'); ?></h3>
-                        <p class="description"><?php esc_html_e('Set the global translation style for prompt-based AI providers. Per content type modes for pages, posts, WooCommerce products, SEO meta, buttons, and short strings are planned for a future version.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <h3 class="wpait-section-heading"><?php esc_html_e('Translation Style / Tone of Voice', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                        <p class="description"><?php esc_html_e('Set the global translation style for prompt-based AI providers. Per content type modes for pages, posts, WooCommerce products, SEO meta, buttons, and short strings are planned for a future version.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </th>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-translation-mode"><?php esc_html_e('Global Translation Mode', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-translation-mode"><?php esc_html_e('Global Translation Mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <select id="wpait-translation-mode" name="wpait_options[translation_mode]">
@@ -8359,28 +8359,28 @@ function wpait_fallback_settings_page()
                                 <option value="<?php echo esc_attr($mode_key); ?>" <?php selected($options['translation_mode'], $mode_key); ?>><?php echo esc_html($mode_data['label']); ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <p class="description"><?php esc_html_e('Tone of Voice affects AI-based translations only. Use Neutral mode for accurate translation, SEO mode for search-oriented content, and eCommerce mode for product pages.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <p class="description"><?php esc_html_e('Tone of Voice is applied only to prompt-based AI providers. In this Public Beta that means OpenAI, Gemini, and Grok/xAI; planned Claude, Mistral, DeepSeek, and similar AI providers will use the same setting when their API layers are added. Google Translate and DeepL ignore this setting.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Tone of Voice affects AI-based translations only. Use Neutral mode for accurate translation, SEO mode for search-oriented content, and eCommerce mode for product pages.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Tone of Voice is applied only to prompt-based AI providers. In this Public Beta that means OpenAI, Gemini, and Grok/xAI; planned Claude, Mistral, DeepSeek, and similar AI providers will use the same setting when their API layers are added. Google Translate and DeepL ignore this setting.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-custom-translation-instruction"><?php esc_html_e('Custom translation instruction', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-custom-translation-instruction"><?php esc_html_e('Custom translation instruction', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
-                        <textarea id="wpait-custom-translation-instruction" class="large-text" rows="3" maxlength="500" name="wpait_options[custom_translation_instruction]" placeholder="<?php esc_attr_e('Example: Translate naturally for Georgian customers, keep product names unchanged, use friendly but professional tone.', 'ai-translate-woocommerce-elementor'); ?>"><?php echo esc_textarea($options['custom_translation_instruction']); ?></textarea>
-                        <p class="description"><?php esc_html_e('Used only when Translation Mode is Custom Prompt. Maximum 500 characters.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <textarea id="wpait-custom-translation-instruction" class="large-text" rows="3" maxlength="500" name="wpait_options[custom_translation_instruction]" placeholder="<?php esc_attr_e('Example: Translate naturally for Georgian customers, keep product names unchanged, use friendly but professional tone.', 'wpait-ai-translate-for-woocommerce-elementor'); ?>"><?php echo esc_textarea($options['custom_translation_instruction']); ?></textarea>
+                        <p class="description"><?php esc_html_e('Used only when Translation Mode is Custom Prompt. Maximum 500 characters.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th colspan="2" scope="row">
-                        <h3 class="wpait-section-heading"><?php esc_html_e('AI Cost Optimization', 'ai-translate-woocommerce-elementor'); ?></h3>
-                        <p class="description"><?php esc_html_e('Use cheap models by default, deduplicate strings before provider calls, reuse translation memory, and keep safety limits enabled while testing provider quota.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <h3 class="wpait-section-heading"><?php esc_html_e('AI Cost Optimization', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                        <p class="description"><?php esc_html_e('Use cheap models by default, deduplicate strings before provider calls, reuse translation memory, and keep safety limits enabled while testing provider quota.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </th>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="wpait-quality-mode"><?php esc_html_e('Translation quality mode', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-quality-mode"><?php esc_html_e('Translation quality mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <select id="wpait-quality-mode" name="wpait_options[quality_mode]">
@@ -8388,144 +8388,144 @@ function wpait_fallback_settings_page()
                                 <option value="<?php echo esc_attr($quality_key); ?>" <?php selected($options['quality_mode'], $quality_key); ?>><?php echo esc_html($quality_label); ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <p class="description"><?php esc_html_e('Cheap is recommended for Public Beta testing. Balanced and Premium are guidance modes for choosing provider models; custom model fields still remain under your control.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Cheap is recommended for Public Beta testing. Balanced and Premium are guidance modes for choosing provider models; custom model fields still remain under your control.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr class="wpait-advanced-only">
-                    <th scope="row"><?php esc_html_e('Recommended default models', 'ai-translate-woocommerce-elementor'); ?></th>
+                    <th scope="row"><?php esc_html_e('Recommended default models', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                     <td>
                         <div class="wpait-model-recommendations">
-                            <code><?php esc_html_e('OpenAI Cheap: gpt-4o-mini', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('OpenAI Premium: gpt-4o', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('Gemini Cheap: Flash model', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('Gemini Premium: Pro model', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('Grok Cheap: lightweight/mini model where available', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('Claude Cheap: Haiku model where available', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('Mistral Cheap: small/fast model', 'ai-translate-woocommerce-elementor'); ?></code>
-                            <code><?php esc_html_e('DeepSeek Cheap: chat/standard model', 'ai-translate-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('OpenAI Cheap: gpt-4o-mini', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('OpenAI Premium: gpt-4o', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('Gemini Cheap: Flash model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('Gemini Premium: Pro model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('Grok Cheap: lightweight/mini model where available', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('Claude Cheap: Haiku model where available', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('Mistral Cheap: small/fast model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
+                            <code><?php esc_html_e('DeepSeek Cheap: chat/standard model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></code>
                         </div>
-                        <p class="description"><?php esc_html_e('The active Public Beta providers keep using the model field you set above. Planned provider model names are shown as release-planning guidance only.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('The active Public Beta providers keep using the model field you set above. Planned provider model names are shown as release-planning guidance only.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr class="wpait-advanced-only">
                     <th scope="row">
-                        <label for="wpait-translation-temperature"><?php esc_html_e('Temperature', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-translation-temperature"><?php esc_html_e('Temperature', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-translation-temperature" type="number" min="0" max="1" step="0.1" name="wpait_options[translation_temperature]" value="<?php echo esc_attr((string) $options['translation_temperature']); ?>">
-                        <p class="description"><?php esc_html_e('Default 0.1 keeps translations stable and predictable for AI providers.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Default 0.1 keeps translations stable and predictable for AI providers.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr class="wpait-advanced-only">
-                    <th scope="row"><?php esc_html_e('Quota control', 'ai-translate-woocommerce-elementor'); ?></th>
+                    <th scope="row"><?php esc_html_e('Quota control', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                     <td>
-                        <label for="wpait-quota-daily"><?php esc_html_e('Daily character limit', 'ai-translate-woocommerce-elementor'); ?></label><br>
+                        <label for="wpait-quota-daily"><?php esc_html_e('Daily character limit', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
                         <input id="wpait-quota-daily" type="number" min="0" step="1000" name="wpait_options[quota_daily_chars]" value="<?php echo esc_attr((string) $options['quota_daily_chars']); ?>">
-                        <p class="description"><?php esc_html_e('Local safety limit for the active provider. 0 means no plugin-side daily stop.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <label for="wpait-quota-monthly"><?php esc_html_e('Monthly character limit', 'ai-translate-woocommerce-elementor'); ?></label><br>
+                        <p class="description"><?php esc_html_e('Local safety limit for the active provider. 0 means no plugin-side daily stop.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <label for="wpait-quota-monthly"><?php esc_html_e('Monthly character limit', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
                         <input id="wpait-quota-monthly" type="number" min="0" step="1000" name="wpait_options[quota_monthly_chars]" value="<?php echo esc_attr((string) $options['quota_monthly_chars']); ?>">
-                        <p class="description"><?php esc_html_e('Local safety limit for the active provider. Provider billing limits still need to be configured in OpenAI/Google/DeepL/xAI accounts.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <label for="wpait-max-chars-per-request"><?php esc_html_e('Max characters per request', 'ai-translate-woocommerce-elementor'); ?></label><br>
+                        <p class="description"><?php esc_html_e('Local safety limit for the active provider. Provider billing limits still need to be configured in OpenAI/Google/DeepL/xAI accounts.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <label for="wpait-max-chars-per-request"><?php esc_html_e('Max characters per request', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
                         <input id="wpait-max-chars-per-request" type="number" min="0" step="500" name="wpait_options[max_chars_per_request]" value="<?php echo esc_attr((string) $options['max_chars_per_request']); ?>">
-                        <p class="description"><?php esc_html_e('0 means no plugin-side per-request character stop. Set a limit to avoid accidentally sending very large batches.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <label for="wpait-estimated-cost-limit"><?php esc_html_e('Estimated cost limit per request', 'ai-translate-woocommerce-elementor'); ?></label><br>
+                        <p class="description"><?php esc_html_e('0 means no plugin-side per-request character stop. Set a limit to avoid accidentally sending very large batches.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <label for="wpait-estimated-cost-limit"><?php esc_html_e('Estimated cost limit per request', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
                         <input id="wpait-estimated-cost-limit" type="number" min="0" step="0.0001" name="wpait_options[estimated_cost_limit]" value="<?php echo esc_attr((string) $options['estimated_cost_limit']); ?>">
-                        <p class="description"><?php esc_html_e('0 means no estimated-cost stop. Estimates are approximate and provider billing remains authoritative.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('0 means no estimated-cost stop. Estimates are approximate and provider billing remains authoritative.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr class="wpait-advanced-only">
-                    <th scope="row"><?php esc_html_e('Translation behavior', 'ai-translate-woocommerce-elementor'); ?></th>
+                    <th scope="row"><?php esc_html_e('Translation behavior', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                     <td>
-                        <label><input type="checkbox" name="wpait_options[auto_translate]" value="1" <?php checked($options['auto_translate'], '1'); ?>> <?php esc_html_e('Enable frontend translation output', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                        <label><input type="checkbox" name="wpait_options[queue_missing]" value="1" <?php checked($options['queue_missing'], '1'); ?>> <?php esc_html_e('Collect missing strings into the translation queue', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                        <label><input type="checkbox" name="wpait_options[scan_on_save]" value="1" <?php checked($options['scan_on_save'], '1'); ?>> <?php esc_html_e('Automatically scan saved/updated content for new strings', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                        <label><input type="checkbox" name="wpait_options[cron_enabled]" value="1" <?php checked($options['cron_enabled'], '1'); ?>> <?php esc_html_e('Automatically process the translation queue in the background', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                        <label><input type="checkbox" name="wpait_options[translate_on_page_load]" value="1" <?php checked($options['translate_on_page_load'], '1'); ?>> <?php esc_html_e('Translate missing strings during page load (slower, use only for testing)', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                        <label><input type="checkbox" name="wpait_options[draft_mode]" value="1" <?php checked($options['draft_mode'], '1'); ?>> <?php esc_html_e('Save new AI translations as drafts', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                        <label><input type="checkbox" name="wpait_options[translate_attributes]" value="1" <?php checked($options['translate_attributes'], '1'); ?>> <?php esc_html_e('Translate alt, title, placeholder, aria-label, and SEO meta attributes', 'ai-translate-woocommerce-elementor'); ?></label>
-                        <p class="description"><?php esc_html_e('Recommended production mode: frontend output on, queue missing strings on, scan on save on, page-load translation off. Turn background processing on only when your API quota/billing is ready.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <label><input type="checkbox" name="wpait_options[auto_translate]" value="1" <?php checked($options['auto_translate'], '1'); ?>> <?php esc_html_e('Enable frontend translation output', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                        <label><input type="checkbox" name="wpait_options[queue_missing]" value="1" <?php checked($options['queue_missing'], '1'); ?>> <?php esc_html_e('Collect missing strings into the translation queue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                        <label><input type="checkbox" name="wpait_options[scan_on_save]" value="1" <?php checked($options['scan_on_save'], '1'); ?>> <?php esc_html_e('Automatically scan saved/updated content for new strings', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                        <label><input type="checkbox" name="wpait_options[cron_enabled]" value="1" <?php checked($options['cron_enabled'], '1'); ?>> <?php esc_html_e('Automatically process the translation queue in the background', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                        <label><input type="checkbox" name="wpait_options[translate_on_page_load]" value="1" <?php checked($options['translate_on_page_load'], '1'); ?>> <?php esc_html_e('Translate missing strings during page load (slower, use only for testing)', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                        <label><input type="checkbox" name="wpait_options[draft_mode]" value="1" <?php checked($options['draft_mode'], '1'); ?>> <?php esc_html_e('Save new AI translations as drafts', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                        <label><input type="checkbox" name="wpait_options[translate_attributes]" value="1" <?php checked($options['translate_attributes'], '1'); ?>> <?php esc_html_e('Translate alt, title, placeholder, aria-label, and SEO meta attributes', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+                        <p class="description"><?php esc_html_e('Recommended production mode: frontend output on, queue missing strings on, scan on save on, page-load translation off. Turn background processing on only when your API quota/billing is ready.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 <tr class="wpait-advanced-only">
                     <th scope="row">
-                        <label for="wpait-max-segments"><?php esc_html_e('Batch size', 'ai-translate-woocommerce-elementor'); ?></label>
+                        <label for="wpait-max-segments"><?php esc_html_e('Batch size', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                     </th>
                     <td>
                         <input id="wpait-max-segments" type="number" min="1" max="100" name="wpait_options[max_segments_per_request]" value="<?php echo esc_attr($options['max_segments_per_request']); ?>">
-                        <p class="description"><?php esc_html_e('How many strings are sent in one API request. Use 3-5 for free/test keys, 10-25 for normal paid keys, higher only when quota is confirmed.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('How many strings are sent in one API request. Use 3-5 for free/test keys, 10-25 for normal paid keys, higher only when quota is confirmed.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
                 </table>
             </div>
 
             <div class="wpait-fallback-card" id="wpait-urls">
-                <h2><?php esc_html_e('URLs and SEO', 'ai-translate-woocommerce-elementor'); ?></h2>
+                <h2><?php esc_html_e('URLs and SEO', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
                 <table class="form-table" role="presentation">
                 <tr>
-                    <th scope="row"><?php esc_html_e('URL mode', 'ai-translate-woocommerce-elementor'); ?></th>
+                    <th scope="row"><?php esc_html_e('URL mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                     <td>
                         <label>
                             <input type="radio" name="wpait_options[url_mode]" value="directory" <?php checked($options['url_mode'], 'directory'); ?>>
-                            <?php esc_html_e('Directory URLs: /ka/about/', 'ai-translate-woocommerce-elementor'); ?>
+                            <?php esc_html_e('Directory URLs: /ka/about/', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                         </label>
                         <br>
                         <label>
                             <input type="radio" name="wpait_options[url_mode]" value="query" <?php checked($options['url_mode'], 'query'); ?>>
-                            <?php esc_html_e('Query URLs: /about/?lang=ka', 'ai-translate-woocommerce-elementor'); ?>
+                            <?php esc_html_e('Query URLs: /about/?lang=ka', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                         </label>
-                        <p class="description"><?php esc_html_e('Directory URLs are better for SEO, but require WordPress permalinks and rewrite rules. Query URLs are simpler and useful while testing.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <p class="description"><?php esc_html_e('Directory URLs are better for SEO, but require WordPress permalinks and rewrite rules. Query URLs are simpler and useful while testing.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         <br><br>
-                        <label><input type="checkbox" name="wpait_options[hide_default_language]" value="1" <?php checked($options['hide_default_language'], '1'); ?>> <?php esc_html_e('Keep the source language without a language prefix', 'ai-translate-woocommerce-elementor'); ?></label>
-                        <p class="description"><?php esc_html_e('When enabled, the original language stays on normal URLs while only translated languages use a language code.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <label><input type="checkbox" name="wpait_options[hide_default_language]" value="1" <?php checked($options['hide_default_language'], '1'); ?>> <?php esc_html_e('Keep the source language without a language prefix', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+                        <p class="description"><?php esc_html_e('When enabled, the original language stays on normal URLs while only translated languages use a language code.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     </td>
                 </tr>
             </table>
             </div>
 
             <div class="wpait-fallback-card" id="wpait-switcher">
-                <h2><?php esc_html_e('Language Switcher', 'ai-translate-woocommerce-elementor'); ?></h2>
+                <h2><?php esc_html_e('Language Switcher', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
                 <div class="wpait-fallback-shortcodes">
-                    <p><?php esc_html_e('Shortcodes:', 'ai-translate-woocommerce-elementor'); ?></p>
+                    <p><?php esc_html_e('Shortcodes:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                     <code>[wp_ai_translate_switcher]</code>
                     <code>[ai_language_switcher]</code>
                 </div>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php esc_html_e('Style', 'ai-translate-woocommerce-elementor'); ?></th>
+                        <th scope="row"><?php esc_html_e('Style', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         <td>
                             <select name="wpait_options[selector_style]">
-                                <option value="dropdown" <?php selected($options['selector_style'], 'dropdown'); ?>><?php esc_html_e('Dropdown', 'ai-translate-woocommerce-elementor'); ?></option>
-                                <option value="list" <?php selected($options['selector_style'], 'list'); ?>><?php esc_html_e('List', 'ai-translate-woocommerce-elementor'); ?></option>
+                                <option value="dropdown" <?php selected($options['selector_style'], 'dropdown'); ?>><?php esc_html_e('Dropdown', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                                <option value="list" <?php selected($options['selector_style'], 'list'); ?>><?php esc_html_e('List', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                             </select>
-                            <p class="description"><?php esc_html_e('Dropdown is compact for headers. List is useful in footers, sidebars, and menu-like layouts.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <p class="description"><?php esc_html_e('Dropdown is compact for headers. List is useful in footers, sidebars, and menu-like layouts.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php esc_html_e('Display parts', 'ai-translate-woocommerce-elementor'); ?></th>
+                        <th scope="row"><?php esc_html_e('Display parts', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         <td>
-                            <label><input type="checkbox" name="wpait_options[selector_show_flags]" value="1" <?php checked($options['selector_show_flags'], '1'); ?>> <?php esc_html_e('Flags', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                            <label><input type="checkbox" name="wpait_options[selector_show_names]" value="1" <?php checked($options['selector_show_names'], '1'); ?>> <?php esc_html_e('Language names', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                            <label><input type="checkbox" name="wpait_options[selector_show_codes]" value="1" <?php checked($options['selector_show_codes'], '1'); ?>> <?php esc_html_e('Language codes', 'ai-translate-woocommerce-elementor'); ?></label>
-                            <p class="description"><?php esc_html_e('Choose what visitors see inside the selector, for example Georgian, KA, or both.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <label><input type="checkbox" name="wpait_options[selector_show_flags]" value="1" <?php checked($options['selector_show_flags'], '1'); ?>> <?php esc_html_e('Flags', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                            <label><input type="checkbox" name="wpait_options[selector_show_names]" value="1" <?php checked($options['selector_show_names'], '1'); ?>> <?php esc_html_e('Language names', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                            <label><input type="checkbox" name="wpait_options[selector_show_codes]" value="1" <?php checked($options['selector_show_codes'], '1'); ?>> <?php esc_html_e('Language codes', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+                            <p class="description"><?php esc_html_e('Choose what visitors see inside the selector, for example Georgian, KA, or both.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php esc_html_e('Automatic placement', 'ai-translate-woocommerce-elementor'); ?></th>
+                        <th scope="row"><?php esc_html_e('Automatic placement', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         <td>
-                            <label><input type="checkbox" name="wpait_options[selector_header]" value="1" <?php checked($options['selector_header'], '1'); ?>> <?php esc_html_e('Try to show in header', 'ai-translate-woocommerce-elementor'); ?></label><br>
-                            <label><input type="checkbox" name="wpait_options[selector_footer]" value="1" <?php checked($options['selector_footer'], '1'); ?>> <?php esc_html_e('Show in footer', 'ai-translate-woocommerce-elementor'); ?></label>
-                            <p class="description"><?php esc_html_e('Automatic placement is optional. You can also place the selector with a shortcode, widget, or theme/menu area.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <label><input type="checkbox" name="wpait_options[selector_header]" value="1" <?php checked($options['selector_header'], '1'); ?>> <?php esc_html_e('Try to show in header', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label><br>
+                            <label><input type="checkbox" name="wpait_options[selector_footer]" value="1" <?php checked($options['selector_footer'], '1'); ?>> <?php esc_html_e('Show in footer', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+                            <p class="description"><?php esc_html_e('Automatic placement is optional. You can also place the selector with a shortcode, widget, or theme/menu area.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="wpait-selector-custom-css"><?php esc_html_e('Selector custom CSS', 'ai-translate-woocommerce-elementor'); ?></label>
+                            <label for="wpait-selector-custom-css"><?php esc_html_e('Selector custom CSS', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                         </th>
                         <td>
                             <textarea id="wpait-selector-custom-css" class="large-text code" rows="8" name="wpait_options[selector_custom_css]" placeholder=".wpait-fallback-switcher-dropdown { border-radius: 4px; }"><?php echo esc_textarea($options['selector_custom_css']); ?></textarea>
-                            <p class="description"><?php esc_html_e('Optional CSS loaded on the frontend only for styling the language selector.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <p class="description"><?php esc_html_e('Optional CSS loaded on the frontend only for styling the language selector.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                             <p class="description">
-                                <?php esc_html_e('Useful classes:', 'ai-translate-woocommerce-elementor'); ?>
+                                <?php esc_html_e('Useful classes:', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                 <code>.wpait-fallback-switcher-wrap</code>
                                 <code>.wpait-fallback-switcher-dropdown</code>
                                 <code>.wpait-fallback-switcher-list</code>
@@ -8535,69 +8535,69 @@ function wpait_fallback_settings_page()
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php esc_html_e('Frontend editor', 'ai-translate-woocommerce-elementor'); ?></th>
+                        <th scope="row"><?php esc_html_e('Frontend editor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                         <td>
-                            <label><input type="checkbox" name="wpait_options[frontend_editor]" value="1" <?php checked($options['frontend_editor'], '1'); ?>> <?php esc_html_e('Allow administrators to edit translations from the frontend', 'ai-translate-woocommerce-elementor'); ?></label>
-                            <p class="description"><?php esc_html_e('When enabled, logged-in administrators see the AI Translate button in the admin bar on translated pages and can save manual corrections.', 'ai-translate-woocommerce-elementor'); ?></p>
+                            <label><input type="checkbox" name="wpait_options[frontend_editor]" value="1" <?php checked($options['frontend_editor'], '1'); ?>> <?php esc_html_e('Allow administrators to edit translations from the frontend', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
+                            <p class="description"><?php esc_html_e('When enabled, logged-in administrators see the AI Translate button in the admin bar on translated pages and can save manual corrections.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         </td>
                     </tr>
                 </table>
             </div>
 
             <div class="wpait-fallback-card" id="wpait-support">
-                <h2><?php esc_html_e('Support', 'ai-translate-woocommerce-elementor'); ?></h2>
+                <h2><?php esc_html_e('Support', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
                 <div class="wpait-support-grid">
                     <div>
-                        <h3><?php esc_html_e('Support AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'); ?></h3>
-                        <p><?php esc_html_e('AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <p><?php esc_html_e('Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of AI Translate for WooCommerce & Elementor.', 'ai-translate-woocommerce-elementor'); ?></p>
-                        <p><?php esc_html_e('Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development.', 'ai-translate-woocommerce-elementor'); ?></p>
+                        <h3><?php esc_html_e('Support WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h3>
+                        <p><?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor is currently in Public Beta and includes temporary full feature access while the platform is actively tested and improved.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <p><?php esc_html_e('Users who support the project with a donation during the Public Beta period may receive a significant discount or special early-supporter offer for the future commercial release of WPAIT – AI Translate for WooCommerce & Elementor.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
+                        <p><?php esc_html_e('Your support helps improve the plugin, optimize AI providers, expand language support, and accelerate development.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                         <p class="wpait-support-buttons">
                             <?php
                             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Button HTML is built from escaped attributes and translated text.
                             echo wpait_fallback_support_development_button('button button-primary wpait-support-donation-button');
                             ?>
-                            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-feedback')); ?>"><?php esc_html_e('Send Feedback', 'ai-translate-woocommerce-elementor'); ?></a>
-                            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-report-bug')); ?>"><?php esc_html_e('Report Bug', 'ai-translate-woocommerce-elementor'); ?></a>
+                            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-feedback')); ?>"><?php esc_html_e('Send Feedback', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
+                            <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wp-ai-translate-report-bug')); ?>"><?php esc_html_e('Report Bug', 'wpait-ai-translate-for-woocommerce-elementor'); ?></a>
                         </p>
                     </div>
                     <table class="form-table wpait-advanced-only" role="presentation">
                         <tr>
-                            <th scope="row"><label for="wpait-donation-coffee-url"><?php esc_html_e('Buy Me a Coffee URL', 'ai-translate-woocommerce-elementor'); ?></label></th>
+                            <th scope="row"><label for="wpait-donation-coffee-url"><?php esc_html_e('Buy Me a Coffee URL', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label></th>
                             <td><input id="wpait-donation-coffee-url" class="regular-text" type="url" name="wpait_options[donation_coffee_url]" value="<?php echo esc_attr($options['donation_coffee_url']); ?>"></td>
                         </tr>
                         <tr>
-                            <th scope="row"><label for="wpait-donation-paypal-url"><?php esc_html_e('PayPal donation URL', 'ai-translate-woocommerce-elementor'); ?></label></th>
+                            <th scope="row"><label for="wpait-donation-paypal-url"><?php esc_html_e('PayPal donation URL', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label></th>
                             <td><input id="wpait-donation-paypal-url" class="regular-text" type="url" name="wpait_options[donation_paypal_url]" value="<?php echo esc_attr($options['donation_paypal_url']); ?>"></td>
                         </tr>
                     </table>
                 </div>
             </div>
 
-            <?php submit_button(__('Save settings', 'ai-translate-woocommerce-elementor')); ?>
+            <?php submit_button(__('Save settings', 'wpait-ai-translate-for-woocommerce-elementor')); ?>
         </form>
 
         <div class="wpait-fallback-card" id="wpait-scan">
-            <h2><?php esc_html_e('String Scanner', 'ai-translate-woocommerce-elementor'); ?></h2>
-            <p><?php esc_html_e('Scan posts, pages, products, menus, widgets, taxonomy terms, SEO meta, and public custom fields. New strings are added to the queue once and are translated from there.', 'ai-translate-woocommerce-elementor'); ?></p>
+            <h2><?php esc_html_e('String Scanner', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
+            <p><?php esc_html_e('Scan posts, pages, products, menus, widgets, taxonomy terms, SEO meta, and public custom fields. New strings are added to the queue once and are translated from there.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
 
             <?php if (!empty($scan_result)) : ?>
                 <div class="wpait-debug-result <?php echo !empty($scan_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                    <p><strong><?php esc_html_e('Last scan:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($scan_result['created_at']) ? $scan_result['created_at'] : ''); ?></p>
+                    <p><strong><?php esc_html_e('Last scan:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($scan_result['created_at']) ? $scan_result['created_at'] : ''); ?></p>
                     <p><?php echo esc_html(isset($scan_result['message']) ? $scan_result['message'] : ''); ?></p>
                     <?php if (!empty($scan_result['targets'])) : ?>
-                        <p><?php esc_html_e('Targets:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html($scan_result['targets']); ?></code></p>
+                        <p><?php esc_html_e('Targets:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html($scan_result['targets']); ?></code></p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
 
             <div class="wpait-mini-stats">
                 <div class="wpait-mini-stat">
-                    <span><?php esc_html_e('Queued strings', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Queued strings', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <strong><?php echo esc_html((string) wpait_fallback_queued_count()); ?></strong>
                 </div>
                 <div class="wpait-mini-stat">
-                    <span><?php esc_html_e('Saved translations', 'ai-translate-woocommerce-elementor'); ?></span>
+                    <span><?php esc_html_e('Saved translations', 'wpait-ai-translate-for-woocommerce-elementor'); ?></span>
                     <strong><?php echo esc_html((string) wpait_fallback_translation_count()); ?></strong>
                 </div>
             </div>
@@ -8605,13 +8605,13 @@ function wpait_fallback_settings_page()
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <?php wp_nonce_field('wpait_scan_site'); ?>
                 <input type="hidden" name="action" value="wpait_scan_site">
-                <?php submit_button(__('Scan site strings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                <?php submit_button(__('Scan site strings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
             </form>
         </div>
 
         <div class="wpait-fallback-card" id="wpait-queue">
-            <h2><?php esc_html_e('Translation Queue', 'ai-translate-woocommerce-elementor'); ?></h2>
-            <p><?php esc_html_e('Frontend pages now use saved translations only. New strings are collected here and translated in batches, so visitors do not wait for the AI provider.', 'ai-translate-woocommerce-elementor'); ?></p>
+            <h2><?php esc_html_e('Translation Queue', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
+            <p><?php esc_html_e('Frontend pages now use saved translations only. New strings are collected here and translated in batches, so visitors do not wait for the AI provider.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
             <table class="form-table wpait-debug-table wpait-advanced-only" role="presentation">
                 <?php
                 wpait_fallback_render_debug_value('Queued strings', (string) wpait_fallback_queued_count(), true);
@@ -8624,26 +8624,26 @@ function wpait_fallback_settings_page()
 
             <?php if (!empty($auto_scan_result)) : ?>
                 <div class="wpait-debug-result is-good">
-                    <p><strong><?php esc_html_e('Last automatic scan:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($auto_scan_result['created_at']) ? $auto_scan_result['created_at'] : ''); ?></p>
+                    <p><strong><?php esc_html_e('Last automatic scan:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($auto_scan_result['created_at']) ? $auto_scan_result['created_at'] : ''); ?></p>
                     <p><?php echo esc_html(sprintf('Post #%d: found %d string(s), queued %d new item(s).', isset($auto_scan_result['post_id']) ? (int) $auto_scan_result['post_id'] : 0, isset($auto_scan_result['strings']) ? (int) $auto_scan_result['strings'] : 0, isset($auto_scan_result['queued']) ? (int) $auto_scan_result['queued'] : 0)); ?></p>
                 </div>
             <?php endif; ?>
 
             <?php if (!empty($queue_result)) : ?>
                 <div class="wpait-debug-result <?php echo !empty($queue_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                    <p><strong><?php esc_html_e('Last queue run:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($queue_result['created_at']) ? $queue_result['created_at'] : ''); ?></p>
+                    <p><strong><?php esc_html_e('Last queue run:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($queue_result['created_at']) ? $queue_result['created_at'] : ''); ?></p>
                     <p><?php echo esc_html(isset($queue_result['message']) ? $queue_result['message'] : ''); ?></p>
                     <?php if (!empty($queue_result['routes'])) : ?>
-                        <p><?php esc_html_e('Routes:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html($queue_result['routes']); ?></code></p>
+                        <p><?php esc_html_e('Routes:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html($queue_result['routes']); ?></code></p>
                     <?php elseif (!empty($queue_result['source_language']) || !empty($queue_result['target_language'])) : ?>
-                        <p><?php esc_html_e('Route:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($queue_result['source_language']) ? $queue_result['source_language'] : '') . ' -> ' . (isset($queue_result['target_language']) ? $queue_result['target_language'] : '')); ?></code></p>
+                        <p><?php esc_html_e('Route:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($queue_result['source_language']) ? $queue_result['source_language'] : '') . ' -> ' . (isset($queue_result['target_language']) ? $queue_result['target_language'] : '')); ?></code></p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
 
             <?php if (!empty($cron_result)) : ?>
                 <div class="wpait-debug-result <?php echo !empty($cron_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                    <p><strong><?php esc_html_e('Last background run:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($cron_result['created_at']) ? $cron_result['created_at'] : ''); ?></p>
+                    <p><strong><?php esc_html_e('Last background run:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($cron_result['created_at']) ? $cron_result['created_at'] : ''); ?></p>
                     <p><?php echo esc_html(isset($cron_result['message']) ? $cron_result['message'] : ''); ?></p>
                 </div>
             <?php endif; ?>
@@ -8651,22 +8651,22 @@ function wpait_fallback_settings_page()
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline-block;margin-right:8px">
                 <?php wp_nonce_field('wpait_process_queue'); ?>
                 <input type="hidden" name="action" value="wpait_process_queue">
-                <?php submit_button(__('Process translation queue', 'ai-translate-woocommerce-elementor'), 'primary', 'submit', false); ?>
+                <?php submit_button(__('Process translation queue', 'wpait-ai-translate-for-woocommerce-elementor'), 'primary', 'submit', false); ?>
             </form>
             <form class="wpait-advanced-only" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="display:inline-block">
                 <?php wp_nonce_field('wpait_clear_queue'); ?>
                 <input type="hidden" name="action" value="wpait_clear_queue">
-                <?php submit_button(__('Clear queued strings', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                <?php submit_button(__('Clear queued strings', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
             </form>
         </div>
 
         <div class="wpait-fallback-card wpait-advanced-only" id="wpait-debug">
-            <h2><?php esc_html_e('Debugger', 'ai-translate-woocommerce-elementor'); ?></h2>
+            <h2><?php esc_html_e('Debugger', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
             <table class="form-table wpait-debug-table" role="presentation">
                 <?php
                 wpait_fallback_render_debug_value('Plugin mode', 'single-file queued engine', true);
                 wpait_fallback_render_debug_value('Plugin folder', wpait_fallback_plugin_folder(), wpait_fallback_is_update_safe_folder());
-                wpait_fallback_render_debug_value('Upload update safe', wpait_fallback_is_update_safe_folder() ? 'yes' : 'no - install once into ai-translate-woocommerce-elementor folder', wpait_fallback_is_update_safe_folder());
+                wpait_fallback_render_debug_value('Upload update safe', wpait_fallback_is_update_safe_folder() ? 'yes' : 'no - install once into wpait-ai-translate-for-woocommerce-elementor folder', wpait_fallback_is_update_safe_folder());
                 wpait_fallback_render_debug_value('Legacy includes folder', WPAIT_PLUGIN_DIR . 'includes', file_exists(WPAIT_PLUGIN_DIR . 'includes/class-wpait-activator.php') ? true : null);
                 wpait_fallback_render_debug_value('PHP version', PHP_VERSION, version_compare(PHP_VERSION, '7.0', '>='));
                 wpait_fallback_render_debug_value('DOMDocument', class_exists('DOMDocument') ? 'available' : 'missing', class_exists('DOMDocument'));
@@ -8698,22 +8698,22 @@ function wpait_fallback_settings_page()
 
             <?php if (!empty($debug_result)) : ?>
                 <div class="wpait-debug-result <?php echo !empty($debug_result['ok']) ? 'is-good' : 'is-bad'; ?>">
-                    <p><strong><?php esc_html_e('Last provider test:', 'ai-translate-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($debug_result['created_at']) ? $debug_result['created_at'] : ''); ?></p>
+                    <p><strong><?php esc_html_e('Last provider test:', 'wpait-ai-translate-for-woocommerce-elementor'); ?></strong> <?php echo esc_html(isset($debug_result['created_at']) ? $debug_result['created_at'] : ''); ?></p>
                     <p><?php echo esc_html(isset($debug_result['message']) ? $debug_result['message'] : ''); ?></p>
                     <?php if (!empty($debug_result['provider']) || !empty($debug_result['model'])) : ?>
-                        <p><?php esc_html_e('Provider:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($debug_result['provider']) ? $debug_result['provider'] : '') . ' / ' . (isset($debug_result['model']) ? $debug_result['model'] : '')); ?></code></p>
+                        <p><?php esc_html_e('Provider:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($debug_result['provider']) ? $debug_result['provider'] : '') . ' / ' . (isset($debug_result['model']) ? $debug_result['model'] : '')); ?></code></p>
                     <?php endif; ?>
                     <?php if (!empty($debug_result['http_status'])) : ?>
-                        <p><?php esc_html_e('HTTP status:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((string) $debug_result['http_status']); ?></code></p>
+                        <p><?php esc_html_e('HTTP status:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((string) $debug_result['http_status']); ?></code></p>
                     <?php endif; ?>
                     <?php if (!empty($debug_result['sample_source']) || !empty($debug_result['sample_translation'])) : ?>
-                        <p><?php esc_html_e('Sample:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html(isset($debug_result['sample_source']) ? $debug_result['sample_source'] : ''); ?></code> &rarr; <code><?php echo esc_html(isset($debug_result['sample_translation']) ? $debug_result['sample_translation'] : ''); ?></code></p>
+                        <p><?php esc_html_e('Sample:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html(isset($debug_result['sample_source']) ? $debug_result['sample_source'] : ''); ?></code> &rarr; <code><?php echo esc_html(isset($debug_result['sample_translation']) ? $debug_result['sample_translation'] : ''); ?></code></p>
                     <?php endif; ?>
                     <?php if (!empty($debug_result['source_language']) || !empty($debug_result['target_language'])) : ?>
-                        <p><?php esc_html_e('Route:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($debug_result['source_language']) ? $debug_result['source_language'] : '') . ' -> ' . (isset($debug_result['target_language']) ? $debug_result['target_language'] : '')); ?></code></p>
+                        <p><?php esc_html_e('Route:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((isset($debug_result['source_language']) ? $debug_result['source_language'] : '') . ' -> ' . (isset($debug_result['target_language']) ? $debug_result['target_language'] : '')); ?></code></p>
                     <?php endif; ?>
                     <?php if (!empty($debug_result['duration'])) : ?>
-                        <p><?php esc_html_e('Duration:', 'ai-translate-woocommerce-elementor'); ?> <code><?php echo esc_html((string) $debug_result['duration']); ?>s</code></p>
+                        <p><?php esc_html_e('Duration:', 'wpait-ai-translate-for-woocommerce-elementor'); ?> <code><?php echo esc_html((string) $debug_result['duration']); ?>s</code></p>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
@@ -8722,22 +8722,22 @@ function wpait_fallback_settings_page()
                 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <?php wp_nonce_field('wpait_debug_test'); ?>
                     <input type="hidden" name="action" value="wpait_debug_test">
-                    <?php submit_button(__('Test provider translation', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                    <?php submit_button(__('Test provider translation', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
                 </form>
                 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <?php wp_nonce_field('wpait_debug_download'); ?>
                     <input type="hidden" name="action" value="wpait_debug_download">
-                    <?php submit_button(__('Download log file', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false, file_exists(wpait_fallback_debug_log_path()) ? array() : array('disabled' => 'disabled')); ?>
+                    <?php submit_button(__('Download log file', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false, file_exists(wpait_fallback_debug_log_path()) ? array() : array('disabled' => 'disabled')); ?>
                 </form>
                 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <?php wp_nonce_field('wpait_debug_clear'); ?>
                     <input type="hidden" name="action" value="wpait_debug_clear">
-                    <?php submit_button(__('Clear debug log', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                    <?php submit_button(__('Clear debug log', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
                 </form>
                 <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                     <?php wp_nonce_field('wpait_clear_provider_cooldown'); ?>
                     <input type="hidden" name="action" value="wpait_clear_provider_cooldown">
-                    <?php submit_button(__('Clear provider cooldown', 'ai-translate-woocommerce-elementor'), 'secondary', 'submit', false); ?>
+                    <?php submit_button(__('Clear provider cooldown', 'wpait-ai-translate-for-woocommerce-elementor'), 'secondary', 'submit', false); ?>
                 </form>
             </div>
         </div>

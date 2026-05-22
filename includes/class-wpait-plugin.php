@@ -41,7 +41,7 @@ final class WPAIT_Plugin
     public function settings_link(array $links): array
     {
         $url = admin_url('admin.php?page=' . WPAIT_PUBLIC_SLUG);
-        array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'ai-translate-woocommerce-elementor') . '</a>');
+        array_unshift($links, '<a href="' . esc_url($url) . '">' . esc_html__('Settings', 'wpait-ai-translate-for-woocommerce-elementor') . '</a>');
 
         return $links;
     }

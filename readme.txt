@@ -1,19 +1,19 @@
-=== AI Translate for WooCommerce & Elementor ===
+=== WPAIT – AI Translate for WooCommerce & Elementor ===
 Contributors: itdesignsro
 Donate link: https://paypal.me/wpaitranslate
-Tags: translation, ai, multilingual, woocommerce, elementor
+Tags: translation, ai, multilingual, ecommerce, localization
 Requires at least: 6.0
-Tested up to: 6.9
-Stable tag: 0.3.30
+Tested up to: 7.0
+Stable tag: 0.3.31
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-AI translation for WordPress with saved translations, queue processing, frontend editing, WooCommerce support, and language switchers.
+AI multilingual translation with WooCommerce, Elementor, SEO URLs, frontend editing, queues and saved translation memory.
 
 == Description ==
 
-AI Translate for WooCommerce & Elementor helps site owners translate WordPress content with AI and machine translation providers while saving translations locally for reuse.
+WPAIT – AI Translate for WooCommerce & Elementor helps site owners translate WordPress content with AI and machine translation providers while saving translations locally for reuse.
 
 The plugin is currently available as a Public Beta Build. Please make a backup before bulk translating production websites.
 
@@ -38,11 +38,15 @@ Language flag icons are bundled locally from the MIT-licensed lipis/flag-icons p
 
 = Public Beta =
 
-AI Translate for WooCommerce & Elementor is still under active testing. Bulk translation can consume provider quota and should be tested on staging first. The plugin stores API keys in WordPress options unless you define keys in `wp-config.php`.
+WPAIT – AI Translate for WooCommerce & Elementor is still under active testing. Bulk translation can consume provider quota and should be tested on staging first. The plugin stores API keys in WordPress options unless you define keys in `wp-config.php`.
+
+= Trademark notice =
+
+WooCommerce and Elementor are trademarks of their respective owners. This plugin is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, Elementor, or their parent companies.
 
 = External services =
 
-AI Translate for WooCommerce & Elementor can connect to external translation providers. No provider is contacted unless you configure a provider key and start a provider test, queue process, background queue run, or on-page translation request.
+WPAIT – AI Translate for WooCommerce & Elementor can connect to external translation providers. No provider is contacted unless you configure a provider key and start a provider test, queue process, background queue run, or on-page translation request.
 
 For all providers, the plugin may send source text strings, source language, target language, provider model/endpoint selection, and request metadata required by the provider. API keys are sent only to the selected provider endpoint and are not shown in the debugger or public output.
 
@@ -90,8 +94,8 @@ Yandex Translate / YandexGPT:
 
 == Installation ==
 
-1. Upload the `ai-translate-woocommerce-elementor` folder to `/wp-content/plugins/` or install the ZIP through **Plugins > Add New > Upload Plugin**.
-2. Activate **AI Translate for WooCommerce & Elementor**.
+1. Upload the `wpait-ai-translate-for-woocommerce-elementor` folder to `/wp-content/plugins/` or install the ZIP through **Plugins > Add New > Upload Plugin**.
+2. Activate **WPAIT – AI Translate for WooCommerce & Elementor**.
 3. Open **AI Translate** in the WordPress admin menu.
 4. Choose source and target languages.
 5. Select a provider and add the provider API key.
@@ -101,7 +105,7 @@ Yandex Translate / YandexGPT:
 
 == Frequently Asked Questions ==
 
-= Does AI Translate for WooCommerce & Elementor translate pages on every visit? =
+= Does WPAIT – AI Translate for WooCommerce & Elementor translate pages on every visit? =
 
 No. The recommended workflow is to scan strings, process them in the queue, save translations locally, and serve saved translations to visitors.
 
@@ -138,13 +142,21 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 
 == Changelog ==
 
+= 0.3.31 =
+
+* Renamed the public WordPress.org plugin name to WPAIT – AI Translate for WooCommerce & Elementor.
+* Updated the submission slug and package root to `wpait-ai-translate-for-woocommerce-elementor`.
+* Updated the text domain and language template filename for WordPress.org language-pack readiness.
+* Updated public-facing branding, readme text, and WordPress.org trademark wording.
+* Kept internal prefixes, option names, database tables, shortcodes, translation engine, queue, scanner, routing, Elementor widget, frontend editor, and WooCommerce compatibility logic unchanged.
+
 = 0.3.30 =
 
 * Added AI Cost Optimization settings for quality mode, temperature, request character limits, estimated per-request cost limits, model guidance, and token/cost statistics.
 * Added safe deduplication before provider requests and translation-memory cache-hit handling for frontend auto-translate.
 * Added provider capability cards for active providers and planned architecture targets without enabling unfinished provider API integrations.
 * Loaded the WordPress text domain for language-pack readiness and disabled the older internal dictionary fallback.
-* Updated the public package slug to `ai-translate-woocommerce-elementor`.
+* Updated the public package slug to `wpait-ai-translate-for-woocommerce-elementor`.
 * Kept translation engine, queue architecture, scanner collection logic, routing, WooCommerce handling, translation matrix, and language switcher behavior unchanged.
 
 = 0.3.29 =
@@ -169,7 +181,7 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 
 = 0.3.26 =
 
-* Prepared the public WordPress.org package name, metadata, and build structure for AI Translate for WooCommerce & Elementor.
+* Prepared the public WordPress.org package name, metadata, and build structure for WPAIT – AI Translate for WooCommerce & Elementor.
 * Added Translation Mode / Tone of Voice settings for prompt-based AI providers.
 * Switched default OpenAI model to `gpt-4o-mini` and Grok default to a lightweight model where available.
 * Hardened custom-table SQL and local file handling for WordPress.org Plugin Check compatibility.
@@ -210,6 +222,10 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 * Improved menu language switcher behavior for current-language switcher items.
 
 == Upgrade Notice ==
+
+= 0.3.31 =
+
+Renames the public WordPress.org package to WPAIT – AI Translate for WooCommerce & Elementor and updates the slug/text domain. Test on staging before replacing an installed beta build.
 
 = 0.3.30 =
 

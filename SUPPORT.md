@@ -1,6 +1,6 @@
 # Support
 
-AI Translate for WooCommerce & Elementor is currently a Public Beta Build.
+WPAIT – AI Translate for WooCommerce & Elementor is currently a Public Beta Build.
 
 ## Before requesting help
 

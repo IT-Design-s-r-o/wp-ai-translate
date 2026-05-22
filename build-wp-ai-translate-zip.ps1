@@ -1,25 +1,18 @@
 $ErrorActionPreference = 'Stop'
 
-$scriptRoot = $PSScriptRoot
-$sourceRoot = $scriptRoot
+$root = $PSScriptRoot
+$zipRoot = 'wpait-ai-translate-for-woocommerce-elementor'
+$zipPath = Join-Path $PSScriptRoot ($zipRoot + '.zip')
 
-if (-not (Test-Path (Join-Path $sourceRoot 'wp-ai-translate.php'))) {
-    $nestedRoot = Join-Path $scriptRoot 'wp-ai-translate'
+if (-not (Test-Path (Join-Path $root 'wp-ai-translate.php'))) {
+    $nestedRoot = Join-Path $PSScriptRoot 'wp-ai-translate'
     if (Test-Path (Join-Path $nestedRoot 'wp-ai-translate.php')) {
-        $sourceRoot = $nestedRoot
+        $root = $nestedRoot
     }
 }
 
-if (-not (Test-Path (Join-Path $sourceRoot 'wp-ai-translate.php'))) {
-    throw "Plugin source folder was not found: $sourceRoot"
-}
-
-$zipRoot = 'ai-translate-woocommerce-elementor'
-$distRoot = Join-Path $scriptRoot 'dist'
-$zipPath = Join-Path $distRoot ($zipRoot + '.zip')
-
-if (-not (Test-Path $distRoot)) {
-    New-Item -ItemType Directory -Path $distRoot | Out-Null
+if (-not (Test-Path (Join-Path $root 'wp-ai-translate.php'))) {
+    throw "Plugin source folder was not found: $root"
 }
 
 if (Test-Path $zipPath) {
@@ -32,19 +25,19 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 $zip = [System.IO.Compression.ZipFile]::Open($zipPath, [System.IO.Compression.ZipArchiveMode]::Create)
 
 try {
-    Get-ChildItem -LiteralPath $sourceRoot -Recurse -File | ForEach-Object {
-        $relative = $_.FullName.Substring($sourceRoot.Length).TrimStart('\', '/')
-        $relativeUnix = $relative.Replace('\', '/')
+    Get-ChildItem -LiteralPath $root -Recurse -File | ForEach-Object {
+        $relative = $_.FullName.Substring($root.Length).TrimStart('\', '/')
+        $relativeUnix = $relative -replace '\\', '/'
 
-        if ($relativeUnix -match '(^|/)(\.git|\.github|\.tools|dist|node_modules|vendor)(/|$)') {
+        if ($relativeUnix -match '(^|/)(\.git|\.github|\.tools|dist|docs|wordpress-org-assets|node_modules|vendor)(/|$)') {
             return
         }
 
-        if ($relativeUnix -match '(^|/)(debug\.log|.*\.log|.*\.zip|\.DS_Store|Thumbs\.db)$') {
+        if ($relativeUnix -match '(^|/)(debug\.log|.*\.log|.*\.zip|\.DS_Store|Thumbs\.db|\.gitkeep)$') {
             return
         }
 
-        if ($relativeUnix -match '(^|/)(\.gitignore|build-.*\.ps1|.*\.bak|.*\.tmp)$') {
+        if ($relativeUnix -match '(^|/)(\.gitignore|build-.*\.ps1|ROADMAP\.md|.*\.bak|.*\.tmp)$') {
             return
         }
 
@@ -52,7 +45,7 @@ try {
             return
         }
 
-        $entryName = $zipRoot + '/' + $relativeUnix
+        $entryName = $zipRoot + '/' + ($relative -replace '\\', '/')
         [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile(
             $zip,
             $_.FullName,

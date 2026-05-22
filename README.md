@@ -1,10 +1,12 @@
-# AI Translate for WooCommerce & Elementor
+# WPAIT – AI Translate for WooCommerce & Elementor
 
 **Powered by WP AI Translate.**
 
-AI Translate for WooCommerce & Elementor is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
+WordPress.org submission name: **WPAIT – AI Translate for WooCommerce & Elementor**. Product brand: **WPAIT / WP AI Translate**.
 
-Current public beta: **0.3.30 Public Beta Build**.
+WPAIT – AI Translate for WooCommerce & Elementor is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
+
+Current public beta: **0.3.31 Public Beta Build**.
 
 - Plugin website: https://wp-ai.itdesign.biz/
 - Documentation: https://wp-ai.itdesign.biz/documentation/
@@ -14,15 +16,17 @@ Current public beta: **0.3.30 Public Beta Build**.
 
 ## Public Beta Notice
 
-AI Translate for WooCommerce & Elementor is currently available as a Public Beta. Please test on a staging website before using it on production projects, especially stores with WooCommerce orders, custom checkout fields, or complex page builders.
+WPAIT – AI Translate for WooCommerce & Elementor is currently available as a Public Beta. Please test on a staging website before using it on production projects, especially stores with WooCommerce orders, custom checkout fields, or complex page builders.
 
 Public Beta builds include temporary full feature access while the plugin is actively tested and improved. Users who support the project during the Public Beta period may receive a special early-supporter offer for the future commercial release. No lifetime free access is promised.
+
+WooCommerce and Elementor are trademarks of their respective owners. This project is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, Elementor, or their parent companies.
 
 ## Video Tutorials
 
 ### Installation & Setup Wizard
 
-Learn how to install AI Translate for WooCommerce & Elementor, configure languages, set up AI providers, and run the first translation workflow.
+Learn how to install WPAIT – AI Translate for WooCommerce & Elementor, configure languages, set up AI providers, and run the first translation workflow.
 
 Watch: https://youtu.be/s8KnOtqXAFI
 
@@ -63,8 +67,8 @@ Watch: https://youtu.be/MuUF4t6NNsA
 
 1. Download the latest release ZIP from GitHub Releases.
 2. In WordPress admin, open **Plugins > Add New > Upload Plugin**.
-3. Upload `ai-translate-woocommerce-elementor.zip`.
-4. Activate **AI Translate for WooCommerce & Elementor**.
+3. Upload `wpait-ai-translate-for-woocommerce-elementor.zip`.
+4. Activate **WPAIT – AI Translate for WooCommerce & Elementor**.
 5. Open **AI Translate** in the WordPress admin menu.
 6. Choose source and target languages.
 7. Select a provider and add the matching API key.

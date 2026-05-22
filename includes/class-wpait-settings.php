@@ -85,10 +85,10 @@ final class WPAIT_Settings
 
     public static function admin_menu() {
         add_options_page(
-            __('AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'),
-            __('AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'),
+            __('WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'),
+            __('WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'),
             'manage_options',
-            'ai-translate-woocommerce-elementor',
+            'wpait-ai-translate-for-woocommerce-elementor',
             array(__CLASS__, 'render_page')
         );
     }
@@ -197,36 +197,36 @@ final class WPAIT_Settings
         $source = self::source_language();
         ?>
         <div class="wrap wpait-admin">
-            <h1><?php esc_html_e('AI Translate for WooCommerce & Elementor', 'ai-translate-woocommerce-elementor'); ?></h1>
+            <h1><?php esc_html_e('WPAIT – AI Translate for WooCommerce & Elementor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h1>
 
             <form method="post" action="options.php">
                 <?php settings_fields('wpait_settings'); ?>
 
                 <div class="wpait-admin-grid">
                     <section class="wpait-panel">
-                        <h2><?php esc_html_e('Languages', 'ai-translate-woocommerce-elementor'); ?></h2>
+                        <h2><?php esc_html_e('Languages', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-source-language"><?php esc_html_e('Source language', 'ai-translate-woocommerce-elementor'); ?></label>
+                                    <label for="wpait-source-language"><?php esc_html_e('Source language', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                                 </th>
                                 <td>
                                     <select id="wpait-source-language" name="<?php echo esc_attr(self::OPTION); ?>[source_language]">
-                                        <option value=""><?php /* translators: %s: Current WordPress site language code. */ echo esc_html(sprintf(__('Auto: site language (%s)', 'ai-translate-woocommerce-elementor'), strtoupper($source))); ?></option>
+                                        <option value=""><?php /* translators: %s: Current WordPress site language code. */ echo esc_html(sprintf(__('Auto: site language (%s)', 'wpait-ai-translate-for-woocommerce-elementor'), strtoupper($source))); ?></option>
                                         <?php foreach ($languages as $code => $label) : ?>
                                             <option value="<?php echo esc_attr($code); ?>" <?php selected($options['source_language'], $code); ?>>
                                                 <?php echo esc_html($label . ' (' . strtoupper($code) . ')'); ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <p class="description"><?php esc_html_e('Leave on Auto to follow the WordPress site language.', 'ai-translate-woocommerce-elementor'); ?></p>
+                                    <p class="description"><?php esc_html_e('Leave on Auto to follow the WordPress site language.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Target languages', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Target languages', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
-                                    <input type="search" class="wpait-language-search" placeholder="<?php esc_attr_e('Search languages...', 'ai-translate-woocommerce-elementor'); ?>">
+                                    <input type="search" class="wpait-language-search" placeholder="<?php esc_attr_e('Search languages...', 'wpait-ai-translate-for-woocommerce-elementor'); ?>">
                                     <div class="wpait-language-list">
                                         <?php foreach ($languages as $code => $label) : ?>
                                             <label class="wpait-language-option">
@@ -248,90 +248,90 @@ final class WPAIT_Settings
                     </section>
 
                     <section class="wpait-panel">
-                        <h2><?php esc_html_e('AI Provider', 'ai-translate-woocommerce-elementor'); ?></h2>
+                        <h2><?php esc_html_e('AI Provider', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
-                                <th scope="row"><?php esc_html_e('Provider', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Provider', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <select name="<?php echo esc_attr(self::OPTION); ?>[provider]">
-                                        <option value="openai" selected><?php esc_html_e('OpenAI / ChatGPT', 'ai-translate-woocommerce-elementor'); ?></option>
+                                        <option value="openai" selected><?php esc_html_e('OpenAI / ChatGPT', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                                     </select>
-                                    <p class="description"><?php esc_html_e('Claude, Gemini, and Grok can be added as providers after this first version.', 'ai-translate-woocommerce-elementor'); ?></p>
+                                    <p class="description"><?php esc_html_e('Claude, Gemini, and Grok can be added as providers after this first version.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-openai-api-key"><?php esc_html_e('OpenAI API key', 'ai-translate-woocommerce-elementor'); ?></label>
+                                    <label for="wpait-openai-api-key"><?php esc_html_e('OpenAI API key', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                                 </th>
                                 <td>
                                     <input id="wpait-openai-api-key" type="password" class="regular-text" autocomplete="off" name="<?php echo esc_attr(self::OPTION); ?>[openai_api_key]" value="<?php echo esc_attr($options['openai_api_key']); ?>">
-                                    <p class="description"><?php esc_html_e('You can also define WPAIT_OPENAI_API_KEY in wp-config.php.', 'ai-translate-woocommerce-elementor'); ?></p>
+                                    <p class="description"><?php esc_html_e('You can also define WPAIT_OPENAI_API_KEY in wp-config.php.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-openai-model"><?php esc_html_e('OpenAI model', 'ai-translate-woocommerce-elementor'); ?></label>
+                                    <label for="wpait-openai-model"><?php esc_html_e('OpenAI model', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                                 </th>
                                 <td>
                                     <input id="wpait-openai-model" type="text" class="regular-text" name="<?php echo esc_attr(self::OPTION); ?>[openai_model]" value="<?php echo esc_attr($options['openai_model']); ?>">
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Translation behavior', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Translation behavior', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[auto_translate]" value="1" <?php checked($options['auto_translate'], '1'); ?>>
-                                        <?php esc_html_e('Automatically translate missing strings on page view', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Automatically translate missing strings on page view', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[draft_mode]" value="1" <?php checked($options['draft_mode'], '1'); ?>>
-                                        <?php esc_html_e('Save new AI translations as drafts', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Save new AI translations as drafts', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[translate_attributes]" value="1" <?php checked($options['translate_attributes'], '1'); ?>>
-                                        <?php esc_html_e('Translate alt, title, placeholder, aria-label, and SEO meta attributes', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Translate alt, title, placeholder, aria-label, and SEO meta attributes', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-max-segments"><?php esc_html_e('Batch size', 'ai-translate-woocommerce-elementor'); ?></label>
+                                    <label for="wpait-max-segments"><?php esc_html_e('Batch size', 'wpait-ai-translate-for-woocommerce-elementor'); ?></label>
                                 </th>
                                 <td>
                                     <input id="wpait-max-segments" type="number" min="1" max="100" name="<?php echo esc_attr(self::OPTION); ?>[max_segments_per_request]" value="<?php echo esc_attr((string) $options['max_segments_per_request']); ?>">
-                                    <p class="description"><?php esc_html_e('Limits how many new strings are sent to AI from one page render.', 'ai-translate-woocommerce-elementor'); ?></p>
+                                    <p class="description"><?php esc_html_e('Limits how many new strings are sent to AI from one page render.', 'wpait-ai-translate-for-woocommerce-elementor'); ?></p>
                                 </td>
                             </tr>
                         </table>
                     </section>
 
                     <section class="wpait-panel">
-                        <h2><?php esc_html_e('URLs and SEO', 'ai-translate-woocommerce-elementor'); ?></h2>
+                        <h2><?php esc_html_e('URLs and SEO', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
-                                <th scope="row"><?php esc_html_e('Language URL mode', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Language URL mode', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <label>
                                         <input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[url_mode]" value="directory" <?php checked($options['url_mode'], 'directory'); ?>>
-                                        <?php esc_html_e('Directory URLs: /en/about/', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Directory URLs: /en/about/', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[url_mode]" value="query" <?php checked($options['url_mode'], 'query'); ?>>
-                                        <?php esc_html_e('Query URLs: /about/?lang=en', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Query URLs: /about/?lang=en', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Default language URL', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Default language URL', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[hide_default_language]" value="1" <?php checked($options['hide_default_language'], '1'); ?>>
-                                        <?php esc_html_e('Keep the source language without a language prefix', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Keep the source language without a language prefix', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                 </td>
                             </tr>
@@ -339,60 +339,60 @@ final class WPAIT_Settings
                     </section>
 
                     <section class="wpait-panel">
-                        <h2><?php esc_html_e('Language Switcher', 'ai-translate-woocommerce-elementor'); ?></h2>
+                        <h2><?php esc_html_e('Language Switcher', 'wpait-ai-translate-for-woocommerce-elementor'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
-                                <th scope="row"><?php esc_html_e('Style', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Style', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <select name="<?php echo esc_attr(self::OPTION); ?>[selector_style]">
-                                        <option value="dropdown" <?php selected($options['selector_style'], 'dropdown'); ?>><?php esc_html_e('Dropdown', 'ai-translate-woocommerce-elementor'); ?></option>
-                                        <option value="list" <?php selected($options['selector_style'], 'list'); ?>><?php esc_html_e('List', 'ai-translate-woocommerce-elementor'); ?></option>
+                                        <option value="dropdown" <?php selected($options['selector_style'], 'dropdown'); ?>><?php esc_html_e('Dropdown', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
+                                        <option value="list" <?php selected($options['selector_style'], 'list'); ?>><?php esc_html_e('List', 'wpait-ai-translate-for-woocommerce-elementor'); ?></option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Display parts', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Display parts', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_show_flags]" value="1" <?php checked($options['selector_show_flags'], '1'); ?>>
-                                        <?php esc_html_e('Flags', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Flags', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_show_names]" value="1" <?php checked($options['selector_show_names'], '1'); ?>>
-                                        <?php esc_html_e('Language names', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Language names', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_show_codes]" value="1" <?php checked($options['selector_show_codes'], '1'); ?>>
-                                        <?php esc_html_e('Language codes', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Language codes', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Automatic placement', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Automatic placement', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_header]" value="1" <?php checked($options['selector_header'], '1'); ?>>
-                                        <?php esc_html_e('Try to show in header via wp_body_open', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Try to show in header via wp_body_open', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_footer]" value="1" <?php checked($options['selector_footer'], '1'); ?>>
-                                        <?php esc_html_e('Show in footer', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Show in footer', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                     <p class="description">
-                                        <?php esc_html_e('Shortcodes: [wp_ai_translate_switcher] or [ai_language_switcher].', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Shortcodes: [wp_ai_translate_switcher] or [ai_language_switcher].', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Frontend editor', 'ai-translate-woocommerce-elementor'); ?></th>
+                                <th scope="row"><?php esc_html_e('Frontend editor', 'wpait-ai-translate-for-woocommerce-elementor'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[frontend_editor]" value="1" <?php checked($options['frontend_editor'], '1'); ?>>
-                                        <?php esc_html_e('Allow administrators to edit translated text from the frontend', 'ai-translate-woocommerce-elementor'); ?>
+                                        <?php esc_html_e('Allow administrators to edit translated text from the frontend', 'wpait-ai-translate-for-woocommerce-elementor'); ?>
                                     </label>
                                 </td>
                             </tr>
@@ -400,7 +400,7 @@ final class WPAIT_Settings
                     </section>
                 </div>
 
-                <?php submit_button(__('Save settings', 'ai-translate-woocommerce-elementor')); ?>
+                <?php submit_button(__('Save settings', 'wpait-ai-translate-for-woocommerce-elementor')); ?>
             </form>
         </div>
         <?php
