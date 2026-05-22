@@ -1,6 +1,6 @@
-# Support
+﻿# Support
 
-WPAIT Multilingual AI Translate is currently a Public Beta Build.
+AIT Multilingual Translate is currently a Public Beta Build.
 
 ## Before requesting help
 

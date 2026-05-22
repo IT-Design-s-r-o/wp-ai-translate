@@ -1,6 +1,6 @@
-# Providers
+﻿# Providers
 
-WPAIT Multilingual AI Translate supports:
+AIT Multilingual Translate supports:
 
 - OpenAI
 - Gemini

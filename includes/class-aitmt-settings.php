@@ -4,9 +4,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_Settings
+final class AITMT_Settings
 {
-    const OPTION = 'wpait_options';
+    const OPTION = 'aitmt_options';
 
     public static function init() {
         add_action('admin_menu', array(__CLASS__, 'admin_menu'));
@@ -68,16 +68,16 @@ final class WPAIT_Settings
         $configured = self::get('source_language', '');
 
         if (!empty($configured)) {
-            return WPAIT_Languages::normalize_code((string) $configured);
+            return AITMT_Languages::normalize_code((string) $configured);
         }
 
-        return WPAIT_Languages::site_default();
+        return AITMT_Languages::site_default();
     }
 
     public static function openai_api_key(): string
     {
-        if (defined('WPAIT_OPENAI_API_KEY') && WPAIT_OPENAI_API_KEY) {
-            return (string) WPAIT_OPENAI_API_KEY;
+        if (defined('AITMT_OPENAI_API_KEY') && AITMT_OPENAI_API_KEY) {
+            return (string) AITMT_OPENAI_API_KEY;
         }
 
         return (string) self::get('openai_api_key', '');
@@ -85,17 +85,17 @@ final class WPAIT_Settings
 
     public static function admin_menu() {
         add_options_page(
-            __('WPAIT Multilingual AI Translate', 'wpait-multilingual-ai-translate'),
-            __('WPAIT Multilingual AI Translate', 'wpait-multilingual-ai-translate'),
+            __('AIT Multilingual Translate', 'ait-multilingual-translate'),
+            __('AIT Multilingual Translate', 'ait-multilingual-translate'),
             'manage_options',
-            'wpait-multilingual-ai-translate',
+            'ait-multilingual-translate',
             array(__CLASS__, 'render_page')
         );
     }
 
     public static function register_settings() {
         register_setting(
-            'wpait_settings',
+            'aitmt_settings',
             self::OPTION,
             array(
                 'type' => 'array',
@@ -109,18 +109,18 @@ final class WPAIT_Settings
     {
         $old = self::options();
         $input = is_array($input) ? $input : array();
-        $all_codes = array_keys(WPAIT_Languages::all());
+        $all_codes = array_keys(AITMT_Languages::all());
 
-        $source_language = isset($input['source_language']) ? WPAIT_Languages::normalize_code((string) $input['source_language']) : '';
+        $source_language = isset($input['source_language']) ? AITMT_Languages::normalize_code((string) $input['source_language']) : '';
         if (!in_array($source_language, $all_codes, true)) {
             $source_language = '';
         }
-        $actual_source_language = $source_language ?: WPAIT_Languages::site_default();
+        $actual_source_language = $source_language ?: AITMT_Languages::site_default();
 
         $enabled_languages = array();
         if (isset($input['enabled_languages']) && is_array($input['enabled_languages'])) {
             foreach ($input['enabled_languages'] as $language) {
-                $language = WPAIT_Languages::normalize_code((string) $language);
+                $language = AITMT_Languages::normalize_code((string) $language);
                 if (in_array($language, $all_codes, true) && $language !== $actual_source_language) {
                     $enabled_languages[] = $language;
                 }
@@ -161,7 +161,7 @@ final class WPAIT_Settings
         );
 
         if ($old['enabled_languages'] !== $sanitized['enabled_languages'] || $old['url_mode'] !== $sanitized['url_mode'] || $old['hide_default_language'] !== $sanitized['hide_default_language']) {
-            update_option('wpait_rewrite_needs_flush', 1, false);
+            update_option('aitmt_rewrite_needs_flush', 1, false);
         }
 
         return $sanitized;
@@ -172,9 +172,9 @@ final class WPAIT_Settings
             return;
         }
 
-        if (get_option('wpait_rewrite_needs_flush')) {
+        if (get_option('aitmt_rewrite_needs_flush')) {
             flush_rewrite_rules(false);
-            delete_option('wpait_rewrite_needs_flush');
+            delete_option('aitmt_rewrite_needs_flush');
         }
     }
 
@@ -183,8 +183,8 @@ final class WPAIT_Settings
             return;
         }
 
-        wp_enqueue_style('wpait-admin', WPAIT_PLUGIN_URL . 'assets/css/admin.css', array(), WPAIT_VERSION);
-        wp_enqueue_script('wpait-admin', WPAIT_PLUGIN_URL . 'assets/js/admin.js', array(), WPAIT_VERSION, true);
+        wp_enqueue_style('aitmt-admin', AITMT_PLUGIN_URL . 'assets/css/admin.css', array(), AITMT_VERSION);
+        wp_enqueue_script('aitmt-admin', AITMT_PLUGIN_URL . 'assets/js/admin.js', array(), AITMT_VERSION, true);
     }
 
     public static function render_page() {
@@ -193,43 +193,43 @@ final class WPAIT_Settings
         }
 
         $options = self::options();
-        $languages = WPAIT_Languages::all();
+        $languages = AITMT_Languages::all();
         $source = self::source_language();
         ?>
-        <div class="wrap wpait-admin">
-            <h1><?php esc_html_e('WPAIT Multilingual AI Translate', 'wpait-multilingual-ai-translate'); ?></h1>
+        <div class="wrap aitmt-admin">
+            <h1><?php esc_html_e('AIT Multilingual Translate', 'ait-multilingual-translate'); ?></h1>
 
             <form method="post" action="options.php">
-                <?php settings_fields('wpait_settings'); ?>
+                <?php settings_fields('aitmt_settings'); ?>
 
-                <div class="wpait-admin-grid">
-                    <section class="wpait-panel">
-                        <h2><?php esc_html_e('Languages', 'wpait-multilingual-ai-translate'); ?></h2>
+                <div class="aitmt-admin-grid">
+                    <section class="aitmt-panel">
+                        <h2><?php esc_html_e('Languages', 'ait-multilingual-translate'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-source-language"><?php esc_html_e('Source language', 'wpait-multilingual-ai-translate'); ?></label>
+                                    <label for="aitmt-source-language"><?php esc_html_e('Source language', 'ait-multilingual-translate'); ?></label>
                                 </th>
                                 <td>
-                                    <select id="wpait-source-language" name="<?php echo esc_attr(self::OPTION); ?>[source_language]">
-                                        <option value=""><?php /* translators: %s: Current WordPress site language code. */ echo esc_html(sprintf(__('Auto: site language (%s)', 'wpait-multilingual-ai-translate'), strtoupper($source))); ?></option>
+                                    <select id="aitmt-source-language" name="<?php echo esc_attr(self::OPTION); ?>[source_language]">
+                                        <option value=""><?php /* translators: %s: Current WordPress site language code. */ echo esc_html(sprintf(__('Auto: site language (%s)', 'ait-multilingual-translate'), strtoupper($source))); ?></option>
                                         <?php foreach ($languages as $code => $label) : ?>
                                             <option value="<?php echo esc_attr($code); ?>" <?php selected($options['source_language'], $code); ?>>
                                                 <?php echo esc_html($label . ' (' . strtoupper($code) . ')'); ?>
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
-                                    <p class="description"><?php esc_html_e('Leave on Auto to follow the WordPress site language.', 'wpait-multilingual-ai-translate'); ?></p>
+                                    <p class="description"><?php esc_html_e('Leave on Auto to follow the WordPress site language.', 'ait-multilingual-translate'); ?></p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Target languages', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Target languages', 'ait-multilingual-translate'); ?></th>
                                 <td>
-                                    <input type="search" class="wpait-language-search" placeholder="<?php esc_attr_e('Search languages...', 'wpait-multilingual-ai-translate'); ?>">
-                                    <div class="wpait-language-list">
+                                    <input type="search" class="aitmt-language-search" placeholder="<?php esc_attr_e('Search languages...', 'ait-multilingual-translate'); ?>">
+                                    <div class="aitmt-language-list">
                                         <?php foreach ($languages as $code => $label) : ?>
-                                            <label class="wpait-language-option">
+                                            <label class="aitmt-language-option">
                                                 <input
                                                     type="checkbox"
                                                     name="<?php echo esc_attr(self::OPTION); ?>[enabled_languages][]"
@@ -247,152 +247,152 @@ final class WPAIT_Settings
                         </table>
                     </section>
 
-                    <section class="wpait-panel">
-                        <h2><?php esc_html_e('AI Provider', 'wpait-multilingual-ai-translate'); ?></h2>
+                    <section class="aitmt-panel">
+                        <h2><?php esc_html_e('AI Provider', 'ait-multilingual-translate'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
-                                <th scope="row"><?php esc_html_e('Provider', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Provider', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <select name="<?php echo esc_attr(self::OPTION); ?>[provider]">
-                                        <option value="openai" selected><?php esc_html_e('OpenAI / ChatGPT', 'wpait-multilingual-ai-translate'); ?></option>
+                                        <option value="openai" selected><?php esc_html_e('OpenAI / ChatGPT', 'ait-multilingual-translate'); ?></option>
                                     </select>
-                                    <p class="description"><?php esc_html_e('Claude, Gemini, and Grok can be added as providers after this first version.', 'wpait-multilingual-ai-translate'); ?></p>
+                                    <p class="description"><?php esc_html_e('Claude, Gemini, and Grok can be added as providers after this first version.', 'ait-multilingual-translate'); ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-openai-api-key"><?php esc_html_e('OpenAI API key', 'wpait-multilingual-ai-translate'); ?></label>
+                                    <label for="aitmt-openai-api-key"><?php esc_html_e('OpenAI API key', 'ait-multilingual-translate'); ?></label>
                                 </th>
                                 <td>
-                                    <input id="wpait-openai-api-key" type="password" class="regular-text" autocomplete="off" name="<?php echo esc_attr(self::OPTION); ?>[openai_api_key]" value="<?php echo esc_attr($options['openai_api_key']); ?>">
-                                    <p class="description"><?php esc_html_e('You can also define WPAIT_OPENAI_API_KEY in wp-config.php.', 'wpait-multilingual-ai-translate'); ?></p>
+                                    <input id="aitmt-openai-api-key" type="password" class="regular-text" autocomplete="off" name="<?php echo esc_attr(self::OPTION); ?>[openai_api_key]" value="<?php echo esc_attr($options['openai_api_key']); ?>">
+                                    <p class="description"><?php esc_html_e('You can also define AITMT_OPENAI_API_KEY in wp-config.php.', 'ait-multilingual-translate'); ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-openai-model"><?php esc_html_e('OpenAI model', 'wpait-multilingual-ai-translate'); ?></label>
+                                    <label for="aitmt-openai-model"><?php esc_html_e('OpenAI model', 'ait-multilingual-translate'); ?></label>
                                 </th>
                                 <td>
-                                    <input id="wpait-openai-model" type="text" class="regular-text" name="<?php echo esc_attr(self::OPTION); ?>[openai_model]" value="<?php echo esc_attr($options['openai_model']); ?>">
+                                    <input id="aitmt-openai-model" type="text" class="regular-text" name="<?php echo esc_attr(self::OPTION); ?>[openai_model]" value="<?php echo esc_attr($options['openai_model']); ?>">
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Translation behavior', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Translation behavior', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[auto_translate]" value="1" <?php checked($options['auto_translate'], '1'); ?>>
-                                        <?php esc_html_e('Automatically translate missing strings on page view', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Automatically translate missing strings on page view', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[draft_mode]" value="1" <?php checked($options['draft_mode'], '1'); ?>>
-                                        <?php esc_html_e('Save new AI translations as drafts', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Save new AI translations as drafts', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[translate_attributes]" value="1" <?php checked($options['translate_attributes'], '1'); ?>>
-                                        <?php esc_html_e('Translate alt, title, placeholder, aria-label, and SEO meta attributes', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Translate alt, title, placeholder, aria-label, and SEO meta attributes', 'ait-multilingual-translate'); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <label for="wpait-max-segments"><?php esc_html_e('Batch size', 'wpait-multilingual-ai-translate'); ?></label>
+                                    <label for="aitmt-max-segments"><?php esc_html_e('Batch size', 'ait-multilingual-translate'); ?></label>
                                 </th>
                                 <td>
-                                    <input id="wpait-max-segments" type="number" min="1" max="100" name="<?php echo esc_attr(self::OPTION); ?>[max_segments_per_request]" value="<?php echo esc_attr((string) $options['max_segments_per_request']); ?>">
-                                    <p class="description"><?php esc_html_e('Limits how many new strings are sent to AI from one page render.', 'wpait-multilingual-ai-translate'); ?></p>
+                                    <input id="aitmt-max-segments" type="number" min="1" max="100" name="<?php echo esc_attr(self::OPTION); ?>[max_segments_per_request]" value="<?php echo esc_attr((string) $options['max_segments_per_request']); ?>">
+                                    <p class="description"><?php esc_html_e('Limits how many new strings are sent to AI from one page render.', 'ait-multilingual-translate'); ?></p>
                                 </td>
                             </tr>
                         </table>
                     </section>
 
-                    <section class="wpait-panel">
-                        <h2><?php esc_html_e('URLs and SEO', 'wpait-multilingual-ai-translate'); ?></h2>
+                    <section class="aitmt-panel">
+                        <h2><?php esc_html_e('URLs and SEO', 'ait-multilingual-translate'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
-                                <th scope="row"><?php esc_html_e('Language URL mode', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Language URL mode', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <label>
                                         <input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[url_mode]" value="directory" <?php checked($options['url_mode'], 'directory'); ?>>
-                                        <?php esc_html_e('Directory URLs: /en/about/', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Directory URLs: /en/about/', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[url_mode]" value="query" <?php checked($options['url_mode'], 'query'); ?>>
-                                        <?php esc_html_e('Query URLs: /about/?lang=en', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Query URLs: /about/?lang=en', 'ait-multilingual-translate'); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Default language URL', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Default language URL', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[hide_default_language]" value="1" <?php checked($options['hide_default_language'], '1'); ?>>
-                                        <?php esc_html_e('Keep the source language without a language prefix', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Keep the source language without a language prefix', 'ait-multilingual-translate'); ?>
                                     </label>
                                 </td>
                             </tr>
                         </table>
                     </section>
 
-                    <section class="wpait-panel">
-                        <h2><?php esc_html_e('Language Switcher', 'wpait-multilingual-ai-translate'); ?></h2>
+                    <section class="aitmt-panel">
+                        <h2><?php esc_html_e('Language Switcher', 'ait-multilingual-translate'); ?></h2>
 
                         <table class="form-table" role="presentation">
                             <tr>
-                                <th scope="row"><?php esc_html_e('Style', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Style', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <select name="<?php echo esc_attr(self::OPTION); ?>[selector_style]">
-                                        <option value="dropdown" <?php selected($options['selector_style'], 'dropdown'); ?>><?php esc_html_e('Dropdown', 'wpait-multilingual-ai-translate'); ?></option>
-                                        <option value="list" <?php selected($options['selector_style'], 'list'); ?>><?php esc_html_e('List', 'wpait-multilingual-ai-translate'); ?></option>
+                                        <option value="dropdown" <?php selected($options['selector_style'], 'dropdown'); ?>><?php esc_html_e('Dropdown', 'ait-multilingual-translate'); ?></option>
+                                        <option value="list" <?php selected($options['selector_style'], 'list'); ?>><?php esc_html_e('List', 'ait-multilingual-translate'); ?></option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Display parts', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Display parts', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_show_flags]" value="1" <?php checked($options['selector_show_flags'], '1'); ?>>
-                                        <?php esc_html_e('Flags', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Flags', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_show_names]" value="1" <?php checked($options['selector_show_names'], '1'); ?>>
-                                        <?php esc_html_e('Language names', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Language names', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_show_codes]" value="1" <?php checked($options['selector_show_codes'], '1'); ?>>
-                                        <?php esc_html_e('Language codes', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Language codes', 'ait-multilingual-translate'); ?>
                                     </label>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Automatic placement', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Automatic placement', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_header]" value="1" <?php checked($options['selector_header'], '1'); ?>>
-                                        <?php esc_html_e('Try to show in header via wp_body_open', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Try to show in header via wp_body_open', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <br>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[selector_footer]" value="1" <?php checked($options['selector_footer'], '1'); ?>>
-                                        <?php esc_html_e('Show in footer', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Show in footer', 'ait-multilingual-translate'); ?>
                                     </label>
                                     <p class="description">
-                                        <?php esc_html_e('Shortcodes: [wp_ai_translate_switcher] or [ai_language_switcher].', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Shortcode: [aitmt_language_switcher].', 'ait-multilingual-translate'); ?>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><?php esc_html_e('Frontend editor', 'wpait-multilingual-ai-translate'); ?></th>
+                                <th scope="row"><?php esc_html_e('Frontend editor', 'ait-multilingual-translate'); ?></th>
                                 <td>
                                     <label>
                                         <input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[frontend_editor]" value="1" <?php checked($options['frontend_editor'], '1'); ?>>
-                                        <?php esc_html_e('Allow administrators to edit translated text from the frontend', 'wpait-multilingual-ai-translate'); ?>
+                                        <?php esc_html_e('Allow administrators to edit translated text from the frontend', 'ait-multilingual-translate'); ?>
                                     </label>
                                 </td>
                             </tr>
@@ -400,7 +400,7 @@ final class WPAIT_Settings
                     </section>
                 </div>
 
-                <?php submit_button(__('Save settings', 'wpait-multilingual-ai-translate')); ?>
+                <?php submit_button(__('Save settings', 'ait-multilingual-translate')); ?>
             </form>
         </div>
         <?php

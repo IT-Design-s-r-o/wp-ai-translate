@@ -1,17 +1,17 @@
 $ErrorActionPreference = 'Stop'
 
 $root = $PSScriptRoot
-$zipRoot = 'wpait-multilingual-ai-translate'
+$zipRoot = 'ait-multilingual-translate'
 $zipPath = Join-Path $PSScriptRoot ($zipRoot + '.zip')
 
-if (-not (Test-Path (Join-Path $root 'wp-ai-translate.php'))) {
+if (-not (Test-Path (Join-Path $root 'ait-multilingual-translate.php'))) {
     $nestedRoot = Join-Path $PSScriptRoot 'wp-ai-translate'
-    if (Test-Path (Join-Path $nestedRoot 'wp-ai-translate.php')) {
+    if (Test-Path (Join-Path $nestedRoot 'ait-multilingual-translate.php')) {
         $root = $nestedRoot
     }
 }
 
-if (-not (Test-Path (Join-Path $root 'wp-ai-translate.php'))) {
+if (-not (Test-Path (Join-Path $root 'ait-multilingual-translate.php'))) {
     throw "Plugin source folder was not found: $root"
 }
 

@@ -1,8 +1,8 @@
-# Installation
+﻿# Installation
 
 1. Download the latest beta release ZIP.
-2. Upload it in WordPress: Plugins → Add New → Upload Plugin.
-3. Activate WPAIT Multilingual AI Translate.
+2. Upload it in WordPress: Plugins в†’ Add New в†’ Upload Plugin.
+3. Activate AIT Multilingual Translate.
 4. Open WP AI Translation in the admin menu.
 5. Choose languages.
 6. Add provider API keys.

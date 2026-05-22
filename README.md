@@ -1,12 +1,12 @@
-# WPAIT Multilingual AI Translate
+﻿# AIT Multilingual Translate
 
-**Powered by WPAIT technology.**
+**Powered by AITMT technology.**
 
-WordPress.org submission name: **WPAIT Multilingual AI Translate**. Product brand: **WPAIT**.
+WordPress.org submission name: **AIT Multilingual Translate**. Product brand: **AITMT**.
 
-WPAIT Multilingual AI Translate is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
+AIT Multilingual Translate is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
 
-Current public beta: **0.3.31 Public Beta Build**.
+Current public beta: **0.3.32 Public Beta Build**.
 
 - Plugin website: https://wp-ai.itdesign.biz/
 - Documentation: https://wp-ai.itdesign.biz/documentation/
@@ -16,7 +16,7 @@ Current public beta: **0.3.31 Public Beta Build**.
 
 ## Public Beta Notice
 
-WPAIT Multilingual AI Translate is currently available as a Public Beta. Please test on a staging website before using it on production projects, especially stores with WooCommerce orders, custom checkout fields, or complex page builders.
+AIT Multilingual Translate is currently available as a Public Beta. Please test on a staging website before using it on production projects, especially stores with WooCommerce orders, custom checkout fields, or complex page builders.
 
 Public Beta builds include temporary full feature access while the plugin is actively tested and improved. Users who support the project during the Public Beta period may receive a special early-supporter offer for the future commercial release. No lifetime free access is promised.
 
@@ -26,7 +26,7 @@ WooCommerce and Elementor are trademarks of their respective owners. This projec
 
 ### Installation & Setup Wizard
 
-Learn how to install WPAIT Multilingual AI Translate, configure languages, set up AI providers, and run the first translation workflow.
+Learn how to install AIT Multilingual Translate, configure languages, set up AI providers, and run the first translation workflow.
 
 Watch: https://youtu.be/s8KnOtqXAFI
 
@@ -67,8 +67,8 @@ Watch: https://youtu.be/MuUF4t6NNsA
 
 1. Download the latest release ZIP from GitHub Releases.
 2. In WordPress admin, open **Plugins > Add New > Upload Plugin**.
-3. Upload `wpait-multilingual-ai-translate.zip`.
-4. Activate **WPAIT Multilingual AI Translate**.
+3. Upload `ait-multilingual-translate.zip`.
+4. Activate **AIT Multilingual Translate**.
 5. Open **AI Translate** in the WordPress admin menu.
 6. Choose source and target languages.
 7. Select a provider and add the matching API key.
@@ -79,8 +79,7 @@ Watch: https://youtu.be/MuUF4t6NNsA
 ## Shortcodes
 
 ```text
-[wp_ai_translate_switcher]
-[ai_language_switcher]
+[aitmt_language_switcher]
 ```
 
 ## API Key Constants
@@ -88,11 +87,11 @@ Watch: https://youtu.be/MuUF4t6NNsA
 API keys can be stored in plugin settings or defined in `wp-config.php`:
 
 ```php
-define( 'WPAIT_OPENAI_API_KEY', 'your-api-key' );
-define( 'WPAIT_GEMINI_API_KEY', 'your-api-key' );
-define( 'WPAIT_GROK_API_KEY', 'your-api-key' );
-define( 'WPAIT_GOOGLE_TRANSLATE_API_KEY', 'your-api-key' );
-define( 'WPAIT_DEEPL_API_KEY', 'your-api-key' );
+define( 'AITMT_OPENAI_API_KEY', 'your-api-key' );
+define( 'AITMT_GEMINI_API_KEY', 'your-api-key' );
+define( 'AITMT_GROK_API_KEY', 'your-api-key' );
+define( 'AITMT_GOOGLE_TRANSLATE_API_KEY', 'your-api-key' );
+define( 'AITMT_DEEPL_API_KEY', 'your-api-key' );
 ```
 
 ## Provider Notes

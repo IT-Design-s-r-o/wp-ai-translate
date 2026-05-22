@@ -1,11 +1,11 @@
-(function () {
-    if (!window.WPAIT_EDITOR || window.WPAIT_INLINE_EDITOR_READY) {
+﻿(function () {
+    if (!window.AITMT_EDITOR || window.AITMT_INLINE_EDITOR_READY) {
         return;
     }
 
-    window.WPAIT_INLINE_EDITOR_READY = true;
+    window.AITMT_INLINE_EDITOR_READY = true;
 
-    var config = window.WPAIT_EDITOR || {};
+    var config = window.AITMT_EDITOR || {};
     var active = false;
     var toolbar = document.createElement('div');
     var brand = document.createElement('a');
@@ -24,9 +24,9 @@
     var cancelButton = document.createElement('button');
     var currentTarget = null;
 
-    toolbar.className = 'wpait-inline-editor-toolbar';
-    toolbar.setAttribute('data-wpait-no-translate', '1');
-    brand.className = 'wpait-inline-editor-brand';
+    toolbar.className = 'AITMT-inline-editor-toolbar';
+    toolbar.setAttribute('data-AITMT-no-translate', '1');
+    brand.className = 'AITMT-inline-editor-brand';
     brand.href = config.siteUrl || '#';
     brand.target = '_blank';
     brand.rel = 'noopener noreferrer';
@@ -41,24 +41,24 @@
     brand.appendChild(brandText);
     button.type = 'button';
     button.textContent = config.editLabel || 'AI Translate edit';
-    status.className = 'wpait-inline-editor-status';
+    status.className = 'AITMT-inline-editor-status';
     toolbar.appendChild(brand);
     toolbar.appendChild(button);
     toolbar.appendChild(status);
     status.textContent = config.targetNotice || '';
 
-    modal.className = 'wpait-inline-editor-modal';
-    modal.setAttribute('data-wpait-no-translate', '1');
+    modal.className = 'AITMT-inline-editor-modal';
+    modal.setAttribute('data-AITMT-no-translate', '1');
     modal.setAttribute('aria-hidden', 'true');
-    dialog.className = 'wpait-inline-editor-dialog';
+    dialog.className = 'AITMT-inline-editor-dialog';
     dialog.setAttribute('role', 'dialog');
     dialog.setAttribute('aria-modal', 'true');
     modalTitle.textContent = config.promptLabel || 'Edit translation';
-    textarea.className = 'wpait-inline-editor-textarea';
-    modalNotice.className = 'wpait-inline-editor-notice';
+    textarea.className = 'AITMT-inline-editor-textarea';
+    modalNotice.className = 'AITMT-inline-editor-notice';
     modalNotice.setAttribute('role', 'status');
     modalNotice.setAttribute('aria-live', 'polite');
-    modalActions.className = 'wpait-inline-editor-dialog-actions';
+    modalActions.className = 'AITMT-inline-editor-dialog-actions';
     saveButton.type = 'button';
     saveButton.textContent = config.saveLabel || 'Save';
     autoButton.type = 'button';
@@ -77,7 +77,7 @@
     modal.appendChild(dialog);
 
     function mount() {
-        if (document.body && !document.querySelector('.wpait-inline-editor-toolbar')) {
+        if (document.body && !document.querySelector('.AITMT-inline-editor-toolbar')) {
             document.body.appendChild(toolbar);
             document.body.appendChild(modal);
         }
@@ -85,16 +85,16 @@
 
     function setActive(next) {
         active = typeof next === 'boolean' ? next : !active;
-        document.body.classList.toggle('wpait-editor-active', active);
+        document.body.classList.toggle('AITMT-editor-active', active);
         button.classList.toggle('is-active', active);
         status.textContent = active ? (config.activeLabel || 'Editing on') : (config.targetNotice || '');
 
-        if (active && !document.querySelector('.wpait-editable')) {
+        if (active && !document.querySelector('.AITMT-editable')) {
             status.textContent = config.emptyLabel || 'No editable text found yet.';
         }
     }
 
-    window.WPAIT_INLINE_TOGGLE = function () {
+    window.AITMT_INLINE_TOGGLE = function () {
         setActive();
     };
 
@@ -103,7 +103,7 @@
     });
 
     document.addEventListener('click', function (event) {
-        var target = event.target.closest ? event.target.closest('.wpait-editable') : null;
+        var target = event.target.closest ? event.target.closest('.AITMT-editable') : null;
 
         if (!active || !target) {
             return;
@@ -199,10 +199,10 @@
             return;
         }
 
-        var sourceText = decodeSource(currentTarget.getAttribute('data-wpait-source') || '');
+        var sourceText = decodeSource(currentTarget.getAttribute('data-AITMT-source') || '');
         var body = new URLSearchParams();
 
-        body.set('action', 'wpait_auto_translate_frontend');
+        body.set('action', 'AITMT_auto_translate_frontend');
         body.set('nonce', config.nonce || '');
         body.set('sourceLanguage', config.sourceLanguage || '');
         body.set('targetLanguage', config.targetLanguage || '');
@@ -237,10 +237,10 @@
     }
 
     function saveTranslation(target, nextText) {
-        var sourceText = decodeSource(target.getAttribute('data-wpait-source') || '');
+        var sourceText = decodeSource(target.getAttribute('data-AITMT-source') || '');
         var body = new URLSearchParams();
 
-        body.set('action', 'wpait_save_translation');
+        body.set('action', 'AITMT_save_translation');
         body.set('nonce', config.nonce || '');
         body.set('sourceLanguage', config.sourceLanguage || '');
         body.set('targetLanguage', config.targetLanguage || '');

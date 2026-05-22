@@ -4,23 +4,23 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_OpenAI_Provider
+final class AITMT_OpenAI_Provider
 {
     public function translate_batch(array $segments, string $source_language, string $target_language)
     {
-        $api_key = WPAIT_Settings::openai_api_key();
+        $api_key = AITMT_Settings::openai_api_key();
 
         if (empty($api_key)) {
-            return new WP_Error('wpait_missing_openai_key', __('OpenAI API key is missing.', 'wpait-multilingual-ai-translate'));
+            return new WP_Error('aitmt_missing_openai_key', __('OpenAI API key is missing.', 'ait-multilingual-translate'));
         }
 
         if (empty($segments)) {
             return array();
         }
 
-        $model = (string) WPAIT_Settings::get('openai_model', 'gpt-4o-mini');
-        $source_name = WPAIT_Languages::label($source_language);
-        $target_name = WPAIT_Languages::label($target_language);
+        $model = (string) AITMT_Settings::get('openai_model', 'gpt-4o-mini');
+        $source_name = AITMT_Languages::label($source_language);
+        $target_name = AITMT_Languages::label($target_language);
 
         $items = array();
         foreach ($segments as $hash => $text) {
@@ -63,7 +63,7 @@ final class WPAIT_OpenAI_Provider
             'text' => array(
                 'format' => array(
                     'type' => 'json_schema',
-                    'name' => 'wp_ai_translate_batch',
+                    'name' => 'aitmt_translate_batch',
                     'schema' => $schema,
                     'strict' => true,
                 ),
@@ -91,9 +91,9 @@ final class WPAIT_OpenAI_Provider
         $data = json_decode($raw_body, true);
 
         if ($status < 200 || $status >= 300) {
-            $message = $data['error']['message'] ?? __('OpenAI request failed.', 'wpait-multilingual-ai-translate');
+            $message = $data['error']['message'] ?? __('OpenAI request failed.', 'ait-multilingual-translate');
 
-            return new WP_Error('wpait_openai_error', $message, array('status' => $status));
+            return new WP_Error('aitmt_openai_error', $message, array('status' => $status));
         }
 
         $output_text = $this->extract_output_text(is_array($data) ? $data : array());
@@ -104,7 +104,7 @@ final class WPAIT_OpenAI_Provider
         }
 
         if (!is_array($decoded) || empty($decoded['translations']) || !is_array($decoded['translations'])) {
-            return new WP_Error('wpait_openai_parse_error', __('OpenAI returned an unexpected translation payload.', 'wpait-multilingual-ai-translate'));
+            return new WP_Error('aitmt_openai_parse_error', __('OpenAI returned an unexpected translation payload.', 'ait-multilingual-translate'));
         }
 
         $translations = array();

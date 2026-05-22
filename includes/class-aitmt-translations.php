@@ -4,13 +4,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_Translations
+final class AITMT_Translations
 {
     public static function table(): string
     {
         global $wpdb;
 
-        return $wpdb->prefix . 'wpait_translations';
+        return $wpdb->prefix . 'AITMT_translations';
     }
 
     private static function table_sql(): string
@@ -88,8 +88,8 @@ final class WPAIT_Translations
             self::table(),
             array(
                 'source_hash' => self::hash($source_text),
-                'source_language' => WPAIT_Languages::normalize_code($source_language),
-                'target_language' => WPAIT_Languages::normalize_code($target_language),
+                'source_language' => AITMT_Languages::normalize_code($source_language),
+                'target_language' => AITMT_Languages::normalize_code($target_language),
                 'context' => sanitize_key($context),
                 'object_id' => $object_id,
                 'source_text' => $source_text,

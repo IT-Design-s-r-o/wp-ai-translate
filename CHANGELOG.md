@@ -1,20 +1,36 @@
-# Changelog
+﻿# Changelog
 
-All notable changes to WPAIT Multilingual AI Translate are documented here.
+All notable changes to AIT Multilingual Translate are documented here.
+
+## 0.3.32
+
+### Changed
+
+- Renamed the final WordPress.org submission package to `AIT Multilingual Translate`.
+- Updated the final plugin slug, folder, ZIP name, and text domain to `ait-multilingual-translate`.
+- Removed the previous WPAIT public-facing naming from the installable package.
+
+### Fixed
+
+- Removed the beta self-update/repair updater hooks for WordPress.org compliance.
+- Replaced remaining direct admin inline script/style output with WordPress enqueue APIs.
+- Updated generated log storage to use `wp_upload_dir()` only.
+- Removed planned providers from active external-services disclosure and clarified Google Translate disclosure.
+- Added explicit output-buffer shutdown handling for review safety.
 
 ## 0.3.31
 
 ### Changed
 
-- Renamed public WordPress.org plugin name to WPAIT Multilingual AI Translate.
-- Updated submission slug to `wpait-multilingual-ai-translate`.
+- Renamed public WordPress.org plugin name to AIT Multilingual Translate.
+- Updated submission slug to `ait-multilingual-translate`.
 - Updated text domain and WordPress.org package structure.
 - Updated `readme.txt`, language template filename, and public-facing branding for WordPress.org guidelines.
 
 ### Fixed
 
 - Improved WordPress.org naming compliance.
-- Reduced generic/trademark review risk with a distinct WPAIT brand prefix.
+- Reduced generic/trademark review risk with a distinct AITMT brand prefix.
 
 ### Compatibility note
 
@@ -24,8 +40,8 @@ All notable changes to WPAIT Multilingual AI Translate are documented here.
 
 ### Added
 
-- WordPress.org-ready public plugin name: WPAIT Multilingual AI Translate.
-- Public Beta release metadata and package slug: `wpait-multilingual-ai-translate`.
+- WordPress.org-ready public plugin name: AIT Multilingual Translate.
+- Public Beta release metadata and package slug: `ait-multilingual-translate`.
 - Tone of Voice / Translation Mode foundation for prompt-based AI providers.
 - AI Cost Optimization settings for quality mode, temperature, request character limits, estimated per-request cost limits, and model recommendations.
 - Provider statistics for API requests, estimated input/output tokens, estimated cost, cache hits, duplicate skipped count, provider, and model.

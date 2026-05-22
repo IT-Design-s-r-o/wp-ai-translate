@@ -1,6 +1,6 @@
-# WPAIT Multilingual AI Translate Roadmap
+﻿# AIT Multilingual Translate Roadmap
 
-WPAIT Multilingual AI Translate is currently moving through a Public Beta stage before the WordPress.org submission and future commercial editions.
+AIT Multilingual Translate is currently moving through a Public Beta stage before the WordPress.org submission and future commercial editions.
 
 ## Current Public Beta Focus
 

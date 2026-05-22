@@ -1,4 +1,4 @@
-# Security Policy
+﻿# Security Policy
 
 ## Reporting a vulnerability
 
@@ -18,7 +18,7 @@ Please do not publicly disclose a vulnerability before we have had a reasonable 
 
 ## Sensitive data
 
-WPAIT Multilingual AI Translate masks provider API keys in the debugger and redacts sensitive values from exported diagnostic logs. Do not send API keys, passwords, cookies, billing data, shipping data, or customer personal data in support messages.
+AIT Multilingual Translate masks provider API keys in the debugger and redacts sensitive values from exported diagnostic logs. Do not send API keys, passwords, cookies, billing data, shipping data, or customer personal data in support messages.
 
 ## External services
 

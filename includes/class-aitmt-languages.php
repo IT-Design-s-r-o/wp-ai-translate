@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_Languages
+final class AITMT_Languages
 {
     public static function all(): array
     {
@@ -219,8 +219,8 @@ final class WPAIT_Languages
 
     public static function enabled_with_source(): array
     {
-        $source = WPAIT_Settings::source_language();
-        $enabled = WPAIT_Settings::get('enabled_languages', array());
+        $source = AITMT_Settings::source_language();
+        $enabled = AITMT_Settings::get('enabled_languages', array());
         $languages = array_values(array_unique(array_merge(array($source), $enabled)));
 
         return array_values(array_filter($languages));

@@ -4,92 +4,117 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_Switcher
+final class AITMT_Switcher
 {
     public static function init() {
-        add_shortcode('wp_ai_translate_switcher', array(__CLASS__, 'shortcode'));
-        add_shortcode('ai_language_switcher', array(__CLASS__, 'shortcode'));
+        add_shortcode('aitmt_language_switcher', array(__CLASS__, 'shortcode'));
         add_action('wp_enqueue_scripts', array(__CLASS__, 'enqueue_assets'));
         add_action('wp_body_open', array(__CLASS__, 'render_header_switcher'));
         add_action('wp_footer', array(__CLASS__, 'render_footer_switcher'));
     }
 
     public static function enqueue_assets() {
-        wp_enqueue_style('wpait-frontend', WPAIT_PLUGIN_URL . 'assets/css/frontend.css', array(), WPAIT_VERSION);
+        wp_enqueue_style('aitmt-frontend', AITMT_PLUGIN_URL . 'assets/css/frontend.css', array(), AITMT_VERSION);
     }
 
     public static function shortcode($atts = array()): string
     {
         $atts = shortcode_atts(
             array(
-                'style' => WPAIT_Settings::get('selector_style', 'dropdown'),
+                'style' => AITMT_Settings::get('selector_style', 'dropdown'),
             ),
             is_array($atts) ? $atts : array(),
-            'wp_ai_translate_switcher'
+            'aitmt_language_switcher'
         );
 
         return self::render((string) $atts['style']);
     }
 
     public static function render_header_switcher() {
-        if ('1' !== WPAIT_Settings::get('selector_header', '0')) {
+        if ('1' !== AITMT_Settings::get('selector_header', '0')) {
             return;
         }
 
-        echo '<div class="wpait-switcher-wrap wpait-switcher-header notranslate" data-wpait-no-translate="1" translate="no">';
-        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Switcher HTML is generated internally with escaped URLs, labels, and attributes.
-        echo self::render();
-        echo '</div>';
+        echo wp_kses('<div class="aitmt-switcher-wrap aitmt-switcher-header notranslate" data-aitmt-no-translate="1" translate="no">' . self::render() . '</div>', self::allowed_html());
     }
 
     public static function render_footer_switcher() {
-        if ('1' !== WPAIT_Settings::get('selector_footer', '0')) {
+        if ('1' !== AITMT_Settings::get('selector_footer', '0')) {
             return;
         }
 
-        echo '<div class="wpait-switcher-wrap wpait-switcher-footer notranslate" data-wpait-no-translate="1" translate="no">';
-        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Switcher HTML is generated internally with escaped URLs, labels, and attributes.
-        echo self::render();
-        echo '</div>';
+        echo wp_kses('<div class="aitmt-switcher-wrap aitmt-switcher-footer notranslate" data-aitmt-no-translate="1" translate="no">' . self::render() . '</div>', self::allowed_html());
     }
 
     public static function render(string $style = ''): string
     {
-        $languages = WPAIT_Languages::enabled_with_source();
+        $languages = AITMT_Languages::enabled_with_source();
 
         if (count($languages) < 2) {
             return '';
         }
 
-        $style = $style ?: (string) WPAIT_Settings::get('selector_style', 'dropdown');
-        $current = WPAIT_Router::current_language();
+        $style = $style ?: (string) AITMT_Settings::get('selector_style', 'dropdown');
+        $current = AITMT_Router::current_language();
 
         if ('list' === $style) {
-            return self::render_list($languages, $current);
+            return self::kses_switcher(self::render_list($languages, $current));
         }
 
-        return self::render_dropdown($languages, $current);
+        return self::kses_switcher(self::render_dropdown($languages, $current));
+    }
+
+    public static function kses_switcher(string $html): string
+    {
+        return wp_kses($html, self::allowed_html());
+    }
+
+    public static function allowed_html(): array
+    {
+        $allowed = wp_kses_allowed_html('post');
+        $attrs = array(
+            'aria-current' => true,
+            'aria-hidden' => true,
+            'aria-label' => true,
+            'class' => true,
+            'data-aitmt-no-translate' => true,
+            'decoding' => true,
+            'href' => true,
+            'hreflang' => true,
+            'id' => true,
+            'lang' => true,
+            'loading' => true,
+            'role' => true,
+            'src' => true,
+            'translate' => true,
+        );
+
+        foreach (array('a', 'details', 'div', 'img', 'nav', 'span', 'summary') as $tag) {
+            $allowed[$tag] = isset($allowed[$tag]) ? array_merge($allowed[$tag], $attrs) : $attrs;
+        }
+
+        return $allowed;
     }
 
     private static function render_dropdown(array $languages, string $current): string
     {
-        $id = 'wpait-switcher-' . wp_rand(1000, 999999);
-        $output = '<details class="wpait-switcher wpait-switcher-dropdown wpait-custom-dropdown notranslate" data-wpait-no-translate="1" translate="no">';
-        $output .= '<summary class="wpait-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'wpait-multilingual-ai-translate') . '">';
+        $id = 'aitmt-switcher-' . wp_rand(1000, 999999);
+        $output = '<details class="aitmt-switcher aitmt-switcher-dropdown aitmt-custom-dropdown notranslate" data-aitmt-no-translate="1" translate="no">';
+        $output .= '<summary class="aitmt-switcher-dropdown-control" aria-label="' . esc_attr__('Select language', 'ait-multilingual-translate') . '">';
         $output .= self::language_html($current);
         $output .= '</summary>';
-        $output .= '<div id="' . esc_attr($id) . '" class="wpait-switcher-dropdown-menu" role="listbox">';
+        $output .= '<div id="' . esc_attr($id) . '" class="aitmt-switcher-dropdown-menu" role="listbox">';
 
         foreach ($languages as $language) {
-            $classes = array('wpait-switcher-dropdown-link');
+            $classes = array('aitmt-switcher-dropdown-link');
             if ($language === $current) {
                 $classes[] = 'is-current';
             }
 
             $output .= sprintf(
-                '<a class="%1$s" href="%2$s" hreflang="%3$s" lang="%3$s" data-wpait-no-translate="1" translate="no" %4$s aria-label="%5$s">%6$s</a>',
+                '<a class="%1$s" href="%2$s" hreflang="%3$s" lang="%3$s" data-aitmt-no-translate="1" translate="no" %4$s aria-label="%5$s">%6$s</a>',
                 esc_attr(implode(' ', $classes)),
-                esc_url(WPAIT_Router::language_url($language)),
+                esc_url(AITMT_Router::language_url($language)),
                 esc_attr($language),
                 $language === $current ? 'aria-current="true"' : '',
                 esc_attr(self::language_accessible_label($language)),
@@ -104,18 +129,18 @@ final class WPAIT_Switcher
 
     private static function render_list(array $languages, string $current): string
     {
-        $output = '<nav class="wpait-switcher wpait-switcher-list notranslate" aria-label="' . esc_attr__('Language switcher', 'wpait-multilingual-ai-translate') . '" data-wpait-no-translate="1" translate="no">';
+        $output = '<nav class="aitmt-switcher aitmt-switcher-list notranslate" aria-label="' . esc_attr__('Language switcher', 'ait-multilingual-translate') . '" data-aitmt-no-translate="1" translate="no">';
 
         foreach ($languages as $language) {
-            $classes = array('wpait-switcher-link');
+            $classes = array('aitmt-switcher-link');
             if ($language === $current) {
                 $classes[] = 'is-current';
             }
 
             $output .= sprintf(
-                '<a class="%1$s" href="%2$s" hreflang="%3$s" lang="%3$s" data-wpait-no-translate="1" translate="no" %4$s aria-label="%5$s">%6$s</a>',
+                '<a class="%1$s" href="%2$s" hreflang="%3$s" lang="%3$s" data-aitmt-no-translate="1" translate="no" %4$s aria-label="%5$s">%6$s</a>',
                 esc_attr(implode(' ', $classes)),
-                esc_url(WPAIT_Router::language_url($language)),
+                esc_url(AITMT_Router::language_url($language)),
                 esc_attr($language),
                 $language === $current ? 'aria-current="true"' : '',
                 esc_attr(self::language_accessible_label($language)),
@@ -132,15 +157,15 @@ final class WPAIT_Switcher
     {
         $parts = array();
 
-        if ('1' === WPAIT_Settings::get('selector_show_flags', '0')) {
+        if ('1' === AITMT_Settings::get('selector_show_flags', '0')) {
             $parts[] = self::flag_entity($language);
         }
 
-        if ('1' === WPAIT_Settings::get('selector_show_names', '1')) {
-            $parts[] = WPAIT_Languages::label($language);
+        if ('1' === AITMT_Settings::get('selector_show_names', '1')) {
+            $parts[] = AITMT_Languages::label($language);
         }
 
-        if ('1' === WPAIT_Settings::get('selector_show_codes', '0')) {
+        if ('1' === AITMT_Settings::get('selector_show_codes', '0')) {
             $parts[] = strtoupper($language);
         }
 
@@ -155,20 +180,20 @@ final class WPAIT_Switcher
     {
         $parts = array();
 
-        if ('1' === WPAIT_Settings::get('selector_show_flags', '0')) {
+        if ('1' === AITMT_Settings::get('selector_show_flags', '0')) {
             $parts[] = self::flag_html($language);
         }
 
-        if ('1' === WPAIT_Settings::get('selector_show_names', '1')) {
-            $parts[] = '<span class="wpait-language-name">' . esc_html(WPAIT_Languages::label($language)) . '</span>';
+        if ('1' === AITMT_Settings::get('selector_show_names', '1')) {
+            $parts[] = '<span class="aitmt-language-name">' . esc_html(AITMT_Languages::label($language)) . '</span>';
         }
 
-        if ('1' === WPAIT_Settings::get('selector_show_codes', '0')) {
-            $parts[] = '<span class="wpait-language-code">' . esc_html(strtoupper($language)) . '</span>';
+        if ('1' === AITMT_Settings::get('selector_show_codes', '0')) {
+            $parts[] = '<span class="aitmt-language-code">' . esc_html(strtoupper($language)) . '</span>';
         }
 
         if (empty($parts)) {
-            $parts[] = '<span class="wpait-language-code">' . esc_html(strtoupper($language)) . '</span>';
+            $parts[] = '<span class="aitmt-language-code">' . esc_html(strtoupper($language)) . '</span>';
         }
 
         return implode(' ', $parts);
@@ -176,7 +201,7 @@ final class WPAIT_Switcher
 
     private static function language_accessible_label(string $language): string
     {
-        return WPAIT_Languages::label($language) . ' (' . strtoupper($language) . ')';
+        return AITMT_Languages::label($language) . ' (' . strtoupper($language) . ')';
     }
 
     private static function flag_html(string $language): string
@@ -184,10 +209,10 @@ final class WPAIT_Switcher
         $url = self::flag_url($language);
 
         if ('' === $url) {
-            return '<span class="wpait-flag" aria-hidden="true"></span>';
+            return '<span class="aitmt-flag" aria-hidden="true"></span>';
         }
 
-        return '<img class="wpait-flag" src="' . esc_url($url) . '" alt="" aria-hidden="true" loading="lazy" decoding="async">';
+        return '<img class="aitmt-flag" src="' . esc_url($url) . '" alt="" aria-hidden="true" loading="lazy" decoding="async">';
     }
 
     private static function flag_url(string $language): string
@@ -195,11 +220,11 @@ final class WPAIT_Switcher
         $country = strtolower(self::language_country($language));
         $relative = 'assets/flags/flag-icons/4x3/' . sanitize_file_name($country) . '.svg';
 
-        if (!file_exists(WPAIT_PLUGIN_DIR . $relative)) {
+        if (!file_exists(AITMT_PLUGIN_DIR . $relative)) {
             return '';
         }
 
-        return WPAIT_PLUGIN_URL . $relative;
+        return AITMT_PLUGIN_URL . $relative;
     }
 
     private static function flag_entity(string $language): string
@@ -322,6 +347,6 @@ final class WPAIT_Switcher
             'zu' => 'ZA',
         );
 
-        return $map[WPAIT_Languages::normalize_code($language)] ?? strtoupper(substr($language, 0, 2));
+        return $map[AITMT_Languages::normalize_code($language)] ?? strtoupper(substr($language, 0, 2));
     }
 }

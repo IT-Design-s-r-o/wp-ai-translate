@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_Output_Buffer
+final class AITMT_Output_Buffer
 {
     const SKIP_TAGS = array(
         'script',
@@ -19,8 +19,11 @@ final class WPAIT_Output_Buffer
         'object',
     );
 
+    private static $buffer_level = 0;
+
     public static function init() {
         add_action('template_redirect', array(__CLASS__, 'start'), 0);
+        add_action('shutdown', array(__CLASS__, 'flush'), 0);
     }
 
     public static function start() {
@@ -28,7 +31,24 @@ final class WPAIT_Output_Buffer
             return;
         }
 
+        if (self::$buffer_level > 0) {
+            return;
+        }
+
+        self::$buffer_level = ob_get_level() + 1;
         ob_start(array(__CLASS__, 'translate_html'));
+    }
+
+    public static function flush() {
+        if (self::$buffer_level <= 0) {
+            return;
+        }
+
+        while (ob_get_level() >= self::$buffer_level) {
+            ob_end_flush();
+        }
+
+        self::$buffer_level = 0;
     }
 
     public static function translate_html(string $html): string
@@ -37,8 +57,8 @@ final class WPAIT_Output_Buffer
             return $html;
         }
 
-        $target_language = WPAIT_Router::current_language();
-        $source_language = WPAIT_Settings::source_language();
+        $target_language = AITMT_Router::current_language();
+        $source_language = AITMT_Settings::source_language();
 
         if ($target_language === $source_language) {
             return $html;
@@ -70,7 +90,7 @@ final class WPAIT_Output_Buffer
             $segments[$item['hash']] = $item['source'];
         }
 
-        if ('1' === WPAIT_Settings::get('translate_attributes', '1')) {
+        if ('1' === AITMT_Settings::get('translate_attributes', '1')) {
             foreach ($attribute_nodes as $item) {
                 $segments[$item['hash']] = $item['source'];
             }
@@ -80,7 +100,7 @@ final class WPAIT_Output_Buffer
             return $html;
         }
 
-        $translations = WPAIT_Translator::translate_segments($segments, $target_language, 'html');
+        $translations = AITMT_Translator::translate_segments($segments, $target_language, 'html');
 
         if (empty($translations)) {
             return $html;
@@ -94,7 +114,7 @@ final class WPAIT_Output_Buffer
             self::replace_text_node($dom, $item['node'], $item['original'], $item['source'], $translations[$item['hash']], $item['hash']);
         }
 
-        if ('1' === WPAIT_Settings::get('translate_attributes', '1')) {
+        if ('1' === AITMT_Settings::get('translate_attributes', '1')) {
             foreach ($attribute_nodes as $item) {
                 if (!isset($translations[$item['hash']])) {
                     continue;
@@ -117,7 +137,7 @@ final class WPAIT_Output_Buffer
             return false;
         }
 
-        if (WPAIT_Router::current_language() === WPAIT_Settings::source_language()) {
+        if (AITMT_Router::current_language() === AITMT_Settings::source_language()) {
             return false;
         }
 
@@ -135,17 +155,17 @@ final class WPAIT_Output_Buffer
             $class = ' ' . $node->getAttribute('class') . ' ';
             if (
                 'wpadminbar' === $node->getAttribute('id')
-                || false !== strpos($class, ' wpait-switcher')
-                || false !== strpos($class, ' wpait-fallback-switcher')
-                || false !== strpos($class, ' wpait-menu-language-item')
-                || false !== strpos($class, ' wpait-menu-current-language')
-                || false !== strpos($class, ' wpait-menu-switcher-dropdown-toggle')
+                || false !== strpos($class, ' aitmt-switcher')
+                || false !== strpos($class, ' aitmt-fallback-switcher')
+                || false !== strpos($class, ' aitmt-menu-language-item')
+                || false !== strpos($class, ' aitmt-menu-current-language')
+                || false !== strpos($class, ' aitmt-menu-switcher-dropdown-toggle')
                 || false !== strpos($class, ' notranslate ')
             ) {
                 return;
             }
 
-            if ($node->hasAttribute('data-wpait-no-translate') || $node->hasAttribute('data-wpait-language-switcher') || $node->hasAttribute('translate') && 'no' === strtolower($node->getAttribute('translate'))) {
+            if ($node->hasAttribute('data-aitmt-no-translate') || $node->hasAttribute('data-aitmt-language-switcher') || $node->hasAttribute('translate') && 'no' === strtolower($node->getAttribute('translate'))) {
                 return;
             }
 
@@ -154,14 +174,14 @@ final class WPAIT_Output_Buffer
 
         if (XML_TEXT_NODE === $node->nodeType) {
             $original = $node->nodeValue ?? '';
-            $source = WPAIT_Translations::normalize_text((string) $original);
+            $source = AITMT_Translations::normalize_text((string) $original);
 
-            if (WPAIT_Translator::is_translatable_text($source)) {
+            if (AITMT_Translator::is_translatable_text($source)) {
                 $text_nodes[] = array(
                     'node' => $node,
                     'original' => (string) $original,
                     'source' => $source,
-                    'hash' => WPAIT_Translations::hash($source),
+                    'hash' => AITMT_Translations::hash($source),
                 );
             }
         }
@@ -195,8 +215,8 @@ final class WPAIT_Output_Buffer
                 continue;
             }
 
-            $source = WPAIT_Translations::normalize_text($node->getAttribute($attribute));
-            if (!WPAIT_Translator::is_translatable_text($source)) {
+            $source = AITMT_Translations::normalize_text($node->getAttribute($attribute));
+            if (!AITMT_Translator::is_translatable_text($source)) {
                 continue;
             }
 
@@ -204,7 +224,7 @@ final class WPAIT_Output_Buffer
                 'node' => $node,
                 'attribute' => $attribute,
                 'source' => $source,
-                'hash' => WPAIT_Translations::hash($source),
+                'hash' => AITMT_Translations::hash($source),
             );
         }
     }
@@ -216,11 +236,11 @@ final class WPAIT_Output_Buffer
 
         $translation = self::apply_original_spacing($original, $translation);
 
-        if (WPAIT_Frontend_Editor::enabled() && self::can_wrap_for_editor($node)) {
+        if (AITMT_Frontend_Editor::enabled() && self::can_wrap_for_editor($node)) {
             $span = $dom->createElement('span');
-            $span->setAttribute('class', 'wpait-editable');
-            $span->setAttribute('data-wpait-source-hash', $hash);
-            $span->setAttribute('data-wpait-source', base64_encode($source));
+            $span->setAttribute('class', 'aitmt-editable');
+            $span->setAttribute('data-aitmt-source-hash', $hash);
+            $span->setAttribute('data-aitmt-source', base64_encode($source));
             $span->appendChild($dom->createTextNode($translation));
             $node->parentNode->replaceChild($span, $node);
 

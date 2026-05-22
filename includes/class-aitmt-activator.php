@@ -4,11 +4,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-final class WPAIT_Activator
+final class AITMT_Activator
 {
     public static function activate() {
         self::create_tables();
-        update_option('wpait_rewrite_needs_flush', 1, false);
+        update_option('AITMT_rewrite_needs_flush', 1, false);
         flush_rewrite_rules();
     }
 
@@ -19,7 +19,7 @@ final class WPAIT_Activator
     private static function create_tables() {
         global $wpdb;
 
-        $table = $wpdb->prefix . 'wpait_translations';
+        $table = $wpdb->prefix . 'AITMT_translations';
         $charset_collate = $wpdb->get_charset_collate();
 
         $sql = "CREATE TABLE {$table} (
@@ -36,7 +36,7 @@ final class WPAIT_Activator
             created_at datetime NOT NULL,
             updated_at datetime NOT NULL,
             PRIMARY KEY  (id),
-            UNIQUE KEY wpait_lookup (source_hash, source_language, target_language, context),
+            UNIQUE KEY AITMT_lookup (source_hash, source_language, target_language, context),
             KEY target_language (target_language),
             KEY status (status)
         ) {$charset_collate};";

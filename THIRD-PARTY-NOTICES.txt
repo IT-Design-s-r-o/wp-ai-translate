@@ -1,7 +1,7 @@
-Third-Party Notices
+﻿Third-Party Notices
 ===================
 
-WPAIT Multilingual AI Translate includes local SVG country flags from the lipis/flag-icons
+AIT Multilingual Translate includes local SVG country flags from the lipis/flag-icons
 project.
 
 Project: https://github.com/lipis/flag-icons

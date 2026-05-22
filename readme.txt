@@ -1,10 +1,10 @@
-=== WPAIT Multilingual AI Translate ===
+=== AIT Multilingual Translate ===
 Contributors: itdesignsro
 Donate link: https://paypal.me/wpaitranslate
 Tags: translation, ai, multilingual, ecommerce, localization
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 0.3.31
+Stable tag: 0.3.32
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ AI multilingual translation with saved translations, SEO URLs, frontend editing,
 
 == Description ==
 
-WPAIT Multilingual AI Translate helps site owners translate WordPress content with AI and machine translation providers while saving translations locally for reuse.
+AIT Multilingual Translate helps site owners translate WordPress content with AI and machine translation providers while saving translations locally for reuse.
 
 The plugin is currently available as a Public Beta Build. Please make a backup before bulk translating production websites.
 
@@ -38,7 +38,7 @@ Language flag icons are bundled locally from the MIT-licensed lipis/flag-icons p
 
 = Public Beta =
 
-WPAIT Multilingual AI Translate is still under active testing. Bulk translation can consume provider quota and should be tested on staging first. The plugin stores API keys in WordPress options unless you define keys in `wp-config.php`.
+AIT Multilingual Translate is still under active testing. Bulk translation can consume provider quota and should be tested on staging first. The plugin stores API keys in WordPress options unless you define keys in `wp-config.php`.
 
 = Trademark notice =
 
@@ -46,7 +46,7 @@ WooCommerce and Elementor are trademarks of their respective owners. This plugin
 
 = External services =
 
-WPAIT Multilingual AI Translate can connect to external translation providers. No provider is contacted unless you configure a provider key and start a provider test, queue process, background queue run, or on-page translation request.
+AIT Multilingual Translate can connect to external translation providers. No provider is contacted unless you configure a provider key and start a provider test, queue process, background queue run, or on-page translation request.
 
 For all providers, the plugin may send source text strings, source language, target language, provider model/endpoint selection, and request metadata required by the provider. API keys are sent only to the selected provider endpoint and are not shown in the debugger or public output.
 
@@ -58,15 +58,16 @@ OpenAI:
 
 Google Translate:
 
-* Sends selected strings plus source and target language codes to Google Cloud Translation when Google Translate is the active provider.
+* Google Translate is used to translate selected source strings when Google Translate is selected as the active provider and the site owner has configured a Google Cloud Translation API key.
+* The plugin sends source text strings, source language and target language to Google Cloud Translation API only when the site owner starts a provider test, queue process, background queue run or on-page translation request.
 * Terms: https://cloud.google.com/terms
 * Privacy: https://policies.google.com/privacy
 
 DeepL:
 
 * Sends selected strings plus source and target language codes to DeepL when DeepL is the active provider.
-* Terms: https://www.deepl.com/terms-and-conditions
-* Privacy: https://www.deepl.com/privacy
+* Terms: https://www.deepl.com/en/pro-license
+* Privacy: https://www.deepl.com/en/privacy
 
 Gemini:
 
@@ -80,32 +81,20 @@ Grok/xAI:
 * Terms: https://x.ai/legal/terms-of-service
 * Privacy: https://x.ai/legal/privacy-policy
 
-Claude:
-
-* Claude provider support is planned for a future release. When enabled in a future version, selected strings and language instructions may be sent to Anthropic only after the site owner configures an API key.
-* Terms: https://www.anthropic.com/legal/commercial-terms
-* Privacy: https://www.anthropic.com/legal/privacy
-
-Yandex Translate / YandexGPT:
-
-* Yandex provider support is planned for a future release. When enabled in a future version, selected strings, source language, target language, and language instructions may be sent to Yandex only after the site owner configures an API key.
-* Terms: https://yandex.com/legal/cloud_terms/
-* Privacy: https://yandex.com/legal/confidential/
-
 == Installation ==
 
-1. Upload the `wpait-multilingual-ai-translate` folder to `/wp-content/plugins/` or install the ZIP through **Plugins > Add New > Upload Plugin**.
-2. Activate **WPAIT Multilingual AI Translate**.
+1. Upload the `ait-multilingual-translate` folder to `/wp-content/plugins/` or install the ZIP through **Plugins > Add New > Upload Plugin**.
+2. Activate **AIT Multilingual Translate**.
 3. Open **AI Translate** in the WordPress admin menu.
 4. Choose source and target languages.
 5. Select a provider and add the provider API key.
 6. Run the scanner to collect site strings.
 7. Process the translation queue.
-8. Add a language switcher using `[wp_ai_translate_switcher]`, `[ai_language_switcher]`, a widget, Elementor, or a WordPress menu item.
+8. Add a language switcher using `[aitmt_language_switcher]`, a widget, Elementor, or a WordPress menu item.
 
 == Frequently Asked Questions ==
 
-= Does WPAIT Multilingual AI Translate translate pages on every visit? =
+= Does AIT Multilingual Translate translate pages on every visit? =
 
 No. The recommended workflow is to scan strings, process them in the queue, save translations locally, and serve saved translations to visitors.
 
@@ -119,7 +108,7 @@ The Public Beta Build includes WooCommerce product and product-category URL comp
 
 = Where are translations stored? =
 
-Translations are stored in a custom WordPress database table named with the site prefix, usually `wp_wpait_translations`.
+Translations are stored in a custom WordPress database table named with the site prefix, usually `wp_aitmt_translations`.
 
 = Are API keys visible in logs? =
 
@@ -127,7 +116,7 @@ The debugger masks provider keys. Safe debug exports redact secrets and sensitiv
 
 = Can I define API keys in wp-config.php? =
 
-Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WPAIT_GROK_API_KEY`, `WPAIT_GOOGLE_TRANSLATE_API_KEY`, and `WPAIT_DEEPL_API_KEY`.
+Yes. Supported constants are `AITMT_OPENAI_API_KEY`, `AITMT_GEMINI_API_KEY`, `AITMT_GROK_API_KEY`, `AITMT_GOOGLE_TRANSLATE_API_KEY`, and `AITMT_DEEPL_API_KEY`.
 
 == Screenshots ==
 
@@ -142,10 +131,18 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 
 == Changelog ==
 
+= 0.3.32 =
+
+* Renamed the final WordPress.org submission package to AIT Multilingual Translate.
+* Updated the plugin slug, folder, ZIP name, and text domain to `ait-multilingual-translate`.
+* Removed beta self-update/repair updater hooks for WordPress.org compliance.
+* Updated external-services disclosure and generated log directory handling.
+* Added explicit output-buffer shutdown handling for review safety.
+
 = 0.3.31 =
 
-* Renamed the public WordPress.org plugin name to WPAIT Multilingual AI Translate.
-* Updated the submission slug and package root to `wpait-multilingual-ai-translate`.
+* Renamed the public WordPress.org plugin name to AIT Multilingual Translate.
+* Updated the submission slug and package root to `ait-multilingual-translate`.
 * Updated the text domain and language template filename for WordPress.org language-pack readiness.
 * Updated public-facing branding, readme text, and WordPress.org trademark wording.
 * Kept internal prefixes, option names, database tables, shortcodes, translation engine, queue, scanner, routing, Elementor widget, frontend editor, and WooCommerce compatibility logic unchanged.
@@ -156,7 +153,7 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 * Added safe deduplication before provider requests and translation-memory cache-hit handling for frontend auto-translate.
 * Added provider capability cards for active providers and planned architecture targets without enabling unfinished provider API integrations.
 * Loaded the WordPress text domain for language-pack readiness and disabled the older internal dictionary fallback.
-* Updated the public package slug to `wpait-multilingual-ai-translate`.
+* Updated the public package slug to `ait-multilingual-translate`.
 * Kept translation engine, queue architecture, scanner collection logic, routing, WooCommerce handling, translation matrix, and language switcher behavior unchanged.
 
 = 0.3.29 =
@@ -181,7 +178,7 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 
 = 0.3.26 =
 
-* Prepared the public WordPress.org package name, metadata, and build structure for WPAIT Multilingual AI Translate.
+* Prepared the public WordPress.org package name, metadata, and build structure for AIT Multilingual Translate.
 * Added Translation Mode / Tone of Voice settings for prompt-based AI providers.
 * Switched default OpenAI model to `gpt-4o-mini` and Grok default to a lightweight model where available.
 * Hardened custom-table SQL and local file handling for WordPress.org Plugin Check compatibility.
@@ -223,9 +220,13 @@ Yes. Supported constants are `WPAIT_OPENAI_API_KEY`, `WPAIT_GEMINI_API_KEY`, `WP
 
 == Upgrade Notice ==
 
+= 0.3.32 =
+
+This build uses the final `ait-multilingual-translate` slug/text domain and removes the beta self-update helper. Test on staging before replacing older beta builds.
+
 = 0.3.31 =
 
-Renames the public WordPress.org package to WPAIT Multilingual AI Translate and updates the slug/text domain. Test on staging before replacing an installed beta build.
+Renames the public WordPress.org package to AIT Multilingual Translate and updates the slug/text domain. Test on staging before replacing an installed beta build.
 
 = 0.3.30 =
 
