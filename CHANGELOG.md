@@ -1,6 +1,32 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to AIT Multilingual Translate are documented here.
+
+## 0.3.33
+
+### Changed
+
+- Renamed public plugin branding to AIT Multilingual Translate.
+- Removed WordPress.org restricted/trademark-sensitive wording from the public plugin name.
+- Reworked public/internal prefixing from wpait/WPAIT toward aitmt/AITMT naming.
+
+### Improved
+
+- Improved WordPress enqueue handling for JavaScript and CSS.
+- Improved external services disclosure in readme.txt.
+- Removed or corrected broken external service legal/privacy links.
+- Improved plugin directory/path handling using WordPress helper functions.
+- Improved output buffering lifecycle.
+- Improved output escaping in frontend/admin rendering.
+- Tested the updated package with Plugin Check.
+
+### Fixed
+
+- Removed custom updater / self-update override logic for WordPress.org compliance.
+- Restored admin and setup wizard target language search after the WordPress.org rename.
+- Restored language switcher styling for shortcode, Elementor widget, header/footer, and menu output.
+- Restored frontend translation editor click targets and AJAX actions after the `aitmt` prefix cleanup.
+- Prepared the updated ZIP package for WordPress.org review.
 
 ## 0.3.32
 

@@ -3,7 +3,7 @@
  * Plugin Name: AIT Multilingual Translate
  * Description: AI-powered multilingual translation plugin compatible with WooCommerce and Elementor, with SEO-friendly URLs and frontend editing support.
  * Plugin URI: https://wp-ai.itdesign.biz
- * Version: 0.3.32
+ * Version: 0.3.33
  * Author: sotter IT Design
  * Author URI: https://wp-ai.itdesign.biz
  * Text Domain: ait-multilingual-translate
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('AITMT_VERSION', '0.3.32');
+define('AITMT_VERSION', '0.3.33');
 define('AITMT_PLUGIN_FILE', __FILE__);
 define('AITMT_PUBLIC_NAME', 'AIT Multilingual Translate');
 define('AITMT_PUBLIC_SLUG', 'ait-multilingual-translate');

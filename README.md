@@ -1,4 +1,4 @@
-﻿# AIT Multilingual Translate
+# AIT Multilingual Translate
 
 **Powered by AITMT technology.**
 
@@ -6,7 +6,7 @@ WordPress.org submission name: **AIT Multilingual Translate**. Product brand: **
 
 AIT Multilingual Translate is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
 
-Current public beta: **0.3.32 Public Beta Build**.
+Current public beta: **0.3.33 Public Beta Build**.
 
 - Plugin website: https://wp-ai.itdesign.biz/
 - Documentation: https://wp-ai.itdesign.biz/documentation/

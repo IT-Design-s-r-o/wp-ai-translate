@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     if (window.AITMT_ADMIN_READY) {
         return;
     }
@@ -6,15 +6,15 @@
     window.AITMT_ADMIN_READY = true;
 
     function initLanguageSearch() {
-        var searches = Array.prototype.slice.call(document.querySelectorAll('.AITMT-language-search, .AITMT-fallback-language-search'));
+        var searches = Array.prototype.slice.call(document.querySelectorAll('.aitmt-language-search, .aitmt-fallback-language-search'));
 
         searches.forEach(function (search) {
-            var scope = search.closest ? search.closest('td, .AITMT-onboarding-step, .AITMT-wide-card, .AITMT-fallback-card, .form-table') : document;
-            var grid = search.nextElementSibling && search.nextElementSibling.matches && search.nextElementSibling.matches('.AITMT-fallback-language-grid, .AITMT-language-list') ? search.nextElementSibling : null;
-            var options = Array.prototype.slice.call((grid || scope || document).querySelectorAll('.AITMT-language-option, .AITMT-fallback-language-grid label'));
+            var scope = search.closest ? search.closest('td, .aitmt-onboarding-step, .aitmt-wide-card, .aitmt-fallback-card, .form-table') : document;
+            var grid = search.nextElementSibling && search.nextElementSibling.matches && search.nextElementSibling.matches('.aitmt-fallback-language-grid, .aitmt-language-list') ? search.nextElementSibling : null;
+            var options = Array.prototype.slice.call((grid || scope || document).querySelectorAll('.aitmt-language-option, .aitmt-fallback-language-grid label'));
 
             if (!options.length) {
-                options = Array.prototype.slice.call(document.querySelectorAll('.AITMT-language-option, .AITMT-fallback-language-grid label'));
+                options = Array.prototype.slice.call(document.querySelectorAll('.aitmt-language-option, .aitmt-fallback-language-grid label'));
             }
 
             search.addEventListener('input', function () {
@@ -29,23 +29,23 @@
     }
 
     function initMenuSwitcherMetabox() {
-        var box = document.querySelector('#AITMT-language-switcher-menu');
+        var box = document.querySelector('#aitmt-language-switcher-menu');
 
         if (!box) {
             return;
         }
 
-        var optionInputs = Array.prototype.slice.call(box.querySelectorAll('[data-AITMT-menu-option], [data-AITMT-menu-display]'));
-        var classInputs = Array.prototype.slice.call(box.querySelectorAll('.AITMT-menu-item-classes'));
+        var optionInputs = Array.prototype.slice.call(box.querySelectorAll('[data-aitmt-menu-option], [data-aitmt-menu-display]'));
+        var classInputs = Array.prototype.slice.call(box.querySelectorAll('.aitmt-menu-item-classes'));
 
         function selectedDisplay() {
-            var checked = box.querySelector('[data-AITMT-menu-display]:checked');
+            var checked = box.querySelector('[data-aitmt-menu-display]:checked');
 
             return checked && checked.value === 'dropdown' ? 'dropdown' : 'list';
         }
 
         function optionEnabled(name) {
-            var input = box.querySelector('[data-AITMT-menu-option="' + name + '"]');
+            var input = box.querySelector('[data-aitmt-menu-option="' + name + '"]');
 
             return !!(input && input.checked);
         }
@@ -54,26 +54,26 @@
             var suffixes = [];
             var display = selectedDisplay();
 
-            suffixes.push(display === 'dropdown' ? 'AITMT-menu-display-dropdown' : 'AITMT-menu-display-list');
+            suffixes.push(display === 'dropdown' ? 'aitmt-menu-display-dropdown' : 'aitmt-menu-display-list');
 
             if (optionEnabled('show-flag')) {
-                suffixes.push('AITMT-menu-show-flag');
+                suffixes.push('aitmt-menu-show-flag');
             }
 
             if (optionEnabled('show-name')) {
-                suffixes.push('AITMT-menu-show-name');
+                suffixes.push('aitmt-menu-show-name');
             }
 
             if (optionEnabled('show-code')) {
-                suffixes.push('AITMT-menu-show-code');
+                suffixes.push('aitmt-menu-show-code');
             }
 
             if (optionEnabled('hide-current')) {
-                suffixes.push('AITMT-menu-hide-current');
+                suffixes.push('aitmt-menu-hide-current');
             }
 
             classInputs.forEach(function (input) {
-                var base = input.getAttribute('data-AITMT-base-classes') || '';
+                var base = input.getAttribute('data-aitmt-base-classes') || '';
                 input.value = (base + ' ' + suffixes.join(' ')).trim().replace(/\s+/g, ' ');
             });
         }
@@ -85,8 +85,8 @@
     }
 
     function initAdminMode() {
-        var wrap = document.querySelector('.AITMT-admin-page');
-        var radios = Array.prototype.slice.call(document.querySelectorAll('input[name="AITMT_options[admin_mode]"]'));
+        var wrap = document.querySelector('.aitmt-admin-page');
+        var radios = Array.prototype.slice.call(document.querySelectorAll('input[name="aitmt_options[admin_mode]"]'));
 
         if (!wrap || !radios.length) {
             return;
@@ -98,8 +98,8 @@
             })[0];
             var mode = checked && checked.value === 'advanced' ? 'advanced' : 'basic';
 
-            wrap.classList.toggle('AITMT-mode-basic', mode === 'basic');
-            wrap.classList.toggle('AITMT-mode-advanced', mode === 'advanced');
+            wrap.classList.toggle('aitmt-mode-basic', mode === 'basic');
+            wrap.classList.toggle('aitmt-mode-advanced', mode === 'advanced');
         }
 
         radios.forEach(function (radio) {

@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     if (!window.AITMT_EDITOR || window.AITMT_INLINE_EDITOR_READY) {
         return;
     }
@@ -24,9 +24,9 @@
     var cancelButton = document.createElement('button');
     var currentTarget = null;
 
-    toolbar.className = 'AITMT-inline-editor-toolbar';
-    toolbar.setAttribute('data-AITMT-no-translate', '1');
-    brand.className = 'AITMT-inline-editor-brand';
+    toolbar.className = 'aitmt-inline-editor-toolbar';
+    toolbar.setAttribute('data-aitmt-no-translate', '1');
+    brand.className = 'aitmt-inline-editor-brand';
     brand.href = config.siteUrl || '#';
     brand.target = '_blank';
     brand.rel = 'noopener noreferrer';
@@ -41,24 +41,24 @@
     brand.appendChild(brandText);
     button.type = 'button';
     button.textContent = config.editLabel || 'AI Translate edit';
-    status.className = 'AITMT-inline-editor-status';
+    status.className = 'aitmt-inline-editor-status';
     toolbar.appendChild(brand);
     toolbar.appendChild(button);
     toolbar.appendChild(status);
     status.textContent = config.targetNotice || '';
 
-    modal.className = 'AITMT-inline-editor-modal';
-    modal.setAttribute('data-AITMT-no-translate', '1');
+    modal.className = 'aitmt-inline-editor-modal';
+    modal.setAttribute('data-aitmt-no-translate', '1');
     modal.setAttribute('aria-hidden', 'true');
-    dialog.className = 'AITMT-inline-editor-dialog';
+    dialog.className = 'aitmt-inline-editor-dialog';
     dialog.setAttribute('role', 'dialog');
     dialog.setAttribute('aria-modal', 'true');
     modalTitle.textContent = config.promptLabel || 'Edit translation';
-    textarea.className = 'AITMT-inline-editor-textarea';
-    modalNotice.className = 'AITMT-inline-editor-notice';
+    textarea.className = 'aitmt-inline-editor-textarea';
+    modalNotice.className = 'aitmt-inline-editor-notice';
     modalNotice.setAttribute('role', 'status');
     modalNotice.setAttribute('aria-live', 'polite');
-    modalActions.className = 'AITMT-inline-editor-dialog-actions';
+    modalActions.className = 'aitmt-inline-editor-dialog-actions';
     saveButton.type = 'button';
     saveButton.textContent = config.saveLabel || 'Save';
     autoButton.type = 'button';
@@ -77,7 +77,7 @@
     modal.appendChild(dialog);
 
     function mount() {
-        if (document.body && !document.querySelector('.AITMT-inline-editor-toolbar')) {
+        if (document.body && !document.querySelector('.aitmt-inline-editor-toolbar')) {
             document.body.appendChild(toolbar);
             document.body.appendChild(modal);
         }
@@ -85,11 +85,11 @@
 
     function setActive(next) {
         active = typeof next === 'boolean' ? next : !active;
-        document.body.classList.toggle('AITMT-editor-active', active);
+        document.body.classList.toggle('aitmt-editor-active', active);
         button.classList.toggle('is-active', active);
         status.textContent = active ? (config.activeLabel || 'Editing on') : (config.targetNotice || '');
 
-        if (active && !document.querySelector('.AITMT-editable')) {
+        if (active && !document.querySelector('.aitmt-editable')) {
             status.textContent = config.emptyLabel || 'No editable text found yet.';
         }
     }
@@ -103,7 +103,7 @@
     });
 
     document.addEventListener('click', function (event) {
-        var target = event.target.closest ? event.target.closest('.AITMT-editable') : null;
+        var target = event.target.closest ? event.target.closest('.aitmt-editable') : null;
 
         if (!active || !target) {
             return;
@@ -199,10 +199,10 @@
             return;
         }
 
-        var sourceText = decodeSource(currentTarget.getAttribute('data-AITMT-source') || '');
+        var sourceText = decodeSource(currentTarget.getAttribute('data-aitmt-source') || '');
         var body = new URLSearchParams();
 
-        body.set('action', 'AITMT_auto_translate_frontend');
+        body.set('action', 'aitmt_auto_translate_frontend');
         body.set('nonce', config.nonce || '');
         body.set('sourceLanguage', config.sourceLanguage || '');
         body.set('targetLanguage', config.targetLanguage || '');
@@ -237,10 +237,10 @@
     }
 
     function saveTranslation(target, nextText) {
-        var sourceText = decodeSource(target.getAttribute('data-AITMT-source') || '');
+        var sourceText = decodeSource(target.getAttribute('data-aitmt-source') || '');
         var body = new URLSearchParams();
 
-        body.set('action', 'AITMT_save_translation');
+        body.set('action', 'aitmt_save_translation');
         body.set('nonce', config.nonce || '');
         body.set('sourceLanguage', config.sourceLanguage || '');
         body.set('targetLanguage', config.targetLanguage || '');

@@ -4,7 +4,7 @@ Donate link: https://paypal.me/wpaitranslate
 Tags: translation, ai, multilingual, ecommerce, localization
 Requires at least: 6.0
 Tested up to: 7.0
-Stable tag: 0.3.32
+Stable tag: 0.3.33
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -131,6 +131,24 @@ Yes. Supported constants are `AITMT_OPENAI_API_KEY`, `AITMT_GEMINI_API_KEY`, `AI
 
 == Changelog ==
 
+= 0.3.33 =
+
+* Renamed public plugin branding to AIT Multilingual Translate.
+* Removed WordPress.org restricted/trademark-sensitive wording from the public plugin name.
+* Reworked internal prefixing from wpait/WPAIT toward aitmt/AITMT naming.
+* Removed custom updater / self-update override logic for WordPress.org compliance.
+* Improved WordPress enqueue handling for JavaScript and CSS.
+* Improved external services disclosure in readme.txt.
+* Removed or corrected broken external service legal/privacy links.
+* Improved plugin directory/path handling using WordPress helper functions.
+* Improved output buffering lifecycle.
+* Improved output escaping in frontend/admin rendering.
+* Restored target language search in the dashboard and setup wizard after the public prefix cleanup.
+* Restored frontend language switcher styling for shortcode, Elementor widget, automatic placement, and WordPress menu output.
+* Restored frontend editor editable text detection and AJAX actions after the final `aitmt` prefix rename.
+* Tested the updated package with Plugin Check.
+* Prepared updated ZIP package for WordPress.org review.
+
 = 0.3.32 =
 
 * Renamed the final WordPress.org submission package to AIT Multilingual Translate.
@@ -219,6 +237,10 @@ Yes. Supported constants are `AITMT_OPENAI_API_KEY`, `AITMT_GEMINI_API_KEY`, `AI
 * Improved menu language switcher behavior for current-language switcher items.
 
 == Upgrade Notice ==
+
+= 0.3.33 =
+
+Updates public branding to AIT Multilingual Translate, restores dashboard language search, language switcher styling, and frontend editor bindings after the final WordPress.org compliance cleanup.
 
 = 0.3.32 =
 

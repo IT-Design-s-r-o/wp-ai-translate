@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: AIT Multilingual Translate 0.3.32\n"
+"Project-Id-Version: AIT Multilingual Translate 0.3.33\n"
 "Report-Msgid-Bugs-To: https://wp-ai.itdesign.biz/\n"
 "POT-Creation-Date: 2026-05-20 13:30+04:00\n"
 "MIME-Version: 1.0\n"
