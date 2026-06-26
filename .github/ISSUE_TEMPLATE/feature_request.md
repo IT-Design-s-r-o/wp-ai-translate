@@ -1,25 +1,43 @@
 ---
 name: Feature Request
-about: Suggest an improvement for WP AI Translate
+about: Suggest an improvement for AIT Multilingual Translate
 title: "[Feature]: "
 labels: enhancement
-assignees: ''
+assignees: ""
 ---
 
-## Feature description
+## Summary
 
-Describe the feature.
+Describe the feature or improvement.
 
-## Use case
+## Problem
 
-Why is this needed?
+What problem would this solve?
 
-## Website type
+## Proposed Solution
 
-- Blog
-- WooCommerce store
-- Elementor website
-- Corporate website
-- Other
+Describe how you would like it to work.
 
-## Additional notes
+## Workflow Area
+
+Choose any that apply:
+
+- Setup Wizard
+- AI Providers
+- Scanner
+- Translation Queue
+- Translation Matrix
+- Frontend Editor
+- SEO URLs
+- Language Switcher
+- Elementor
+- WooCommerce
+- Documentation
+
+## Alternatives Considered
+
+Describe any alternative approaches.
+
+## Additional Context
+
+Add screenshots, examples, or links if useful.

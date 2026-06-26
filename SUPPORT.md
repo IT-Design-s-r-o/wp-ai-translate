@@ -25,8 +25,7 @@ AIT Multilingual Translate is currently a Public Beta Build.
 
 - Plugin website: https://wp-ai.itdesign.biz/
 - Documentation: https://wp-ai.itdesign.biz/documentation/
-- Live demo: https://wp-ai-demo.itdesign.biz/
 - Support email: info@itdesign.biz
-- Donation link: https://www.paypal.com/paypalme/wpaitranslate
+- Support development: https://wp-ai.itdesign.biz/support-development/
 
 Please do not send API keys, passwords, customer data, or private server credentials in support requests.

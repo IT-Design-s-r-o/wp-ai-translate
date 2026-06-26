@@ -1,84 +1,91 @@
 # Changelog
 
-All notable changes to AIT Multilingual Translate are documented here.
+All notable changes to AIT Multilingual Translate are documented in this file.
 
-## 0.3.33
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [Unreleased]
+
+### Planned
+
+- Additional workflow demonstrations for the scanner, frontend editor, translation matrix, and queue.
+- Expanded documentation for provider setup and production translation workflows.
+
+## [0.3.34] - 2026-06-26
+
+### Changed
+
+- Updated DeepL Terms and Privacy Policy links for WordPress.org review.
+- Confirmed the public plugin name as AIT Multilingual Translate.
+- Prepared GitHub-facing documentation for the approved WordPress.org release.
+
+## [0.3.33]
 
 ### Changed
 
 - Renamed public plugin branding to AIT Multilingual Translate.
-- Removed WordPress.org restricted/trademark-sensitive wording from the public plugin name.
-- Reworked public/internal prefixing from wpait/WPAIT toward aitmt/AITMT naming.
+- Removed restricted or trademark-sensitive wording from the public plugin name.
+- Updated public package metadata for the WordPress.org submission.
+- Improved external services disclosure in `readme.txt`.
+- Removed or corrected outdated external service legal and privacy links.
 
 ### Improved
 
 - Improved WordPress enqueue handling for JavaScript and CSS.
-- Improved external services disclosure in readme.txt.
-- Removed or corrected broken external service legal/privacy links.
-- Improved plugin directory/path handling using WordPress helper functions.
+- Improved plugin directory and path handling through WordPress helper functions.
 - Improved output buffering lifecycle.
-- Improved output escaping in frontend/admin rendering.
+- Improved output escaping in frontend and admin rendering.
 - Tested the updated package with Plugin Check.
 
 ### Fixed
 
-- Removed custom updater / self-update override logic for WordPress.org compliance.
-- Restored admin and setup wizard target language search after the WordPress.org rename.
-- Restored language switcher styling for shortcode, Elementor widget, header/footer, and menu output.
-- Restored frontend translation editor click targets and AJAX actions after the `aitmt` prefix cleanup.
+- Removed custom updater and self-update override logic for WordPress.org compliance.
+- Restored target language search in the dashboard and setup wizard after the public prefix cleanup.
+- Restored frontend language switcher styling for shortcode, Elementor widget, automatic placement, and WordPress menu output.
+- Restored frontend editor editable text detection and AJAX actions after the final public rename.
 - Prepared the updated ZIP package for WordPress.org review.
 
-## 0.3.32
+## [0.3.32]
 
 ### Changed
 
-- Renamed the final WordPress.org submission package to `AIT Multilingual Translate`.
 - Updated the final plugin slug, folder, ZIP name, and text domain to `ait-multilingual-translate`.
-- Removed the previous WPAIT public-facing naming from the installable package.
+- Removed previous public-facing naming from the installable package.
 
 ### Fixed
 
-- Removed the beta self-update/repair updater hooks for WordPress.org compliance.
-- Replaced remaining direct admin inline script/style output with WordPress enqueue APIs.
-- Updated generated log storage to use `wp_upload_dir()` only.
-- Removed planned providers from active external-services disclosure and clarified Google Translate disclosure.
+- Removed beta self-update and repair updater hooks for WordPress.org compliance.
+- Replaced remaining direct admin inline script and style output with WordPress enqueue APIs.
+- Updated generated log storage to use `wp_upload_dir()`.
+- Clarified Google Translate disclosure.
 - Added explicit output-buffer shutdown handling for review safety.
 
-## 0.3.31
+## [0.3.31]
 
 ### Changed
 
-- Renamed public WordPress.org plugin name to AIT Multilingual Translate.
-- Updated submission slug to `ait-multilingual-translate`.
-- Updated text domain and WordPress.org package structure.
-- Updated `readme.txt`, language template filename, and public-facing branding for WordPress.org guidelines.
+- Updated the public WordPress.org plugin name to AIT Multilingual Translate.
+- Updated submission slug, text domain, package structure, language template filename, and public-facing branding for WordPress.org guidelines.
 
 ### Fixed
 
 - Improved WordPress.org naming compliance.
-- Reduced generic/trademark review risk with a distinct AITMT brand prefix.
+- Reduced generic and trademark review risk with a distinct public brand.
 
-### Compatibility note
-
-- Kept internal prefixes, option names, database tables, hooks, shortcodes, translation engine, queue processing, scanner, routing, provider calls, frontend editor, Elementor widget, language switcher, and WooCommerce compatibility logic unchanged.
-
-## 0.3.30
+## [0.3.30]
 
 ### Added
 
-- WordPress.org-ready public plugin name: AIT Multilingual Translate.
-- Public Beta release metadata and package slug: `ait-multilingual-translate`.
-- Tone of Voice / Translation Mode foundation for prompt-based AI providers.
+- Public Beta release metadata and package slug.
+- Translation Mode and Tone of Voice foundation for prompt-based AI providers.
 - AI Cost Optimization settings for quality mode, temperature, request character limits, estimated per-request cost limits, and model recommendations.
-- Provider statistics for API requests, estimated input/output tokens, estimated cost, cache hits, duplicate skipped count, provider, and model.
-- Provider capability cards for active providers and planned architecture targets without enabling unfinished provider APIs.
-- Frontend auto-translation improvements for the visual translation editor.
+- Provider statistics for API requests, estimated tokens, estimated cost, cache hits, duplicates skipped, provider, and model.
+- Provider capability cards for active providers and planned architecture targets.
 - External services disclosure in `readme.txt`.
 
 ### Improved
 
 - AI provider handling and provider diagnostics.
-- Token/cost optimization foundation.
 - Translation memory and deduplication before provider requests.
 - Scanner and queue workflow visibility.
 - Frontend editor UX, loading states, and manual-save flow.
@@ -91,59 +98,83 @@ All notable changes to AIT Multilingual Translate are documented here.
 
 - Plugin Check errors for WordPress.org preparation.
 - SQL prepared statement issues in reviewer-sensitive areas.
-- Sanitization, escaping, and nonce handling in admin/front-end actions.
+- Sanitization, escaping, and nonce handling in admin and frontend actions.
 - ZIP package structure for the public plugin slug.
-- Public Beta wording and older Professional/Pro-facing text.
-- The WordPress.org package now excludes developer-only support notes from the installable ZIP.
+- Public Beta wording and older commercial-facing text.
+- Developer-only support notes excluded from the installable ZIP.
 
-### Compatibility note
+## [0.3.29]
 
-- Kept translation engine, queue processing architecture, scanner collection logic, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
+### Added
 
-## 0.3.29
+- Translation Style and Tone of Voice settings section for the Public Beta release.
+- Translation Mode visibility in scanner and queue statistics.
 
-- Finalized the Translation Style / Tone of Voice settings section for the Public Beta release.
-- Added Translation Mode visibility to Scanner and Queue statistics.
-- Documented that per content type modes are planned for a future release while the current build uses Global Translation Mode.
-- Kept translation engine, queue processing architecture, scanner collection logic, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
+### Changed
 
-## 0.3.28
+- Documented that per-content-type modes are planned for a future release while the current build uses Global Translation Mode.
 
-- Added a Scanner and Queue "Translate All" action that processes queued translations in safe provider batches with quota/time-limit guidance.
-- Finalized Global Translation Mode / Tone of Voice UI copy and server-side custom instruction length protection.
-- Kept translation engine, queue processing architecture, scanner collection logic, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
+## [0.3.28]
 
-## 0.3.27
+### Added
 
-- Fixed admin asset loading for all plugin subpages after the public slug change.
-- Replaced the remaining public Elementor switcher label that used the old plugin name.
-- Updated the modular settings link to the new top-level admin page.
-- Kept translation engine, queue processing, scanner, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
+- Scanner and Queue "Translate All" action for processing queued translations in safe provider batches.
+- Global Translation Mode and Tone of Voice UI copy.
+- Server-side custom instruction length protection.
 
-## 0.3.26
+## [0.3.27]
 
-- Prepared the public WordPress.org package name and metadata.
-- Added Translation Mode / Tone of Voice settings for prompt-based AI providers.
-- Changed the default OpenAI model to `gpt-4o-mini`.
-- Changed the default Grok/xAI model to a lightweight default where available.
+### Fixed
+
+- Admin asset loading for plugin subpages after the public slug change.
+- Remaining public Elementor switcher label using outdated branding.
+- Modular settings link to the top-level admin page.
+
+## [0.3.26]
+
+### Added
+
+- Public WordPress.org package name and metadata.
+- Translation Mode and Tone of Voice settings for prompt-based AI providers.
+- `languages/` folder required by the plugin header.
+
+### Changed
+
+- Default OpenAI model changed to `gpt-4o-mini`.
+- Default xAI / Grok model changed to a lightweight default where available.
+
+### Fixed
+
 - Hardened custom-table SQL and local file handling for Plugin Check compatibility.
-- Added the `languages/` folder required by the plugin header.
-- Kept translation engine, queue processing, scanner, routing, WooCommerce compatibility, frontend editor core logic, and language switcher core logic unchanged.
 
-## 0.3.25
+## [0.3.25]
 
-- Added secure frontend editor Auto Translate.
-- Improved frontend editor modal states, textarea resizing, and provider error messaging.
-- Preserved manual save flow: AI translation is previewed and edited before saving.
+### Added
 
-## 0.3.24
+- Secure frontend editor Auto Translate workflow.
 
-- Improved WordPress.org preparation cleanup.
-- Replaced remaining `parse_url()` usage with `wp_parse_url()`.
-- Improved uninstall variable prefixing and translator comments.
+### Improved
 
-## 0.3.23
+- Frontend editor modal states, textarea resizing, and provider error messaging.
+- Manual save flow so AI translation is previewed and edited before saving.
 
-- Prepared the Public Beta Build for WordPress.org review.
-- Added WordPress.org `readme.txt`, GPL metadata, and external service disclosures.
+## [0.3.24]
+
+### Improved
+
+- WordPress.org preparation cleanup.
+- URL parsing through WordPress helper APIs.
+- Uninstall variable prefixing and translator comments.
+
+## [0.3.23]
+
+### Added
+
+- Public Beta Build prepared for WordPress.org review.
+- WordPress.org `readme.txt`.
+- GPL metadata.
+- External service disclosures.
+
+### Changed
+
 - Replaced earlier beta wording with Public Beta Build wording.

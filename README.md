@@ -1,80 +1,149 @@
-# AIT Multilingual Translate
+﻿# AIT Multilingual Translate
 
-**Powered by AITMT technology.**
+[![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-21759b.svg)](https://wordpress.org/plugins/ait-multilingual-translate/)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4.svg)](https://www.php.net/)
+[![License](https://img.shields.io/badge/License-GPLv2%20or%20later-46a546.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-0.3.34-blue.svg)](CHANGELOG.md)
+[![Downloads](https://img.shields.io/badge/Downloads-coming%20soon-lightgrey.svg)](https://wordpress.org/plugins/ait-multilingual-translate/)
 
-WordPress.org submission name: **AIT Multilingual Translate**. Product brand: **AITMT**.
+AIT Multilingual Translate is an AI-powered multilingual translation plugin for WordPress. It helps site owners scan content, queue translations, reuse saved translations, edit translated text on the frontend, and publish multilingual pages with SEO-friendly language URLs.
 
-AIT Multilingual Translate is an AI-powered multilingual translation plugin for WordPress. It focuses on saved translation memory, queue-based provider usage, WooCommerce compatibility, Elementor workflows, frontend editing, SEO-friendly language URLs, and practical diagnostics for real sites.
-
-Current public beta: **0.3.33 Public Beta Build**.
-
-- Plugin website: https://wp-ai.itdesign.biz/
+- Website: https://wp-ai.itdesign.biz/
+- WordPress.org: https://wordpress.org/plugins/ait-multilingual-translate/
+- Repository: https://github.com/IT-Design-s-r-o/wp-ai-translate
 - Documentation: https://wp-ai.itdesign.biz/documentation/
-- Live demo: https://wp-ai-demo.itdesign.biz/
-- GitHub releases: https://github.com/IT-Design-s-r-o/wp-ai-translate/releases
-- Support development: https://www.paypal.com/paypalme/wpaitranslate
-
-## Public Beta Notice
-
-AIT Multilingual Translate is currently available as a Public Beta. Please test on a staging website before using it on production projects, especially stores with WooCommerce orders, custom checkout fields, or complex page builders.
-
-Public Beta builds include temporary full feature access while the plugin is actively tested and improved. Users who support the project during the Public Beta period may receive a special early-supporter offer for the future commercial release. No lifetime free access is promised.
-
-WooCommerce and Elementor are trademarks of their respective owners. This project is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, Elementor, or their parent companies.
-
-## Video Tutorials
-
-### Installation & Setup Wizard
-
-Learn how to install AIT Multilingual Translate, configure languages, set up AI providers, and run the first translation workflow.
-
-Watch: https://youtu.be/s8KnOtqXAFI
-
-### Frontend Translation Editor
-
-See how to visually edit frontend translations, use AI auto-translation, preview results, and save translated content directly from the website frontend.
-
-Watch: https://youtu.be/sJE8FHwLk4s
-
-### Language Workflow, Menu, Scanner & Elementor
-
-Full workflow demo: add a new language, add the language switcher to a menu, scan content, process translations, and configure the Elementor language switcher.
-
-Watch: https://youtu.be/MuUF4t6NNsA
 
 ## Features
 
-- Source language can follow the WordPress site language automatically.
-- Site owners choose target languages from a broad language list.
-- Directory URL mode (`/ka/about/`) and query URL mode (`/about/?lang=ka`) are available.
-- Selected visitor language is remembered with a cookie.
-- OpenAI, Google Translate, DeepL, Gemini, and Grok/xAI providers are supported.
-- Translation Mode / Tone of Voice foundation for prompt-based AI providers.
-- AI Cost Optimization settings for quality mode, temperature, request limits, and model recommendations.
-- Local provider quota controls can stop translation before provider-side quota errors.
-- Translations are stored locally and reused until source text changes.
-- Missing rendered frontend text is collected into a queue instead of being translated on every page load.
-- Scanner can collect posts, pages, products, menus, widgets, taxonomy terms, SEO meta, and public custom fields.
-- Queue can be processed manually or by WP-Cron in small controlled batches.
-- Translation Matrix supports scanning, bulk save, search, status filters, pagination, and import/export.
-- CSV, PO, and MO export/import are available per target language.
-- Language switcher is available as shortcode, widget, Elementor widget, WordPress menu item, and optional header/footer placement.
-- Local flag assets are bundled; no flag CDN is required.
-- Administrator frontend editing supports manual editing and provider-based auto-translate.
-- Debugger includes provider tests, route information, queue status, safe log export, and cost statistics.
+- AI-assisted translation for WordPress content, menus, widgets, taxonomy terms, public custom fields, and SEO metadata.
+- Local translation memory so identical source text can be reused instead of sent repeatedly to a provider.
+- Translation queue for controlled, batch-based translation workflows.
+- Scanner for collecting translatable strings before processing.
+- Translation Matrix for searching, reviewing, editing, saving, importing, and exporting translations.
+- Frontend Editor for administrator-only visual translation edits on the live site.
+- SEO-friendly language routing with directory URLs or query-string URLs.
+- Language switchers for shortcodes, widgets, menus, automatic header/footer placement, and Elementor.
+- WooCommerce compatibility for product and store content workflows.
+- Setup Wizard for first-run configuration.
+- Debugging tools for provider tests, route diagnostics, queue status, and safe log export.
+
+## AI Providers
+
+AIT Multilingual Translate can work with multiple administrator-configured providers:
+
+- OpenAI
+- Google Gemini
+- xAI / Grok
+- Google Cloud Translation
+- DeepL
+
+No API key is bundled with the plugin. Provider keys can be saved in plugin settings or defined in `wp-config.php` constants where supported.
+
+## Translation Queue
+
+The queue is designed for production-friendly translation workflows. Missing strings can be collected, reviewed, and translated in controlled batches instead of forcing visitors to wait for provider calls during page load.
+
+Queue processing supports manual runs and background processing through WP-Cron, with conservative batch sizes recommended for live sites.
+
+## Frontend Editor
+
+The Frontend Editor lets administrators edit translated text visually from the website frontend. It supports manual edits, provider-assisted auto-translation, previewing, and saving translations back into local translation memory.
+
+## SEO Friendly URLs
+
+AIT Multilingual Translate supports:
+
+- Directory mode, such as `/de/about/`
+- Query mode, such as `/about/?lang=de`
+- Remembered visitor language selection
+- Language-aware links for menus and switchers
+
+## Elementor Support
+
+The plugin includes Elementor workflow support, including a language switcher widget and compatibility with translated frontend output.
+
+## WooCommerce Support
+
+AIT Multilingual Translate is built with WooCommerce stores in mind. It can scan and translate product-facing content while keeping provider usage queue-based and reviewable.
+
+## Scanner
+
+The scanner collects text from common WordPress content sources, including posts, pages, products, menus, widgets, taxonomy terms, SEO fields, and selected public custom fields.
+
+## Translation Memory
+
+Translations are stored locally and reused while the source text remains unchanged. This helps reduce repeated provider requests and keeps translated output consistent across the site.
+
+## Setup Wizard
+
+Use the Setup Wizard to configure the source language, target languages, provider settings, and first translation workflow.
+
+![Setup Wizard demo](wordpress-org-assets/Setup-Wizard.gif)
+
+## GIF Demonstrations
+
+| Workflow | Demo |
+| --- | --- |
+| Setup Wizard | Available above: `Setup-Wizard.gif` |
+| Scanner | Available: `scaner.gif` |
+| Frontend Editor | Placeholder: add the Frontend Editor GIF when available. |
+| Translation Matrix | Available: `Translations-Matrix.gif` |
+| Queue | Placeholder: add the Queue GIF when available. |
+
+### Scanner
+
+![Scanner demo](wordpress-org-assets/scaner.gif)
+
+### Translation Matrix
+
+![Translation Matrix demo](wordpress-org-assets/Translations-Matrix.gif)
+
+## Screenshots
+
+| Screenshot | Caption |
+| --- | --- |
+| ![Dashboard](wordpress-org-assets/screenshot-1.png) | Dashboard and main plugin overview. |
+| ![Setup Wizard](wordpress-org-assets/screenshot-2.png) | Setup Wizard for first-run language and provider configuration. |
+| ![Language Settings](wordpress-org-assets/screenshot-3.png) | Source and target language settings. |
+| ![AI Provider Settings](wordpress-org-assets/screenshot-4.png) | AI provider configuration and API key settings. |
+| ![Switcher Settings](wordpress-org-assets/screenshot-5.png) | Language switcher display and placement options. |
+| ![Scanner](wordpress-org-assets/screenshot-6.png) | Scanner workflow for collecting translatable strings. |
+| ![Translation Queue](wordpress-org-assets/screenshot-7.png) | Queue controls for processing translations in batches. |
+| ![Translation Matrix](wordpress-org-assets/screenshot-8.png) | Translation Matrix for reviewing, editing, filtering, importing, and exporting translations. |
+| ![Frontend Editor](wordpress-org-assets/screenshot-9.png) | Frontend Editor workflow for visual translation editing. |
+
+## WordPress.org Assets
+
+The repository release assets include:
+
+- `banner-772x250.png`
+- `banner-1544x500.png`
+- `icon-128x128.png`
+- `icon-256x256.png`
+- `screenshot-1.png` through `screenshot-9.png`
+
+These assets are prepared for the WordPress.org plugin directory listing and GitHub documentation.
 
 ## Installation
 
-1. Download the latest release ZIP from GitHub Releases.
-2. In WordPress admin, open **Plugins > Add New > Upload Plugin**.
-3. Upload `ait-multilingual-translate.zip`.
-4. Activate **AIT Multilingual Translate**.
-5. Open **AI Translate** in the WordPress admin menu.
-6. Choose source and target languages.
-7. Select a provider and add the matching API key.
-8. Run **Scanner** to collect strings.
-9. Process the translation queue.
-10. Add the language switcher with a shortcode, widget, Elementor widget, or WordPress menu item.
+1. Install AIT Multilingual Translate from the WordPress.org Plugin Directory, or upload the release ZIP through **Plugins > Add New > Upload Plugin**.
+2. Activate **AIT Multilingual Translate**.
+3. Open the plugin admin menu in WordPress.
+4. Run the Setup Wizard.
+5. Choose the source language and target languages.
+6. Configure an AI provider and API key.
+7. Run the Scanner.
+8. Process the Translation Queue.
+9. Add a language switcher with a shortcode, widget, menu item, automatic placement, or Elementor widget.
+
+## Requirements
+
+- WordPress 6.0 or newer
+- PHP 7.4 or newer
+- HTTPS recommended for production sites
+- Provider API key for AI or machine translation
+- WooCommerce optional
+- Elementor optional
 
 ## Shortcodes
 
@@ -82,71 +151,58 @@ Watch: https://youtu.be/MuUF4t6NNsA
 [aitmt_language_switcher]
 ```
 
-## API Key Constants
+## FAQ
 
-API keys can be stored in plugin settings or defined in `wp-config.php`:
+### Does AIT Multilingual Translate translate every page on every visit?
 
-```php
-define( 'AITMT_OPENAI_API_KEY', 'your-api-key' );
-define( 'AITMT_GEMINI_API_KEY', 'your-api-key' );
-define( 'AITMT_GROK_API_KEY', 'your-api-key' );
-define( 'AITMT_GOOGLE_TRANSLATE_API_KEY', 'your-api-key' );
-define( 'AITMT_DEEPL_API_KEY', 'your-api-key' );
-```
+No. The recommended workflow is scanner plus queue processing. This keeps provider calls controlled and avoids slowing down visitor page loads.
 
-## Provider Notes
+### Are API keys included?
 
-- DeepL Free uses `api-free.deepl.com`; DeepL paid API accounts use `api.deepl.com`.
-- Google Translate uses Cloud Translation Basic v2 and requires the Cloud Translation API to be enabled in Google Cloud.
-- Tone of Voice applies only to prompt-based AI providers.
-- Keep "Translate missing strings during page load" disabled on production sites. Use the queue instead.
-- Automatic background queue processing can use API quota. Keep batch size conservative until limits are confirmed.
+No. Site administrators must configure their own provider API keys.
 
-## Documentation
+### Where are translations stored?
 
-Recommended documentation sections:
+Translations are stored locally in WordPress so they can be reused by translation memory.
 
-- Installation
-- Setup Wizard
-- AI Providers
-- OpenAI Setup
-- Gemini Setup
-- Grok / xAI Setup
-- Claude Setup
-- DeepL Setup
-- Google Translate Setup
-- Yandex Translate Setup
-- Frontend Translation Editor
-- Language Switcher
-- WordPress Menu Language Switcher
-- Elementor Widget
-- Scanner & Queue
-- Translation Matrix
-- WooCommerce Translation
-- SEO URLs
-- Tone of Voice / Translation Mode
-- API Cost Optimization
-- Troubleshooting
-- FAQ
-- Changelog
+### Can I edit translations manually?
 
-## Requirements
+Yes. Translations can be edited from the Translation Matrix and, for administrators, through the Frontend Editor.
 
-- WordPress 6.0 or newer
-- PHP 7.4 or newer
-- WooCommerce optional
-- Elementor optional
+### Does it support SEO-friendly multilingual URLs?
 
-## Support
+Yes. The plugin supports directory-based URLs and query-string language URLs.
 
-- Website: https://wp-ai.itdesign.biz/
-- Documentation: https://wp-ai.itdesign.biz/documentation/
-- Demo: https://wp-ai-demo.itdesign.biz/
-- Email: info@itdesign.biz
-- Donation: https://www.paypal.com/paypalme/wpaitranslate
+### Does it support Elementor?
+
+Yes. Elementor workflows are supported, including a language switcher widget.
+
+### Does it support WooCommerce?
+
+Yes. The plugin includes WooCommerce-aware translation workflows for product and store content.
+
+## Roadmap
+
+- Additional provider setup guides.
+- More visual workflow demos.
+- Expanded WooCommerce translation coverage.
+- More granular translation mode controls per content type.
+- Improved reporting for queue processing and provider usage.
+- More automated compatibility checks for major page builders.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
+## Contributing
+
+Contributions are welcome through issues and pull requests. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+
+## Security
+
+Please report security issues privately. See [SECURITY.md](SECURITY.md).
 
 ## License
 
-GPLv2 or later.
+AIT Multilingual Translate is licensed under GPLv2 or later. See [LICENSE](LICENSE).
 
-https://www.gnu.org/licenses/gpl-2.0.html

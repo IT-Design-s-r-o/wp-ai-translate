@@ -1,41 +1,50 @@
 ---
 name: Bug Report
-about: Report a problem with WP AI Translate
+about: Report a reproducible problem in AIT Multilingual Translate
 title: "[Bug]: "
 labels: bug
-assignees: ''
+assignees: ""
 ---
 
-## Description
+## Summary
 
-Describe the problem.
+Describe the problem clearly.
 
-## Steps to reproduce
+## Steps to Reproduce
 
-1.
-2.
-3.
+1. 
+2. 
+3. 
 
-## Expected result
+## Expected Behavior
 
-What should happen?
+What did you expect to happen?
 
-## Actual result
+## Actual Behavior
 
 What happened instead?
 
 ## Environment
 
-- WP AI Translate version:
+- AIT Multilingual Translate version:
 - WordPress version:
 - PHP version:
-- WooCommerce version:
-- Elementor version:
 - Theme:
-- Translation provider:
+- WooCommerce version, if active:
+- Elementor version, if active:
+- Browser:
+- Hosting/server notes:
 
-## Screenshots
+## Active Provider
 
-Attach screenshots if possible.
+- Provider:
+- Model or plan, if relevant:
+- Queue mode or frontend auto-translation:
 
-## Additional context
+## Screenshots or Logs
+
+Attach screenshots or relevant logs. Remove API keys, passwords, cookies, customer data, and private provider responses.
+
+## Additional Context
+
+Add anything else that may help reproduce or diagnose the issue.
